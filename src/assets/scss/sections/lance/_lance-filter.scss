@@ -1,0 +1,45 @@
+.lance-filter{
+   min-height: 56px;
+   border: 1px solid $grey;
+   box-sizing: border-box;
+   border-radius: 50px;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 16px 22px;
+   align-items: center;
+   margin-bottom: 31px;
+   @include list-items-max-width;
+
+   & > span{
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+      color: $grey-text;
+      margin-right: 9px;
+   }
+
+   &__button{
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      background: url("/img/filter-button-bg.png")no-repeat center;
+      background-size: contain;
+      cursor: pointer;
+      box-shadow: 0 0 14px 3px rgba(243, 220, 186, 1);
+      border-radius: 5px;
+      margin-bottom: 4px;
+
+      @include res(desktop){
+         position: relative;
+         z-index: 3;
+      }
+
+      &:after{
+         content: '';
+         width: 100%;
+         height: 100%;
+         display: block;
+         background: url("/img/filter-button-plus.png")no-repeat center;
+      }
+   }
+}

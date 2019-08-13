@@ -1,0 +1,17 @@
+.lance{
+   padding: 32px 22px 42px 50px;
+
+   &-section{
+      background: white;
+      border-radius: 8px;
+      width: 800px;
+      margin: 48px auto 114px;
+      box-sizing: border-box;
+      position: relative;
+      @include shadow-primary;
+
+      &--join{
+         margin-bottom: 74px;
+      }
+   }
+}

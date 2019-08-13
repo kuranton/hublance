@@ -1,0 +1,56 @@
+.simplebar{
+
+   &-track &-scrollbar{
+      z-index: 1;
+
+      &:before{
+         background: $grey;
+         opacity: 1;
+         border-radius: 20px;
+         width: 5px;
+         pointer-events: all;
+      }
+   }
+
+   &-offset{
+      right: -17px !important;
+   }
+
+   &-track{
+
+      &.simplebar-vertical{
+         right: -32px;
+         top: 43px;
+         bottom: 30px;
+
+         &:before{
+            background: $grey;
+         }
+
+         &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            right: 6px;
+            top: 5px;
+            bottom: 0;
+            margin: auto;
+            width: 1px;
+            background: $grey;
+         }
+      }
+   }
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar.simplebar-visible:before{
+   opacity: 1;
+}
+
+.filter-list{
+
+   .simplebar-track.simplebar-vertical{
+      right: 2px;
+      top: 4px;
+      bottom: 10px;
+   }
+}

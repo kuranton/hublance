@@ -1,0 +1,29 @@
+.body-bg{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   margin: auto;
+   z-index: -1;
+   overflow: hidden;
+
+   &:before{
+      content: "";
+      height: 576px;
+      width: 100%;
+      display: block;
+      @include gradient-primary;
+   }
+
+   &:after{
+      content: "";
+      height: 100%;
+      width: 100%;
+      display: block;
+      background: url("/img/bg_items.png")no-repeat center top;
+      position: absolute;
+      top: 108px;
+      left: -12px;
+   }
+}

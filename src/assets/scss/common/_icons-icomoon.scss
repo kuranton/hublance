@@ -1,0 +1,61 @@
+@mixin icomoon{
+   font-family: $icomoon;
+   speak: none;
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon--"]:before, [class*=" icon--"]:before {
+   @include icomoon;
+}
+
+.icon--check:before {
+   content: "\e90b";
+}
+.icon--caret-down:before {
+   content: "\e905";
+}
+.icon--caret-down-after:after {
+   content: "\e905";
+   @include icomoon;
+}
+.icon--caret-down-gradient:before {
+   content: "\e906";
+}
+.icon--caret-right:before {
+   content: "\e907";
+}
+.icon--caret-right-after:after {
+   content: "\e907";
+   @include icomoon;
+}
+.icon--carousel-arrow:before {
+   content: "\e908";
+}
+.icon--close:before {
+   content: "\e909";
+}
+.icon--search:before {
+   content: "\e90a";
+}
+.icon--spinner:before {
+   content: "\e900";
+}
+.icon--spinner2:before {
+   content: "\e901";
+}
+.icon--spinner3:before {
+   content: "\e902";
+}
+.icon--spinner4:before {
+   content: "\e903";
+}
+.icon--spinner1:before {
+   content: "\e904";
+}
+

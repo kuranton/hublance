@@ -1,0 +1,19 @@
+.nav-list{
+   margin: 0;
+   padding: 0;
+   display: flex;
+   color: white;
+   list-style-type: none;
+
+   &__item{
+      margin-right: 30px;
+
+      a{
+         color: white;
+         font-weight: bold;
+         text-decoration: none;
+         line-height: 30px;
+         display: block;
+      }
+   }
+}

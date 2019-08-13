@@ -1,0 +1,4276 @@
+{
+  "freelancers": [
+    {
+      "id": 1,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 2,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 3,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 4,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 5,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 6,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 7,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 8,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 9,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 10,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 11,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 12,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 13,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 14,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 15,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 16,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 17,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 18,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 19,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 20,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 21,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 22,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 23,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 24,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 25,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 26,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 27,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 28,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 29,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 30,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 31,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 32,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 33,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 34,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 35,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 36,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 37,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 38,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 39,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 40,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 41,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 42,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 43,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 44,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 45,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 46,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 47,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 48,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 49,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 50,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 51,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 52,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 53,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 54,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 55,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 56,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 57,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 58,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 59,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 60,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 61,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 62,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 63,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 64,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 65,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 66,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 67,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 68,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 69,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 70,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 71,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 72,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 73,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 74,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 75,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 76,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 77,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 78,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 79,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 80,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 81,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 82,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 83,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 84,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 85,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 86,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 87,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 88,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 89,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 90,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 91,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 92,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 93,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 94,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 95,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 96,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 97,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 98,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 99,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 100,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 101,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 102,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 103,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 104,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 105,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 106,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 107,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 108,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 109,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 110,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 111,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 112,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 113,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 114,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 115,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 116,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 117,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 118,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 119,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 120,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 121,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 122,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 123,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 124,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 125,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 126,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 127,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 128,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 129,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 130,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 131,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 132,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 133,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Contextual Marketing",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        },
+        {
+          "value": "Content Marketing",
+          "img": "/img/sert/5.jpg"
+        },
+        {
+          "value": "Growth-Driven Design",
+          "img": "/img/sert/6.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 134,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 135,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Web Developer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 136,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Designer",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 137,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 138,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 139,
+      "avatar": "/img/person/1.jpg",
+      "line": "SEO Specialist",
+      "name": "Daniel Hoffman",
+      "rate": "50",
+      "country": "Germany",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 140,
+      "avatar": "/img/person/2.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "20",
+      "country": "Poland",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 141,
+      "avatar": "/img/person/3.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "40",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 142,
+      "avatar": "/img/person/4.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffman",
+      "rate": "60",
+      "country": "Thailand",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 143,
+      "avatar": "/img/person/5.jpg",
+      "line": "Designer",
+      "name": "Daniell Hoffman",
+      "rate": "90",
+      "country": "USA",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    },
+    {
+      "id": 144,
+      "avatar": "/img/person/6.jpg",
+      "line": "Developer",
+      "name": "Daniell Hoffmann",
+      "rate": "110",
+      "country": "Russia",
+      "expanded": false,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
+      "certificates": [
+        {
+          "value": "Hubspot CMS for Developers",
+          "img": "/img/sert/1.jpg"
+        },
+        {
+          "value": "Sales Enablement",
+          "img": "/img/sert/2.jpg"
+        },
+        {
+          "value": "Growth-Driven Design Agency",
+          "img": "/img/sert/3.jpg"
+        },
+        {
+          "value": "HubSpot Sales Software",
+          "img": "/img/sert/4.jpg"
+        }
+      ],
+      "contact": "email@gmail.com"
+    }
+  ]
+}

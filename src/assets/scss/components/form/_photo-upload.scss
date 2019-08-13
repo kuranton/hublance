@@ -1,0 +1,37 @@
+.photo-upload{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   &__button{
+      min-width: 132px;
+      min-height: 36px;
+      border: 1px solid $grey;
+      border-radius: 50px;
+      box-sizing: border-box;
+      padding: 7px 46px;
+      color: $grey-text-2;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+   }
+
+   &__figure{
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+      background: $grey-light;
+      border: 1px solid $grey;
+      border-radius: 50%;
+
+      img{
+         max-width: 100%;
+         vertical-align: top;
+         border-radius: 50%;
+      }
+   }
+}

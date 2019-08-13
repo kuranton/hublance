@@ -1,0 +1,52 @@
+.vb{
+
+   &:after{
+      content: '';
+      width: 1px;
+      position: absolute;
+      top: 20px;
+      bottom: 10px;
+      margin: auto;
+      background: $grey;
+      right: 2px;
+   }
+
+   &-invisible:after{
+      display: none;
+   }
+
+   &-dragger{
+      /*background: $grey;
+      border-radius: 20px;*/
+      width: 5px;
+      right: 0;
+
+      &-styler{
+         background: $grey;
+         border-radius: 20px;
+         width: 5px;
+         position: absolute;
+         top: 20px;
+         bottom: 10px;
+         margin: auto;
+         left: 0;
+
+
+      }
+   }
+}
+
+.filter .vb{
+
+   &:after{
+      right: 10px;
+   }
+
+   &-dragger{
+      right: 8px;
+
+      &-styler{
+         top: 10px;
+      }
+   }
+}

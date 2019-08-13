@@ -1,0 +1,27 @@
+.cert{
+   width: calc(100% - 51px);
+   position: relative;
+
+   //display: none;
+
+   &-item{
+      width: 86px;
+
+      img{
+         max-width: 100%;
+         vertical-align: top;
+      }
+   }
+
+   &-arrow{
+      position: absolute;
+      right: -50px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: url("/img/icons/carousel-arrow.svg")no-repeat center;
+      cursor: pointer;
+      width: 44px;
+
+   }
+}

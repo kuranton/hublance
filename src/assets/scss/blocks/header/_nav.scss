@@ -1,0 +1,15 @@
+.nav{
+   display: flex;
+   align-items: center;
+
+   &__button{
+      padding: 0 11px;
+      border: 1px solid white;
+      border-radius: 20px;
+      box-sizing: border-box;
+      color: white;
+      font-weight: bold;
+      line-height: 30px;
+      text-decoration: none;
+   }
+}
