@@ -359,10 +359,34 @@ export default {
 	},
 	created(){
 		// http://localhost:3000/freelancers
-		this.$http.get('https://my-json-server.typicode.com/byWalkoff/hublance_db/freelancers')
+		// this.$http.get(`${variables['BASE_URL']}/get_freelancer`)
+			this.$http.get('http://localhost:8080/get_freelancers')
+
 			.then( res => {
-				this.freelancers = res.data;
-				this.isFreelancersLoading = false;
+					this.freelancers = res.data['freelancerList'];
+												console.log(this.freelancers);
+					for( var j = 0; j < this.freelancers.length; j++)
+					{
+						this.freelancers[j]['certificates'] = [];
+					}
+
+					this.$http.get('http://localhost:8080/get_freelancerCertificates')
+					.then( certRes => {
+						this.isFreelancersLoading = false;
+						for(var i = 0; i < certRes.data['certificatesList'].length; i++)
+						{
+							var cData = certRes.data['certificatesList'];
+							var freelancer_id = cData[i]['freelancer']-1;
+							var obj = {
+								img: cData[i]['img'],
+								value: cData[i]['value']
+							}
+							 this.freelancers[freelancer_id]['certificates'].push(obj);
+						}
+													console.log(this.freelancers);
+
+						setTimeout( () => {this.$vuebar.refreshScrollbar(this.$refs.list, {})},10);
+					})
 				setTimeout( () => {this.$vuebar.refreshScrollbar(this.$refs.list, {})},10);
 			})
 			.catch( err => {

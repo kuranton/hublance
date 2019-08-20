@@ -10,7 +10,25 @@
 }
 
 .form{
-
+   .letter-below-signform {
+      font-size: 12px;
+      line-height: 14px;
+      font-family: Proxima Nova soft;
+      text-align: center;
+      margin-bottom: -24px;
+      font-weight: bold;
+      font {
+         cursor: pointer;
+      }
+   }
+   .p-validate {
+      font-size: 15px;
+      line-height: 14px;
+      font-family: Proxima Nova soft;
+      text-align: center;
+      font-weight: bold;
+      color: red;
+   }
    &-join{
       padding-bottom: 41px;
    }
@@ -160,6 +178,13 @@
 
    &_fullwidth {
       width: 100%;
+      label {
+         margin-left: 25%;
+      }
+      input {
+         margin-left: 25%;
+         width: 50% !important;
+      }
    }
 
    &__photo-upload{

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const users_routes = require('./routes/users');
+const outside_api = require('./routes/outside_api');
 const path = require('path');
 
 require('dotenv').config();
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 app.use(users_routes);
-
+app.use(outside_api);
 
 
 if (process.env.NODE_ENV !== 'test') {

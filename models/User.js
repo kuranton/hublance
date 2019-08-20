@@ -11,7 +11,7 @@ module.exports = class User {
         return new Promise((resolve,reject)=>{
             //check if user already exists
             const checkDuplicate = new Promise((resolve, reject) => {
-                pool.query('SELECT email FROM freelancers WHERE email = ?', [this.email], (error, results, fields) => {
+                pool.query('SELECT email FROM users WHERE email = ?', [this.email], (error, results, fields) => {
                     if (results[0]){ //if found in table, reject
                         reject();
                     } else { //otherwise resolve
@@ -21,7 +21,7 @@ module.exports = class User {
             });
 
             checkDuplicate.then(()=>{ //if user does not exist, create new user
-                pool.query('INSERT INTO freelancers ' +
+                pool.query('INSERT INTO users ' +
                 '(email, password, name) ' + 
                 'VALUES (?, ?, ?);', 
                 [this.email, this.password, this.name],
@@ -44,7 +44,7 @@ module.exports = class User {
     //for purpose of verifying credentials
     static findByEmail(email) {
         return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM freelancers WHERE email = ?', 
+        pool.query('SELECT * FROM users WHERE email = ?', 
         [email],
         (error, results, fields)=>{
             if (results[0]){ //if found in table, resovle with found password
@@ -61,7 +61,7 @@ module.exports = class User {
 
     static getUsers() {
         return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM freelancers',
+        pool.query('SELECT * FROM users',
         (error, results, fields)=>{
             if (results){ //if found in table, resovle with found password
                 resolve(results);

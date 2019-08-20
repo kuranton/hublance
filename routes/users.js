@@ -47,7 +47,7 @@ router.post('/log_in', (req, res, next) => {
                 const d = new Date();
                 const secondsNow = Math.floor(d.getTime() / 1000);
                 const expiresAt = secondsNow + 3600;
-                console.log(expiresAt);
+                console.log(token);
                 res.status(200).json({
                     token : token,
                     expiresAt : expiresAt,
