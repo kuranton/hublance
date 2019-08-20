@@ -360,7 +360,7 @@ export default {
 	created(){
 		// http://localhost:3000/freelancers
 		// this.$http.get(`${variables['BASE_URL']}/get_freelancer`)
-			this.$http.get('http://localhost:8080/get_freelancers')
+			this.$http.get('http://167.71.250.25:8080/get_freelancers')
 
 			.then( res => {
 					this.freelancers = res.data['freelancerList'];
@@ -370,7 +370,7 @@ export default {
 						this.freelancers[j]['certificates'] = [];
 					}
 
-					this.$http.get('http://localhost:8080/get_freelancerCertificates')
+					this.$http.get('http://167.71.250.25:8080/get_freelancerCertificates')
 					.then( certRes => {
 						this.isFreelancersLoading = false;
 						for(var i = 0; i < certRes.data['certificatesList'].length; i++)

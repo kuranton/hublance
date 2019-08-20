@@ -53,7 +53,7 @@
 				else {
 					this.checkempty = false;
 					console.log(this.user.name);
-					this.$http.post('http://localhost:8080/log_in', this.user)
+					this.$http.post('http://167.71.250.25:8080/log_in', this.user)
 					.then((res) => {
 						console.log(res);
 							localStorage.setItem('token', res.data['token']);

@@ -83,7 +83,7 @@
 					this.checkpwd = false;
 					// this.$emit('signupHandler');
 					console.log(this.user.name);
-					this.$http.post('http://localhost:8080/new_user', this.user)
+					this.$http.post('http://167.71.250.25:8080/new_user', this.user)
 					.then(res => {	
 						 this.$router.push({
                     	 path: '/'
