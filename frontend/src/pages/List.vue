@@ -250,6 +250,7 @@ export default {
 		filterTag,
 	},
 	computed: {
+		
 		filteredCountry() {
 			return this.countries.filter(country => {
 				return country.toLowerCase().includes(this.countryInput.toLowerCase());
@@ -358,6 +359,7 @@ export default {
 		};
 	},
 	created(){
+
 		// http://localhost:3000/freelancers
 		// this.$http.get(`${variables['BASE_URL']}/get_freelancer`)
 			this.$http.get('http://167.71.250.25:8080/get_freelancers')
@@ -395,6 +397,7 @@ export default {
 	},
 	methods: {
 		compareCertWithFilter(freelancerCerts, filterCerts) {
+
 			let freelancerCertsValues = [];
 			// take out all freelancer certificates into separated array
 			for( let i = 0; i < freelancerCerts.length; i++){

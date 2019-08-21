@@ -61,6 +61,7 @@
 							this.$router.push({
 								path: '/'
 							})
+							
 							//  let redirect = decodeURIComponent(this.$route.query.redirect || '/');
 							//     this.$router.push({
 							//         path: redirectd

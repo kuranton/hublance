@@ -10,10 +10,9 @@
 			</li>
 		</ul>
 		
-		<router-link
-			exact
-			:to="{name: 'Join'}"
-			class="nav__button">join</router-link>
+		<p
+			@click="logout"
+			class="nav__button">{{login_name}}</p>
 	</nav>
 </template>
 
@@ -21,9 +20,54 @@
 	export default {
 		data() {
 			return {
-				name: "Navbar"
+				name: "Navbar",
+				login_name: ""
+			}
+		},
+		computed: {
+			getFullPath () {
+			return this.$route.path
+				}
+		},
+		watch: {
+			getFullPath () {
+				this.getData()
+			}
+		},	
+		created(){
+			if(localStorage.getItem("token"))
+			{
+				this.login_name = "log out";
+			}
+			else{
+				this.login_name = "join";
+			}
+		},
+		methods: {
+			logout() {
+				if(localStorage.getItem("token"))
+				{
+					localStorage.removeItem("token");
+					this.$router.push({
+                    	path: '/login'
+					})					
+				}					
+				else
+					this.$router.push({
+                    	path: '/join'
+                	})
+			},
+			getData () {
+				if(localStorage.getItem("token"))
+				{
+					this.login_name = "log out";
+				}
+				else{
+					this.login_name = "join";
+				}
 			}
 		}
+
 		
 	}
 </script>
