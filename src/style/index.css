@@ -1,0 +1,10 @@
+@import './fonts.css';
+
+body {
+  margin: 0;
+  font-family: 'ProximaSoft', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import './variables.css';

@@ -1,0 +1,79 @@
+.certificationsWrap {
+  grid-column: 3 / span 4;
+  justify-self: auto;
+  width: 100%;
+}
+
+.certifications {
+  display: grid;
+  grid-template-columns: 183px 180px;
+  column-gap: 20px;
+}
+
+.btnAddCert {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #FFFFFF;
+  padding: 16px 18px 16px 52px;
+  background: linear-gradient(45.27deg, #EF2126 7.84%, #EE7C00 67.22%);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  border: none;
+  height: 48px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.btnAddCert::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(./plus.svg) center no-repeat;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+}
+
+.btnClose {
+  font-family: inherit;
+  grid-column: 2;
+  justify-self: flex-end;
+  color: #333333;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid #DCDCDC;
+  border-radius: 20px;
+  background: #fff;
+  width: 80px;
+  height: 29px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btnSave {
+  font-family: inherit;
+  grid-column: 3;
+  justify-self: flex-start;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45.27deg, #EF2126 7.84%, #EE7C00 67.22%);
+  width: 132px;
+  height: 29px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

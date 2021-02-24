@@ -1,0 +1,11 @@
+:root {
+  /* breakpoints */
+  --small: 420px;
+  --med: 750px;
+  --large: 950px;
+  --wide: 1150px;
+
+  /* colors */
+  --dark: #09111C;
+  --gray: #848484;
+}

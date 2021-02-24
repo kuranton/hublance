@@ -1,0 +1,38 @@
+.wrap {
+  position: relative;
+}
+
+.scroller {
+  position: relative;
+  overflow-x: visible;
+  overflow-y: auto;
+  box-sizing: border-box;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar {
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  right: -24px;
+  top: 0;
+  background: #DCDCDC;
+}
+
+.caret {
+  width: 5px;
+  height: 27px;
+  background: #DCDCDC;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: -2px;
+  cursor: pointer;
+}

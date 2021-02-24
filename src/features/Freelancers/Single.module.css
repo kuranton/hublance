@@ -1,0 +1,63 @@
+.photoCell {
+  display: flex;
+  justify-content: center;
+}
+
+.photo, .photoPlaceholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.photoPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EEEEEE;
+  font-size: 20px;
+  line-height: 24px;
+  color: #828282;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.rate {
+  text-align: center;
+  padding-right: 38px;
+}
+
+.buttonExpand {
+  font-size: 0;
+  background: url(./arrow.svg) center no-repeat;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  justify-self: center;
+}
+
+.aboutTitle, .certificationsTitle, .contactTitle {
+  grid-column: 2;
+}
+
+.aboutTitle {
+  align-self: start;
+}
+
+.about, .certifications, .contact {
+  grid-column: 3 / span 4
+}
+
+.about {
+  margin: 0;
+}
+
+.contact {
+  color: inherit;
+  text-decoration: none;
+}

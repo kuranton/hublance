@@ -1,0 +1,23 @@
+.input, .textarea {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+  background: rgba(220, 220, 220, 0.1);
+  border: 1px solid #DCDCDC;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+}
+
+.input {
+  padding: 5px 16px;
+}
+
+.textarea {
+  padding: 16px;
+  resize: none;
+}

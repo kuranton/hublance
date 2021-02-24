@@ -1,0 +1,52 @@
+.footer {
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: transform 400ms ease, opacity 400ms ease;
+  border-top: 1px solid #DCDCDC;
+}
+
+.wrap {
+  box-sizing: border-box;
+  max-width: 1050px;
+  width: 100%;
+  padding: 30px 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.created {
+  display: flex;
+  align-items: center;
+}
+
+.petrovDigitalLink {
+  display: contents;
+}
+
+.petrovDigital {
+  margin-left: 15px;
+}
+
+@media (max-width: var(--large)) {
+  .footer {
+    font-size: 14px;
+  }
+
+  .wrap {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .legal {
+    text-align: center;
+    margin-bottom: 37px;
+  }
+}

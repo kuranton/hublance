@@ -1,0 +1,68 @@
+.wrap {
+  position: relative;
+}
+
+.header, .row {
+  display: grid;
+  grid-template-columns: 99px 198px 130px 78px 110px 29px;
+  column-gap: 12px;
+}
+
+.header {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 7px 0 8px 0;
+  background: linear-gradient(45.27deg, #EF2126 7.84%, #EE7C00 67.22%);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+}
+
+.body {
+  box-sizing: border-box;
+  width: calc(100% + 26px);
+  padding-right: 26px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+}
+
+.row {
+  padding: 32px 0;
+  border-bottom: 1px solid #DCDCDC;
+  align-items: center;
+  row-gap: 25px;
+}
+
+.row > div:first-of-type, .row > div:nth-of-type(4),
+.header > span:first-of-type, .header > span:nth-of-type(4),
+.row > div:first-of-type, .row > div:nth-of-type(5),
+.header > span:first-of-type, .header > span:nth-of-type(5) {
+  justify-self: center;
+}
+
+.scrollbar {
+  width: 1px;
+  height: 767px;
+  position: absolute;
+  right: -24px;
+  bottom: 18px;
+  background: #DCDCDC;
+}
+
+.caret {
+  width: 5px;
+  height: 27px;
+  background: #DCDCDC;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: -2px;
+}

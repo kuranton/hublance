@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'ProximaSoft';
+  src:
+    url(../fonts/hinted-ProximaSoft-Regular.eot),
+    url(../fonts/hinted-ProximaSoft-Regular.eot) format('embedded-opentype'),
+    url(../fonts/hinted-ProximaSoft-Regular.woff),
+    url(../fonts/hinted-ProximaSoft-Regular.woff2),
+    url(../fonts/hinted-ProximaSoft-Regular.ttf),
+    url(../fonts/hinted-ProximaSoft-Regular.svg);
+  font-weight: 400;
+  font-style: normal;
+  /* font-display: optional; */
+}
+
+@font-face {
+  font-family: 'ProximaSoft';
+  src:
+    url(../fonts/hinted-ProximaSoft-Medium.eot),
+    url(../fonts/hinted-ProximaSoft-Medium.eot) format('embedded-opentype'),
+    url(../fonts/hinted-ProximaSoft-Medium.woff),
+    url(../fonts/hinted-ProximaSoft-Medium.woff2),
+    url(../fonts/hinted-ProximaSoft-Medium.ttf),
+    url(../fonts/hinted-ProximaSoft-Medium.svg);
+  font-weight: 500;
+  font-style: normal;
+  /* font-display: optional; */
+}
+
+@font-face {
+  font-family: 'ProximaSoft';
+  src:
+    url(../fonts/hinted-ProximaSoft-Semibold.eot),
+    url(../fonts/hinted-ProximaSoft-Semibold.eot) format('embedded-opentype'),
+    url(../fonts/hinted-ProximaSoft-Semibold.woff),
+    url(../fonts/hinted-ProximaSoft-Semibold.woff2),
+    url(../fonts/hinted-ProximaSoft-Semibold.ttf),
+    url(../fonts/hinted-ProximaSoft-Semibold.svg);
+  font-weight: 600;
+  font-style: normal;
+  /* font-display: optional; */
+}
+
+@font-face {
+  font-family: 'ProximaSoft';
+  src:
+    url(../fonts/hinted-ProximaSoft-Bold.eot),
+    url(../fonts/hinted-ProximaSoft-Bold.eot) format('embedded-opentype'),
+    url(../fonts/hinted-ProximaSoft-Bold.woff),
+    url(../fonts/hinted-ProximaSoft-Bold.woff2),
+    url(../fonts/hinted-ProximaSoft-Bold.ttf),
+    url(../fonts/hinted-ProximaSoft-Bold.svg);
+  font-weight: 700;
+  font-style: normal;
+  /* font-display: optional; */
+}

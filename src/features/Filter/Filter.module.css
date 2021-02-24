@@ -1,0 +1,59 @@
+.wrap {
+  box-sizing: border-box;
+  height: 56px;
+  padding: 0 24px;
+  background: rgba(220, 220, 220, 0.1);
+  border: 1px solid #DCDCDC;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #848484;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.addButton {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  font-size: 0;
+  background: linear-gradient(135deg, #EF2126 0%, #EE7C00 94.77%);
+  border: none;
+  border-radius: 5.5px;
+  margin-left: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.addButton::before, .addButton::after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.addButton::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #DC9A38;
+  filter: blur(14px);
+  z-index: 0;
+}
+
+.addButton::after {
+  width: 24px;
+  height: 24px;
+  top: 2px;
+  left: 2px;
+  border-radius: 4px;
+  background-color: #FFEDE0;
+  background-image: url(./plus.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s;
+}
