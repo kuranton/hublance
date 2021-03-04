@@ -53,7 +53,7 @@ const Details = ({data = {}}) => {
       <div className={style.title}>{job}</div>
       <Input type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
       <Select name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
-      <Select name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))}/>
+      <Select name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
       {/* <button
         className={style.buttonExpand}
         aria-label='expand'

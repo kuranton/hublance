@@ -27,10 +27,10 @@ const List = () => {
       <div className={style.body}>
         <Scroller maxHeight={836}>
           <ul className={style.list}>
-            {/* {signupVisible ?
+            {signupVisible ?
               signedUp ?
                 <li>
-              <Details/>
+                  <Details/>
                 </li>
               :
               signupStarted ?
@@ -39,9 +39,8 @@ const List = () => {
               <li className={style.row}>
                 <Join/>
               </li>
-              : null
-            } */}
-            <Details/>
+            : null
+            }
 
             {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
             {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
