@@ -4,11 +4,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import Select from '../../components/Select/Select'
 import Input from '../../components/Input/Input'
 import Certifications from '../../components/Certifications/Certifications'
+import UploadPic from './UploadPic'
 
 import detailsStyle from './Details.module.css'
 import style from '../Freelancers/Single.module.css'
 import {row} from '../Freelancers/List.module.css'
-import {photoPlaceholder} from './Join.module.css'
 
 import {setName, setRate, setEmail, setAbout, setCountry, addCertification, hide} from './signupSlice'
 
@@ -22,23 +22,6 @@ const getRates = () => {
   }
   return rates
 }
-
-const selectStyles = {
-  control: (provided, state) => ({
-    ...provided,
-    background: 'rgba(220, 220, 220, 0.1)',
-    border: '1px solid #DCDCDC',
-    borderRadius: 20,
-    borderColor: state.isFocused ? '#DCDCDC' : '#DCDCDC',
-    opacity: 1
-  }),
-  indicatorSeparator: () => ({
-    display: 'none'
-  })
-}
-
-const selectTheme = (theme) => {console.log(theme); return theme;}
-
 
 const Details = ({data = {}}) => {
   const [countries, setCountries] = useState([])
@@ -66,12 +49,7 @@ const Details = ({data = {}}) => {
   }, [])
   return(
     <form className={row}>
-      <div className={style.photoCell}>
-        {data.photoUrl
-          ? <img className={style.photo} src={data.photoUrl} alt=''/>
-          : <div className={photoPlaceholder}/>
-        }
-      </div>
+      <UploadPic url={data.photoUrl}/>
       <div className={style.title}>{job}</div>
       <Input type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
       <Select name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>

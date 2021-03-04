@@ -1,38 +1,5 @@
 import { useLayoutEffect, useRef, useState, useCallback } from 'react';
 
-/**
- * We use a negative right on the content to hide original OS scrollbars
- */
-const OS_SCROLLBAR_WIDTH = (() => {
-  const outer = document.createElement('div');
-  const inner = document.createElement('div');
-  outer.style.overflow = 'scroll';
-  outer.style.width = '100%';
-  inner.style.width = '100%';
-
-  document.body.appendChild(outer);
-  outer.appendChild(inner);
-  const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
-  outer.removeChild(inner);
-  document.body.removeChild(outer);
-
-  return scrollbarWidth;
-})();
-
-/**
- * We need this for OSs that automatically hide the scrollbar (so the offset
- * doesn't change in such case). Eg: macOS with "Automatically based on mouse".
- */
-const SCROLLBAR_WIDTH = OS_SCROLLBAR_WIDTH || 20;
-
-/**
- * Ported from Vitor's SimpleScrollbar library (vanilla JS):
- * https://github.com/buzinas/simple-scrollbar
- * @param {React.ReactNode} content Used as a dependency to re-run the effect
- * @param {React.MutableRefObject} [customRef]
- * @param {Object} [options={}]
- * @param {boolean} [options.disabled]
- */
 export default function useCustomScroller(
   content,
   { disabled } = {},

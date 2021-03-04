@@ -1,16 +1,3 @@
-.photoCell {
-  display: flex;
-  justify-content: center;
-}
-
-.photoPlaceholder {
-  width: 56px;
-  height: 56px;
-  border-radius: 28px;
-  background-color: #eee;
-  background-image: url(./addPhoto.svg)
-}
-
 .title {
   font-size: 20px;
   line-height: 24px;

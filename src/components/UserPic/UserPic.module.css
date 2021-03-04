@@ -1,0 +1,27 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.photo, .photoPlaceholder, .photoIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.photoPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EEEEEE;
+  font-size: 20px;
+  line-height: 24px;
+  color: #828282;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.photoIcon {
+  background-color: #EEEEEE;
+  background-image: url(./addPhoto.svg)
+}

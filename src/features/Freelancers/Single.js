@@ -2,18 +2,14 @@ import {useState} from 'react'
 
 import style from './Single.module.css'
 
+import UserPic from '../../components/UserPic/UserPic'
 import Certifications from '../../components/Certifications/Certifications'
 
 const Single = ({data}) => {
   const [expanded, setExpanded] = useState(false)
   return(
     <>
-      <div className={style.photoCell}>
-        {data.photoUrl
-          ? <img className={style.photo} src={data.photoUrl} alt=''/>
-          : <span className={style.photoPlaceholder}>{data.name.substring(0, 1)}</span>
-        }
-      </div>
+      <UserPic url={data.photoUrl} letter={data.name.substring(0, 1)}/>
       <div className={style.title}>{data.title}</div>
       <div>{data.name}</div>
       <div>{data.rate}</div>
