@@ -1,4 +1,6 @@
 .input, .textarea {
+  display: block;
+  width: 100%;
   font-family: inherit;
   font-size: 16px;
   line-height: 19px;
@@ -14,10 +16,14 @@
 }
 
 .input {
-  padding: 5px 16px;
+  padding: 6px 20px;
 }
 
 .textarea {
-  padding: 16px;
+  padding: 16px 20px;
   resize: none;
+}
+
+.wrapper {
+  width: 100%;
 }

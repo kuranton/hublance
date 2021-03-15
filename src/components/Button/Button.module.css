@@ -1,0 +1,26 @@
+.default, .primary {
+  height: 29px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 25px;
+}
+
+.default {
+  color: #333333;
+  border: 1px solid #DCDCDC;
+  background: #fff;
+}
+
+.primary {
+  color: #fff;
+  border: none;
+  background: linear-gradient(45.27deg, #EF2126 7.84%, #EE7C00 67.22%);
+}

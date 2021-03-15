@@ -3,14 +3,16 @@ import {useSelector, useDispatch} from 'react-redux'
 // import Select from 'react-select'
 import Select from '../../components/Select/Select'
 import Input from '../../components/Input/Input'
+import Label from '../../components/Label/Label'
+import Button from '../../components/Button/Button'
 import Certifications from '../../components/Certifications/Certifications'
 import UploadPic from './UploadPic'
 
-import detailsStyle from './Details.module.css'
-import style from '../Freelancers/Single.module.css'
-import {row} from '../Freelancers/List.module.css'
+import AddCertificationModal from './AddCertificationModal'
 
-import {setName, setRate, setEmail, setAbout, setCountry, addCertification, hide} from './signupSlice'
+import style from './Details.module.css'
+
+import {setName, setJob, setRate, setEmail, setAbout, setCountry, addCertification, hide} from './signupSlice'
 
 const getRates = () => {
   let rates = []
@@ -24,7 +26,9 @@ const getRates = () => {
 }
 
 const Details = ({data = {}}) => {
+  const [expanded, setExpanded] = useState(false)
   const [countries, setCountries] = useState([])
+  const [certificationsModal, setCertificationsModal] = useState(false)
 
   const dispatch = useDispatch()
   const name = useSelector(store => store.signup.name)
@@ -48,12 +52,70 @@ const Details = ({data = {}}) => {
     fetchData()
   }, [])
   return(
-    <form className={row}>
-      <UploadPic url={data.photoUrl}/>
-      <div className={style.title}>{job}</div>
-      <Input type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
-      <Select name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
-      <Select name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
+    <form className={style.form}>
+      <div className={style.photoGroup}>
+        <UploadPic url={data.photoUrl}/>
+      </div>
+
+      <div>
+        <input type='text' className={style.title} name='title' placeholder='Type Job Title...' value={job} onChange={(e) => dispatch(setJob(e.target.value))}/>
+      </div>
+
+      <div className={style.nameGroup}>
+        <Label htmlFor='name'>Name</Label>
+        <Input type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
+      </div>
+
+      <div className={style.rateGroup}>
+        <Label htmlFor='rate'>Hourly Rate</Label>
+        <Select name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
+      </div>
+
+      <div className={style.countryGroup}>
+        <Label htmlFor='country'>Country</Label>
+        <Select name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
+      </div>
+
+      <div className={style.contactGroup}>
+        <Label htmlFor='email'>Contact</Label>
+        <Input className={style.contact} type='email' name='email' placeholder='Email' value={email} onChange={(e) => dispatch(setEmail(e.target.value))}/>
+      </div>
+
+      <div className={style.aboutGroup}>
+        <Label htmlFor='about'>About</Label>
+        <Input
+          name='about'
+          textarea={true}
+          placeholder='Please share more details about your expertise...'
+          className={style.about} style={{minHeight: 187}}
+          value={about}
+          onChange={(e) => dispatch(setAbout(e.target.value))}
+        >
+        </Input>
+      </div>
+
+      <div className={style.certificationsGroup}>
+        <Label>
+          Certifications ({certifications.length}):
+        </Label>
+        <div className={style.certificationsWrap}>
+          <div className={style.certifications}>
+            <button type='button' className={style.btnAddCert} onClick={() => setCertificationsModal(true)}>Add certification</button>
+            <div>
+              <Certifications list={certifications} slidesToShow={2}/>
+            </div>
+            {certificationsModal ?
+              <AddCertificationModal close={() => setCertificationsModal(false)} add={() => dispatch(addCertification())}/>
+            : null}
+          </div>
+        </div>
+      </div>
+
+      <div className={style.buttonsGroup}>
+        <Button className={style.btnClose} onClick={() => dispatch(hide())}>Close</Button>
+        <Button className={style.btnSave} primary>Save profile</Button>
+      </div>
+
       {/* <button
         className={style.buttonExpand}
         aria-label='expand'
@@ -63,39 +125,6 @@ const Details = ({data = {}}) => {
         >
         Expand
       </button> */}
-
-      <span className={style.aboutTitle}>
-        About:
-      </span>
-      <Input
-        textarea={true}
-        placeholder='Please share more details about your expertise...'
-        className={style.about} style={{minHeight: 187}}
-        value={about}
-        onChange={(e) => dispatch(setAbout(e.target.value))}
-      >
-      </Input>
-
-      <span className={style.certificationsTitle}>
-        Certifications ({certifications.length}):
-      </span>
-      <div className={detailsStyle.certificationsWrap}>
-        <div className={detailsStyle.certifications}>
-          <button type='button' className={detailsStyle.btnAddCert} onClick={() => dispatch(addCertification())}>Add certification</button>
-          <div>
-            <Certifications list={certifications} slidesToShow={2}/>
-          </div>
-
-        </div>
-      </div>
-
-      <span className={style.contactTitle}>
-        Contact:
-      </span>
-      <Input className={style.contact} type='email' name='email' placeholder='Email' value={email} onChange={(e) => dispatch(setEmail(e.target.value))}/>
-
-      <button type='button' className={detailsStyle.btnClose} onClick={() => dispatch(hide())}>Close</button>
-      <button type='button' className={detailsStyle.btnSave}>Save profile</button>
     </form>
   )
 }

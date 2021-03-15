@@ -1,10 +1,25 @@
 .wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
-.input {
+.edit {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+  border: none;
+  background: none;
+  cursor: pointer;
+  max-width: 58px;
+  margin-top: 15px;
+}
+
+/* .input {
   position: absolute;
   width: 56px;
   height: 56px;
@@ -16,4 +31,4 @@
   font-size: 0;
   cursor: pointer;
   z-index: 1;
-}
+} */
