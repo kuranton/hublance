@@ -11,6 +11,7 @@ const UploadPic = ({url}) => {
     const file = e.target.files[0]
     const img = URL.createObjectURL(file)
     setNewUrl(img)
+    e.target.value = null
   }
   const handleLoad = () => {
     if (!newUrl) {
@@ -18,6 +19,7 @@ const UploadPic = ({url}) => {
     }
     // URL.revokeObjectURL(newUrl)
   }
+  
   return(
     <div className={style.wrap}>
       <UserPic url={newUrl} onLoad={handleLoad}/>

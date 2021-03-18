@@ -1,24 +1,35 @@
-.wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.title {
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  margin-bottom: 15px;
 }
 
-.innerWrap {
-  overflow: hidden;
-  transition: transform 300ms ease;
+.line {
+  width: 288px;
+  height: 4px;
+  background: #B9B9B9;
+  position: relative;
 }
 
-.slider {
-  display: flex;
-  overflow: hidden;
-  transition: transform 300ms ease;
-}
-
-.button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
+.caret {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  background: #EE7C00;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+}
+
+.filled {
+  height: 4px;
+  position: absolute;
+  top: 0;
+  background: #EE7C00;
 }

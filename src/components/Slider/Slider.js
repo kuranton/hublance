@@ -1,41 +1,61 @@
-import {useState, useRef, useEffect} from 'react'
+import {useState, useEffect, useRef, useMemo} from 'react'
 import style from './Slider.module.css'
 
-const Slider = ({children, slideWidth, slideMargin, buttonWidth, buttonLeft, buttonRight}) => {
-  const [slide, setSlide] = useState(0)
-  const [width, setWidth] = useState(0)
-  const wrap = useRef({offsetWidth:0})
-  const slidesToShow = Math.floor(width/(slideWidth + slideMargin))
-  const innerWrapWidth = slidesToShow * slideWidth + (slidesToShow - 1) * slideMargin
-  const innerWrapTransform = slide > 0 ? (width - innerWrapWidth)/2 : 0
+const Slider = ({title, filled, onChange, className}) => {
+  const line = useRef({})
+  const [dragging, setDragging] = useState(false)
+  const [rect, setRect] = useState(null)
 
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(wrap.current.offsetWidth)
+    setRect(line.current.getBoundingClientRect())
+  },[])
+
+  const position = useMemo(() => {
+    const {width} = rect || 0
+    return filled * width
+  }, [rect, filled])
+
+  const dragStart = (e) => {
+    e.preventDefault()
+    setDragging(true)
+    setRect(line.current.getBoundingClientRect())
+    document.addEventListener('mousemove', drag)
+    document.addEventListener('mouseup', dragEnd)
+  }
+  const drag = (e) => {
+    if (!dragging) {
+      return
     }
+    if (typeof onChange === 'function') {
+      const addFilled = e.movementX/rect.width
+      onChange(Math.min(Math.max(0, filled + addFilled), 1))
+    }
+  }
+  const dragEnd = () => {
+    if (!dragging) {
+      return
+    }
+    setDragging(dragging => dragging = false)
+  }
 
-    handleResize()
-
-    window.addEventListener('resize', handleResize)
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  useEffect(() => {
+    document.addEventListener('mousemove', drag)
+    document.addEventListener('mouseup', dragEnd)
+    document.addEventListener('mouseleave', dragEnd)
+    return () => {
+      document.removeEventListener('mousemove', drag)
+      document.removeEventListener('mouseup', dragEnd)
+      document.removeEventListener('mouseleave', dragEnd)
+    }
+  }, [dragging, drag, dragEnd])
 
   return(
-    <div className={style.wrap} ref={wrap}>
-      {slide > 0
-        ? <button type='button' className={style.button} style={{position: 'absolute'}} onClick={() => setSlide(slide - 1)}>{buttonLeft}</button>
-        : null
-      }
-      <div className={style.innerWrap} style={{width: innerWrapWidth, transform: `translateX(${innerWrapTransform}px)`}}>
-        <div className={style.slider} style={{width: (slideWidth + slideMargin) * children.length, transform: `translateX(${slide * -(slideWidth + slideMargin)}px)`}}>
-          {children}
-        </div>
+    <div className={className}>
+      <span className={style.title}>{title}</span>
+      <div ref={line} className={style.line}>
+        <div className={style.filled} style={{width: `${filled * 100}%`}}/>
+        <div className={style.caret} onMouseDown={dragStart} style={{transform: `translateX(${position}px)`}}/>
       </div>
-      {slide < (children.length - slidesToShow)
-        ? <button type='button' className={style.button} onClick={() => setSlide(slide + 1)}>{buttonRight}</button>
-        : null
-      }
     </div>
   )
 }

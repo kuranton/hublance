@@ -1,0 +1,8 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}

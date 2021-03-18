@@ -7,6 +7,7 @@ import Canvas from './UploadPicCanvas'
 
 const UserPicModal = ({close, upload, url, setUrl}) => {
   const [cropping, setCropping] = useState(false)
+  const [dragging, setDragging] = useState(false)
   const uploader = useRef(null)
   const canvas = useRef(null)
 
@@ -16,44 +17,50 @@ const UserPicModal = ({close, upload, url, setUrl}) => {
     }
   }
 
-  const handleUploaderClick = (e) => {
-    if (e.isTrusted) {
-      e.preventDefault()
-    }
-  }
-
   const handleUpload = (e) => {
     upload(e)
     setCropping(true)
+    setDragging(false)
   }
 
   const save = () => {
+    if (!url) {
+      close()
+      return
+    }
     canvas.current.save()
   }
 
   return(
     <Modal close={close} title='Edit Photo'>
-      <div className={style.body}>
-        <Canvas url={url} setUrl={setUrl} ref={canvas} close={close}/>
+      <div className={style.body} onDragEnter={() => setDragging(true)}>
+        <Canvas url={url} setUrl={setUrl} ref={canvas} close={close} cropping={cropping}/>
         <div className={style.overlay}/>
         <div className={style.circle}/>
-        {!cropping ?
-          <input ref={uploader} type='file' name='profile-pic' className={style.uploader} onChange={handleUpload} onClick={handleUploaderClick}/>
-        : null}
+        <input
+          type='file'
+          name='profile-pic'
+          ref={uploader}
+          className={style.uploader}
+          onDragOver={() => setDragging(true)}
+          onDragLeave={() => setDragging(false)}
+          onChange={handleUpload}
+          style={{pointerEvents: dragging ? 'all' : 'none'}}
+        />
       </div>
       <div className={style.footer}>
         <div className={style.controls}>
-          <button type='button' className={`${style.button} ${style.crop}`}>
+          <button type='button' className={`${style.button} ${cropping ? style.active : ''}`} disabled={!url} onClick={() => setCropping(true)}>
             <span className={style.iconCrop}/>
             <span>Crop</span>
           </button>
 
-          <button type='button' className={`${style.button} ${style.crop}`} onClick={triggerUpload}>
+          <button type='button' className={style.button} onClick={triggerUpload}>
             <span className={style.iconCamera}/>
             <span>Add Photo</span>
           </button>
 
-          <button type='button' className={`${style.button} ${style.crop}`}>
+          <button type='button' className={style.button} disabled={!url} onClick={() => setUrl(null)}>
             <span className={style.iconBin}/>
             <span>Delete</span>
           </button>

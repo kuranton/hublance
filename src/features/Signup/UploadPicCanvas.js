@@ -1,17 +1,24 @@
 import {forwardRef, useImperativeHandle, useState, useRef, useEffect} from 'react'
 
+import Slider from '../../components/Slider/Slider'
+
+import style from './UploadPicCanvas.module.css'
+
 const radius = 110 //round pic radius after crop
 
-const Canvas = forwardRef(({url, setUrl, close}, ref) => {
+const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
   const canvas = useRef(null)
   const [img, setImg] = useState(null)
   const [loaded, setLoaded] = useState(false)
   const [imgData, setImgData] = useState({})
   const [dragging, setDragging] = useState(false)
   const [dragStartPos, setDragStartPos] = useState({})
+  const [zoomAmount, setZoomAmount] = useState(0)
 
   useEffect(() => {
     if (!url) {
+      const ctx = canvas.current.getContext('2d')
+      ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
       canvas.current.style.cursor = null
       return
     }
@@ -42,25 +49,46 @@ const Canvas = forwardRef(({url, setUrl, close}, ref) => {
     if (!loaded || !img) {
       return
     }
-    const increment = e.deltaY > 0 ? 20 : -20
+    const increment = e.deltaY > 0 ? 0.05 : -0.05
+    zoom(zoomAmount + increment)
+  }
+
+  const zoom = (amount) => {
+    amount = Math.min(Math.max(amount, 0), 1)
+    setZoomAmount(amount)
     const ctx = canvas.current.getContext('2d')
-    let {dx, dy, dWidth, dHeight, aspectRatio} = imgData
-    if ((increment > 0 && (dWidth > img.width - 20 || dHeight > img.height - 20)) ||
-      (increment < 0 && (dWidth < radius*2 + 20 || dHeight < radius*2 + 20))) {
+    if (!img) {
       return
     }
-
-    if (aspectRatio > 0) {
-      dWidth += increment
-      dHeight += increment/aspectRatio
-      dx -= increment/2
-      dy -= increment/2/aspectRatio
+    const {width, height} = img
+    let {dx, dy, dWidth, dHeight, aspectRatio} = imgData
+    const min = radius * 2
+    const max = Math.min(width, height)
+    const diff = max - min
+    let newWidth, newHeight
+    if (aspectRatio < 1) {
+      newWidth = min + diff*amount
+      newHeight = (min + diff*amount)/aspectRatio
     } else {
-      dHeight += increment
-      dWidth += increment*aspectRatio
-      dy -= increment/2
-      dx -= increment/2*aspectRatio
+      newWidth = (min + diff*amount)*aspectRatio
+      newHeight = min + diff*amount
     }
+
+    dx -= (newWidth - dWidth)/2
+    dy -= (newHeight - dHeight)/2
+
+    if (dx > canvas.current.width/2 - radius) {
+      dx = canvas.current.width/2 - radius
+    } else if (dx < canvas.current.width/2 + radius - newWidth) {
+      dx = canvas.current.width/2 + radius - newWidth
+    }
+    if (dy > canvas.current.height/2 - radius) {
+      dy = canvas.current.height/2 - radius
+    } else if (dy < canvas.current.height/2 + radius - newHeight) {
+      dy = canvas.current.height/2 + radius - newHeight
+    }
+    dWidth = newWidth
+    dHeight = newHeight
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
     ctx.drawImage(img, dx, dy, dWidth, dHeight)
     setImgData({dx, dy, dWidth, dHeight, aspectRatio})
@@ -139,7 +167,15 @@ const Canvas = forwardRef(({url, setUrl, close}, ref) => {
   }))
 
   return(
-    <canvas ref={canvas} width={704} height={260} onWheel={handleWheel} onMouseDown={dragStart} onMouseMove={drag} onMouseUp={dragEnd} onMouseLeave={dragEnd}/>
+    <>
+      <canvas ref={canvas} width={704} height={260} onWheel={handleWheel} onMouseDown={dragStart} onMouseMove={drag} onMouseUp={dragEnd} onMouseLeave={dragEnd} onDrop={e => console.log(e)}/>
+      {cropping ?
+        <div className={style.controls}>
+          <Slider title='Zoom' onChange={zoom} filled={zoomAmount}/>
+          <Slider title='Straighten'/>
+        </div>
+      : null}
+    </>
   )
 })
 

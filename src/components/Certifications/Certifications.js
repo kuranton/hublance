@@ -1,6 +1,6 @@
 import style from './Certifications.module.css'
 
-import Slider from '../../components/Slider/Slider'
+import Carousel from '../../components/Carousel/Carousel'
 
 const Arrow = ({left = false}) => (
   <span className={style.arrow} style={left ? {transform: 'rotate(180deg)'} : {}}/>
@@ -9,7 +9,7 @@ const Arrow = ({left = false}) => (
 const Certifications = ({list}) => {
   return(
     <div className={style.wrap}>
-      <Slider
+      <Carousel
         slideWidth={56}
         slideMargin={30}
         buttonWidth={20}
@@ -19,7 +19,7 @@ const Certifications = ({list}) => {
         {list.map((item, index) => (
           <div key={index} className={style.certification}/>
         ))}
-      </Slider>
+      </Carousel>
     </div>
   )
 }
