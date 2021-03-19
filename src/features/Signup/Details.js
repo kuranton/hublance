@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-// import Select from 'react-select'
 import Select from '../../components/Select/Select'
 import Input from '../../components/Input/Input'
 import Label from '../../components/Label/Label'
@@ -8,6 +7,7 @@ import Button from '../../components/Button/Button'
 import Certifications from '../../components/Certifications/Certifications'
 import UploadPic from './UploadPic'
 
+import Progress from './Progress'
 import AddCertificationModal from './AddCertificationModal'
 
 import style from './Details.module.css'
@@ -53,6 +53,10 @@ const Details = ({data = {}}) => {
   }, [])
   return(
     <form className={style.form}>
+      <div className={style.progressGroup}>
+        <Progress/>
+      </div>
+
       <div className={style.photoGroup}>
         <UploadPic url={data.photoUrl}/>
       </div>
