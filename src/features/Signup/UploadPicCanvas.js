@@ -14,6 +14,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
   const [dragging, setDragging] = useState(false)
   const [dragStartPos, setDragStartPos] = useState({})
   const [zoomAmount, setZoomAmount] = useState(0)
+  const [rotation, setRotation] = useState(0.5)
 
   useEffect(() => {
     if (!url) {
@@ -24,6 +25,8 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
     }
     const image = new Image()
     setLoaded(false)
+    setZoomAmount(0)
+    setRotation(0.5)
     image.onload = () => {
       const {width, height} = image
       if (!canvas || !canvas.current) {
@@ -90,8 +93,24 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
     dWidth = newWidth
     dHeight = newHeight
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
+    ctx.translate(canvas.current.width/2, canvas.current.height/2)
+    ctx.rotate(Math.PI/2*(rotation-0.5))
+    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
     ctx.drawImage(img, dx, dy, dWidth, dHeight)
+    ctx.resetTransform()
     setImgData({dx, dy, dWidth, dHeight, aspectRatio})
+  }
+
+  const rotate = (amount) => {
+    setRotation(amount)
+    const {dx, dy, dWidth, dHeight} = imgData
+    const ctx = canvas.current.getContext('2d')
+    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
+    ctx.translate(canvas.current.width/2, canvas.current.height/2)
+    ctx.rotate(Math.PI/2*(rotation-0.5))
+    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
+    ctx.drawImage(img, dx, dy, dWidth, dHeight)
+    ctx.resetTransform()
   }
 
   const dragStart = (e) => {
@@ -134,7 +153,11 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
       dy = canvas.current.height/2 + radius - dHeight
     }
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
+    ctx.translate(canvas.current.width/2, canvas.current.height/2)
+    ctx.rotate(Math.PI/2*(rotation-0.5))
+    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
     ctx.drawImage(img, dx, dy, dWidth, dHeight)
+    ctx.resetTransform()
   }
 
   const dragEnd = (e) => {
@@ -148,6 +171,16 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
     const diffY = dragStartPos.y - e.clientY
     dx -= diffX
     dy -= diffY
+    if (dx > canvas.current.width/2 - radius) {
+      dx = canvas.current.width/2 - radius
+    } else if (dx < canvas.current.width/2 + radius - dWidth) {
+      dx = canvas.current.width/2 + radius - dWidth
+    }
+    if (dy > canvas.current.height/2 - radius) {
+      dy = canvas.current.height/2 - radius
+    } else if (dy < canvas.current.height/2 + radius - dHeight) {
+      dy = canvas.current.height/2 + radius - dHeight
+    }
     setImgData({dx, dy, dWidth, dHeight, aspectRatio})
   }
 
@@ -168,11 +201,11 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
 
   return(
     <>
-      <canvas ref={canvas} width={704} height={260} onWheel={handleWheel} onMouseDown={dragStart} onMouseMove={drag} onMouseUp={dragEnd} onMouseLeave={dragEnd} onDrop={e => console.log(e)}/>
+      <canvas ref={canvas} width={704} height={260} onWheel={handleWheel} onMouseDown={dragStart} onMouseMove={drag} onMouseUp={dragEnd} onMouseLeave={dragEnd}/>
       {cropping ?
         <div className={style.controls}>
           <Slider title='Zoom' onChange={zoom} filled={zoomAmount}/>
-          <Slider title='Straighten'/>
+          <Slider title='Straighten' onChange={rotate} filled={rotation}/>
         </div>
       : null}
     </>
