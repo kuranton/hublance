@@ -57,16 +57,20 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
   }
 
   const zoom = (amount) => {
+    const {width, height} = img
+    const min = radius * 2
+    const max = Math.min(width, height)
+    if (min === max) {
+      return
+    }
     amount = Math.min(Math.max(amount, 0), 1)
     setZoomAmount(amount)
     const ctx = canvas.current.getContext('2d')
     if (!img) {
       return
     }
-    const {width, height} = img
+
     let {dx, dy, dWidth, dHeight, aspectRatio} = imgData
-    const min = radius * 2
-    const max = Math.min(width, height)
     const diff = max - min
     let newWidth, newHeight
     if (aspectRatio < 1) {
