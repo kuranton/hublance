@@ -1,12 +1,12 @@
 import {forwardRef, useImperativeHandle, useState, useRef, useEffect} from 'react'
 
-import Slider from '../../components/Slider/Slider'
+import Slider from '../../../components/Slider/Slider'
 
-import style from './UploadPicCanvas.module.css'
+import style from './Canvas.module.css'
 
 const radius = 110 //round pic radius after crop
 
-const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
+const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
   const canvas = useRef(null)
   const [img, setImg] = useState(null)
   const [loaded, setLoaded] = useState(false)
@@ -189,7 +189,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
   }
 
   useImperativeHandle(ref, () => ({
-    saveCrop: async () => {
+    save: async () => {
       const offscreen = new OffscreenCanvas(radius*2, radius*2)
       const octx = offscreen.getContext('2d')
       const sx = canvas.current.width/2 - radius
@@ -198,7 +198,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
       octx.drawImage(canvas.current, sx, sy, radius*2, radius*2, 0, 0, radius*2, radius*2)
       const blob = await offscreen.convertToBlob()
       const dataUrl = URL.createObjectURL(blob)
-      save(dataUrl)
+      setUrl(dataUrl)
       close()
     }
   }))

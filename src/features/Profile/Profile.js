@@ -5,14 +5,14 @@ import Input from '../../components/Input/Input'
 import Label from '../../components/Label/Label'
 import Button from '../../components/Button/Button'
 import Certifications from '../../components/Certifications/Certifications'
-import UploadPic from './UploadPic'
 
+import UploadPic from './UploadPic/UploadPic'
 import Progress from './Progress'
 import AddCertificationModal from './AddCertificationModal'
 
-import style from './Details.module.css'
+import style from './Profile.module.css'
 
-import {setName, setJob, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide} from './signupSlice'
+import {setName, setJob, setRate, setEmail, setAbout, setCountry, addCertification, hide} from './signupSlice'
 
 const getRates = () => {
   let rates = []
@@ -25,7 +25,7 @@ const getRates = () => {
   return rates
 }
 
-const Details = () => {
+const Profile = ({data = {}}) => {
   const [expanded, setExpanded] = useState(false)
   const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
@@ -37,11 +37,10 @@ const Details = () => {
   const email = useSelector(store => store.signup.email)
   const about = useSelector(store => store.signup.about)
   const country = useSelector(store => store.signup.country)
-  const photoUrl = useSelector(store => store.signup.photoUrl)
   const certifications = useSelector(store => store.signup.certifications)
 
   useEffect(() => {
-    async function fetchCountries() {
+    async function fetchData() {
       const res = await fetch(`https://restcountries.eu/rest/v2/all?fields=name`)
       const json = await res.json()
       setCountries(json.map(item => ({
@@ -50,7 +49,7 @@ const Details = () => {
       })))
     }
 
-    fetchCountries()
+    fetchData()
   }, [])
   return(
     <form className={style.form}>
@@ -59,7 +58,7 @@ const Details = () => {
       </div>
 
       <div className={style.photoGroup}>
-        <UploadPic url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
+        <UploadPic url={data.photoUrl}/>
       </div>
 
       <div>
@@ -134,4 +133,4 @@ const Details = () => {
   )
 }
 
-export default Details
+export default Profile

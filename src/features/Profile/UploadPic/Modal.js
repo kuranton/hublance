@@ -1,11 +1,11 @@
 import {useState, useRef} from 'react'
-import style from './UploadPicModal.module.css'
+import style from './Modal.module.css'
 
-import Modal from '../../components/Modal/Modal'
-import Button from '../../components/Button/Button'
-import Canvas from './UploadPicCanvas'
+import Modal from '../../../components/Modal/Modal'
+import Button from '../../../components/Button/Button'
+import Canvas from './Canvas'
 
-const UserPicModal = ({close, upload, url, setUrl, save}) => {
+const UserPicModal = ({close, upload, url, setUrl}) => {
   const [cropping, setCropping] = useState(false)
   const [dragging, setDragging] = useState(false)
   const uploader = useRef(null)
@@ -23,23 +23,18 @@ const UserPicModal = ({close, upload, url, setUrl, save}) => {
     setDragging(false)
   }
 
-  const saveCrop = () => {
+  const save = () => {
     if (!url) {
       close()
       return
     }
-    canvas.current.saveCrop()
-  }
-
-  const deletePic = () => {
-    save('')
-    setUrl('')
+    canvas.current.save()
   }
 
   return(
     <Modal close={close} title='Edit Photo'>
       <div className={style.body} onDragEnter={() => setDragging(true)}>
-        <Canvas url={url} setUrl={setUrl} ref={canvas} close={close} cropping={cropping} save={save}/>
+        <Canvas url={url} setUrl={setUrl} ref={canvas} close={close} cropping={cropping}/>
         <div className={style.overlay}/>
         <div className={`${style.circle} ${cropping ? style.cropping : ''}`}/>
         <input
@@ -65,12 +60,12 @@ const UserPicModal = ({close, upload, url, setUrl, save}) => {
             <span>Add Photo</span>
           </button>
 
-          <button type='button' className={style.button} disabled={!url} onClick={deletePic}>
+          <button type='button' className={style.button} disabled={!url} onClick={() => setUrl(null)}>
             <span className={style.iconBin}/>
             <span>Delete</span>
           </button>
         </div>
-        <Button primary onClick={saveCrop}>Save</Button>
+        <Button primary onClick={save}>Save</Button>
       </div>
     </Modal>
   )

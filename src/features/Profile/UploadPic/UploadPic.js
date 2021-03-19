@@ -1,10 +1,10 @@
 import {useState} from 'react'
 import style from './UploadPic.module.css'
 
-import UserPic from '../../components/UserPic/UserPic'
-import Modal from './UploadPicModal'
+import UserPic from '../../../components/UserPic/UserPic'
+import Modal from './Modal'
 
-const UploadPic = ({url, save}) => {
+const UploadPic = ({url}) => {
   const [modal, setModal] = useState(false)
   const [newUrl, setNewUrl] = useState(url)
   const handleUpload = (e) => {
@@ -13,13 +13,19 @@ const UploadPic = ({url, save}) => {
     setNewUrl(img)
     e.target.value = null
   }
+  const handleLoad = () => {
+    if (!newUrl) {
+      return
+    }
+    // URL.revokeObjectURL(newUrl)
+  }
 
   return(
     <div className={style.wrap}>
-      <UserPic url={url}/>
+      <UserPic url={newUrl} onLoad={handleLoad}/>
       <button type='button' className={style.edit} onClick={() => setModal(true)}>Edit Photo</button>
       {modal ?
-        <Modal close={() => setModal(false)} upload={handleUpload} url={newUrl} setUrl={setNewUrl} save={save}/>
+        <Modal close={() => setModal(false)} upload={handleUpload} url={newUrl} setUrl={setNewUrl}/>
       : null}
     </div>
   )

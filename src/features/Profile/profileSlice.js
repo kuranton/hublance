@@ -11,8 +11,7 @@ export const signupSlice = createSlice({
     certifications: [],
     about: '',
     submitted: false,
-    country: '',
-    photoUrl: ''
+    country: ''
   },
   reducers: {
     setName: (state, action) => {
@@ -33,9 +32,6 @@ export const signupSlice = createSlice({
     setCountry: (state, action) => {
       state.country = action.payload
     },
-    setPhotoUrl: (state, action) => {
-      state.photoUrl = action.payload
-    },
     addCertification: (state) => {
       state.certifications.push(0)
     },
@@ -54,6 +50,6 @@ export const signupSlice = createSlice({
   },
 })
 
-export const { setName, setJob, setEmail, setAbout, setRate, setCountry, setPhotoUrl, addCertification, submit, hide, show, start } = signupSlice.actions
+export const { setName, setJob, setEmail, setAbout, setRate, setCountry, addCertification, submit, hide, show, start } = signupSlice.actions
 
 export default signupSlice.reducer
