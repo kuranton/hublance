@@ -36,7 +36,7 @@ const UserPicModal = ({close, upload, url, setUrl}) => {
       <div className={style.body} onDragEnter={() => setDragging(true)}>
         <Canvas url={url} setUrl={setUrl} ref={canvas} close={close} cropping={cropping}/>
         <div className={style.overlay}/>
-        <div className={style.circle}/>
+        <div className={`${style.circle} ${cropping ? style.cropping : ''}`}/>
         <input
           type='file'
           name='profile-pic'
@@ -50,7 +50,7 @@ const UserPicModal = ({close, upload, url, setUrl}) => {
       </div>
       <div className={style.footer}>
         <div className={style.controls}>
-          <button type='button' className={`${style.button} ${cropping ? style.active : ''}`} disabled={!url} onClick={() => setCropping(true)}>
+          <button type='button' className={`${style.button} ${cropping ? style.active : ''}`} disabled={!url} onClick={() => setCropping(!cropping)}>
             <span className={style.iconCrop}/>
             <span>Crop</span>
           </button>

@@ -49,7 +49,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
   }, [url])
 
   const handleWheel = (e) => {
-    if (!loaded || !img) {
+    if (!loaded || !img || !cropping) {
       return
     }
     const increment = e.deltaY > 0 ? 0.05 : -0.05
@@ -118,7 +118,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
   }
 
   const dragStart = (e) => {
-    if (!url) {
+    if (!url || !cropping) {
       return
     }
     const {dx, dy, dWidth, dHeight} = imgData
@@ -208,6 +208,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping}, ref) => {
       <canvas ref={canvas} width={704} height={260} onWheel={handleWheel} onMouseDown={dragStart} onMouseMove={drag} onMouseUp={dragEnd} onMouseLeave={dragEnd}/>
       {cropping ?
         <div className={style.controls}>
+          <p className={style.instruction}>Drag to reposition photo</p>
           <Slider title='Zoom' onChange={zoom} filled={zoomAmount}/>
           <Slider title='Straighten' onChange={rotate} filled={rotation}/>
         </div>

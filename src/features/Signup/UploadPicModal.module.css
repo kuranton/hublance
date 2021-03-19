@@ -26,6 +26,31 @@
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  overflow: hidden;
+}
+
+.circle::before, .circle::after {
+  content: '';
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid #ffffff;
+}
+
+.circle.cropping::before, .circle.cropping::after {
+  display: block;
+}
+
+.circle::before {
+  height: 100%;
+  width: 73px;
+}
+
+.circle::after {
+  height: 73px;
+  width: 100%
 }
 
 .uploader {
