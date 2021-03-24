@@ -1,28 +1,9 @@
 .form {
   display: grid;
-  grid-template-columns: 99px 168px 122px 225px 29px;
-  grid-gap: 15px;
-  padding: 30px 0;
-}
-
-.title {
-  font-family: inherit;
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 700;
-  border: none;
-  height: auto;
-  color: #333333;
-  width: 100%;
-  padding-bottom: 6px;
-}
-
-.title::placeholder {
-  color: #333333;
-}
-
-.title:focus {
-  outline: none;
+  grid-template-columns: 99px 178px 154px 78px auto;
+  column-gap: 12px;
+  row-gap: 25px;
+  padding: 19px 0 45px 0;
   border-bottom: 1px solid #DCDCDC;
 }
 
@@ -36,41 +17,31 @@
   justify-self: center;
 }
 
-.progressGroup {
-  grid-column: 1 / span 5;
-}
-
 .photoGroup {
-  grid-row: 2 / span 4;
+  grid-row: 1 / span 4;
 }
 
-.nameGroup {
+.label {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+}
+
+.name, .rate, .country {
+  margin-top: 11px;
+  align-self: flex-start;
+}
+
+.country {
+  max-width: 112px;
+}
+
+.about, .certificationsWrap, .contact {
   grid-column: 3 / span 3;
-}
-
-.rateGroup {
-  grid-column: 3;
-}
-
-.countryGroup {
-  grid-column: 4 / span 2;
-}
-
-.contactGroup {
-  grid-column: 3 / span 3;
-}
-
-.aboutGroup {
-  grid-column: 2 / span 4;
-}
-
-.certificationsGroup {
-  grid-column: 2 / span 4;
-  margin-bottom: 25px;
 }
 
 .certificationsWrap {
-  grid-column: 3 / span 4;
   justify-self: auto;
   width: 100%;
 }
@@ -111,13 +82,14 @@
   left: 24px;
 }
 
-.buttonsGroup {
-  grid-column: 1 / span 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btnClose {
+  grid-column: 2;
+  width: 80px;
+  margin-left: auto;
+  margin-top: 13px;
 }
 
-.btnClose {
-  margin-right: 10px;
+.btnSave {
+  width: 132px;
+  margin-top: 13px;
 }

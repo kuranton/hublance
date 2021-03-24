@@ -15,6 +15,10 @@
   outline: none;
 }
 
+.input::placeholder, .textarea::placeholder {
+  color: #848484;
+}
+
 .input {
   padding: 6px 20px;
 }

@@ -3,7 +3,7 @@ import style from './Select.module.css'
 
 import Scroller from '../Scroller/Scroller'
 
-const Select = ({searchable = false, placeholder, options, height = 200, value, onChange}) => {
+const Select = ({searchable = false, placeholder, options, height = 200, value, onChange, className, ...props}) => {
   const [open, setOpen] = useState(false)
   const [search, setSearch] = useState('')
   const wrap = useRef(null)
@@ -33,7 +33,7 @@ const Select = ({searchable = false, placeholder, options, height = 200, value, 
   }, [])
 
   return(
-    <div ref={wrap} className={style.wrap} onClick={handleClick}>
+    <div ref={wrap} className={`${style.wrap} ${className ? className : ''}`} onClick={handleClick} {...props}>
 
       <span className={value ? style.value : style.placeholder}>{value ? options.find(option => option.value === value).label : placeholder}</span>
       <input type='hidden' value={value}/>

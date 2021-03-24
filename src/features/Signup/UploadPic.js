@@ -16,8 +16,9 @@ const UploadPic = ({url, save}) => {
 
   return(
     <div className={style.wrap}>
-      <UserPic url={url}/>
-      <button type='button' className={style.edit} onClick={() => setModal(true)}>Edit Photo</button>
+      <button type='button' className={style.edit} onMouseDown={(e) => e.preventDefault()} onClick={() => setModal(true)} aria-label='Edit photo'>
+        <UserPic url={url}/>
+      </button>
       {modal ?
         <Modal close={() => setModal(false)} upload={handleUpload} url={newUrl} setUrl={setNewUrl} save={save}/>
       : null}

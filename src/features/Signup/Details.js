@@ -8,11 +8,12 @@ import Certifications from '../../components/Certifications/Certifications'
 import UploadPic from './UploadPic'
 
 import Progress from './Progress'
+import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
 
 import style from './Details.module.css'
 
-import {setName, setJob, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide} from './signupSlice'
+import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide} from './signupSlice'
 
 const getRates = () => {
   let rates = []
@@ -32,7 +33,6 @@ const Details = () => {
 
   const dispatch = useDispatch()
   const name = useSelector(store => store.signup.name)
-  const job = useSelector(store => store.signup.job)
   const rate = useSelector(store => store.signup.rate)
   const email = useSelector(store => store.signup.email)
   const about = useSelector(store => store.signup.about)
@@ -53,56 +53,36 @@ const Details = () => {
     fetchCountries()
   }, [])
   return(
-    <form className={style.form}>
-      <div className={style.progressGroup}>
-        <Progress/>
-      </div>
+    <div className={style.wrap}>
+      <Progress/>
 
-      <div className={style.photoGroup}>
-        <UploadPic url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
-      </div>
+      <form className={style.form}>
+        <div className={style.photoGroup}>
+          <UploadPic url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
+        </div>
 
-      <div>
-        <input type='text' className={style.title} name='title' placeholder='Type Job Title...' value={job} onChange={(e) => dispatch(setJob(e.target.value))}/>
-      </div>
+        <Title/>
 
-      <div className={style.nameGroup}>
-        <Label htmlFor='name'>Name</Label>
-        <Input type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
-      </div>
+        <Input className={style.name} type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
 
-      <div className={style.rateGroup}>
-        <Label htmlFor='rate'>Hourly Rate</Label>
-        <Select name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
-      </div>
+        <Select className={style.rate} name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
 
-      <div className={style.countryGroup}>
-        <Label htmlFor='country'>Country</Label>
-        <Select name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
-      </div>
+        <Select className={style.country} name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
 
-      <div className={style.contactGroup}>
-        <Label htmlFor='email'>Contact</Label>
-        <Input className={style.contact} type='email' name='email' placeholder='Email' value={email} onChange={(e) => dispatch(setEmail(e.target.value))}/>
-      </div>
-
-      <div className={style.aboutGroup}>
-        <Label htmlFor='about'>About</Label>
+        <label htmlFor='about' className={style.label}>About:</label>
         <Input
           name='about'
           textarea={true}
           placeholder='Please share more details about your expertise...'
-          className={style.about} style={{minHeight: 187}}
+          className={style.about}
+          style={{minHeight: 187}}
           value={about}
           onChange={(e) => dispatch(setAbout(e.target.value))}
-        >
-        </Input>
-      </div>
+        />
 
-      <div className={style.certificationsGroup}>
-        <Label>
+        <span className={style.label}>
           Certifications ({certifications.length}):
-        </Label>
+        </span>
         <div className={style.certificationsWrap}>
           <div className={style.certifications}>
             <button type='button' className={style.btnAddCert} onClick={() => setCertificationsModal(true)}>Add certification</button>
@@ -114,23 +94,24 @@ const Details = () => {
             : null}
           </div>
         </div>
-      </div>
 
-      <div className={style.buttonsGroup}>
+        <label className={style.label} htmlFor='email' style={{marginTop: '5px'}}>Contact:</label>
+        <Input className={style.contact} type='email' name='email' placeholder='Email' value={email} onChange={(e) => dispatch(setEmail(e.target.value))}/>
+
         <Button className={style.btnClose} onClick={() => dispatch(hide())}>Close</Button>
         <Button className={style.btnSave} primary>Save profile</Button>
-      </div>
 
-      {/* <button
-        className={style.buttonExpand}
-        aria-label='expand'
-        onMouseDown={(e) => e.preventDefault()}
-        onClick={() => setExpanded(!expanded)}
-        style={expanded ? {transform: 'rotate(180deg)'} : {}}
-        >
-        Expand
-      </button> */}
-    </form>
+        {/* <button
+          className={style.buttonExpand}
+          aria-label='expand'
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => setExpanded(!expanded)}
+          style={expanded ? {transform: 'rotate(180deg)'} : {}}
+          >
+          Expand
+        </button> */}
+      </form>
+    </div>
   )
 }
 

@@ -24,7 +24,7 @@ const Progress = () => {
       </span>
       <div className={style.bar}>
         <div className={style.filled} style={{width: `${percentage}%`}}/>
-        <div className={style.caret} style={{left: `calc(${percentage}% - 5.5px)`}}/>
+        <div className={style.caret} style={{left: `calc(${percentage}% - 5.5px)`, transform: `scale(${percentage/50 + 1}, ${percentage/50 + 1})`}}/>
       </div>
       <span className={style.percentage}>
         {percentage}%
