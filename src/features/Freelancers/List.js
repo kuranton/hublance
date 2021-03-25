@@ -25,30 +25,28 @@ const List = () => {
       </div>
 
       <div className={style.body}>
-        <Scroller maxHeight={836}>
-          <ul className={style.list}>
-            {/* {signupVisible ?
+        <ul className={style.list}>
+          {/* {signupVisible ?
               signedUp ?
-                <li>
+            <li>
               <Details/>
-                </li>
+            </li>
               :
               signupStarted ?
-                <Form/>
+            <Form/>
               :
               <li className={style.row}>
-                <Join/>
+            <Join/>
               </li>
               : null
-            } */}
-            <Details/>
+          } */}
+          <Details/>
 
-            {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
-            {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
-            {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
-            {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
-          </ul>
-        </Scroller>
+          {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
+          {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
+          {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
+          {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
+        </ul>
       </div>
     </div>
   )
