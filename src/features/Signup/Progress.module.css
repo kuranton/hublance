@@ -5,22 +5,58 @@
   padding: 39px 0 30px 0;
   color: #333333;
   box-sizing: border-box;
-  width: calc(100% + 96px);
-  margin: 0 -48px;
+  position: relative;
+  margin-bottom: 19px;
+  overflow: hidden;
+}
+
+.wrap::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(238, 124, 0, 0) 0%, rgba(238, 124, 0, 0.15) 100%);
+  opacity: 0;
+  transition: opacity 500ms ease;
+  z-index: 0;
+  mask-image: linear-gradient(to right, transparent 0%, #FFF 15%, #FFF 85%, transparent 100%);
+}
+
+.complete::before {
+  opacity: 1;
 }
 
 .label {
   font-size: 16px;
   line-height: 19px;
   margin-right: 35px;
+  transition: 500ms ease;
+}
+
+.complete .label {
+  font-weight: 500;
+  transform: translateX(95px);
 }
 
 .bar {
   width: 180px;
   height: 1px;
-  background: #DCDCDC;
   position: relative;
   margin-right: 15px;
+}
+
+.bar::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #DCDCDC;
+  z-index: 0;
+  transition: opacity 300ms ease;
 }
 
 .filled {
@@ -29,17 +65,21 @@
   top: 0;
   left: 0;
   background: #EF2126;
+  transition: width 200ms ease-out, opacity 300ms ease;
+}
+
+.complete .bar::before, .complete .filled {
+  opacity: 0;
 }
 
 .caret {
-  width: 12px;
-  height: 12px;
+  width: 50px;
+  height: 50px;
   position: absolute;
-  top: -5.5px;
-  left: -5.5px;
-  border-radius: 6px;
-  background: linear-gradient(45.27deg, #EF2126 7.84%, #EE7C00 67.22%);
+  top: -24.5px;
+  left: -25px;
   transform-origin: center;
+  transition: all 200ms ease-out;
 }
 
 .percentage {
@@ -50,4 +90,9 @@
   font-size: 13px;
   line-height: 16px;
   letter-spacing: 0.02em;
+  transition: opacity 500ms ease;
+}
+
+.complete .percentage {
+  opacity: 0;
 }

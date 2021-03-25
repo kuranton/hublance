@@ -1,0 +1,19 @@
+.svg {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.svg path {
+  transition: 500ms cubic-bezier(.59,.65,.33,1);
+}
+
+.svg:not(.complete) path {
+  opacity: 0;
+  transition-delay: 0ms !important;
+}
+
+.complete path, .complete g {
+  transform: translateY(0) !important;
+}

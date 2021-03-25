@@ -55,7 +55,7 @@ const Details = () => {
   return(
     <div className={style.wrap}>
       <Progress/>
-
+      
       <form className={style.form}>
         <div className={style.photoGroup}>
           <UploadPic url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
