@@ -5,7 +5,7 @@ import Input from '../../components/Input/Input'
 import Label from '../../components/Label/Label'
 import Button from '../../components/Button/Button'
 import Certifications from '../../components/Certifications/Certifications'
-import UploadPic from './UploadPic'
+import ImageEditor from './ImageEditor'
 
 import Progress from './Progress'
 import Title from './Title'
@@ -55,10 +55,10 @@ const Details = () => {
   return(
     <div className={style.wrap}>
       <Progress/>
-      
+
       <form className={style.form}>
         <div className={style.photoGroup}>
-          <UploadPic url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
+          <ImageEditor url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
         </div>
 
         <Title/>

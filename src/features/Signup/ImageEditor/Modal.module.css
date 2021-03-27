@@ -5,6 +5,25 @@
   font-size: 0;
 }
 
+.limits, .warning {
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  padding-bottom: 20px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.limits {
+  color: #B9B9B9;
+}
+
+.warning {
+  color: red;
+}
+
 .overlay {
   width: 100%;
   height: 100%;
@@ -109,27 +128,27 @@
 
 .iconCrop {
   margin-bottom: 5px;
-  background: url(./iconCropGrey.svg) center no-repeat;
+  background: url(assets/iconCropGrey.svg) center no-repeat;
 }
 
 .active .iconCrop {
-  background: url(./iconCrop.svg) center no-repeat;
+  background: url(assets/iconCrop.svg) center no-repeat;
 }
 
 .iconCamera {
   margin-bottom: 5px;
-  background: url(./iconCamera.svg) center no-repeat;
+  background: url(assets/iconCamera.svg) center no-repeat;
 }
 
 .active .iconCamera {
-  background: url(./iconCamera.svg) center no-repeat;
+  background: url(assets/iconCamera.svg) center no-repeat;
 }
 
 .iconBin {
   margin-bottom: 5px;
-  background: url(./iconBin.svg) center no-repeat;
+  background: url(assets/iconBin.svg) center no-repeat;
 }
 
 .active .iconBin {
-  background: url(./iconBin.svg) center no-repeat;
+  background: url(assets/iconBin.svg) center no-repeat;
 }

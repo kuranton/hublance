@@ -1,55 +1,43 @@
 import {forwardRef, useImperativeHandle, useState, useRef, useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 
-import Slider from '../../components/Slider/Slider'
+import {setZoomAmount, setRotation, setImgData, setDragging, setDragStartPos, close} from '@store/imageEditorSlice'
+import {setPhotoUrl} from '../signupSlice'
 
-import style from './UploadPicCanvas.module.css'
+import Slider from '@components/Slider/Slider'
+
+import style from './Canvas.module.css'
 
 const radius = 110 //round pic radius after crop
 
-const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
+const Canvas = forwardRef(({img}, ref) => {
   const canvas = useRef(null)
-  const [img, setImg] = useState(null)
-  const [loaded, setLoaded] = useState(false)
-  const [imgData, setImgData] = useState({})
-  const [dragging, setDragging] = useState(false)
-  const [dragStartPos, setDragStartPos] = useState({})
-  const [zoomAmount, setZoomAmount] = useState(0)
-  const [rotation, setRotation] = useState(0.5)
+
+  const dispatch = useDispatch()
+  const {imgData, cropping} = useSelector(store => store.imageEditor)
+  const {dragging, dragStartPos, zoomAmount, rotation} = useSelector(store => store.imageEditor.canvas)
 
   useEffect(() => {
-    if (!url) {
+    if (!canvas || !canvas.current) {
+      return
+    }
+    if (!img) {
       const ctx = canvas.current.getContext('2d')
       ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
       canvas.current.style.cursor = null
       return
     }
-    const image = new Image()
-    setLoaded(false)
-    setZoomAmount(0)
-    setRotation(0.5)
-    image.onload = () => {
-      const {width, height} = image
-      if (!canvas || !canvas.current) {
-        return
-      }
-      const ctx = canvas.current.getContext('2d')
-      const ratio = radius*2/Math.min(width, height)
-      const dWidth = width*ratio
-      const dHeight = height*ratio
-      const dx = (canvas.current.width - dWidth)/2
-      const dy = (canvas.current.height - dHeight)/2
-      ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
-      ctx.drawImage(image, dx, dy, dWidth, dHeight)
-      setImg(image)
-      setImgData({dx, dy, dWidth, dHeight, aspectRatio: width/height})
-      setLoaded(true)
-      canvas.current.style.cursor = 'pointer'
-    }
-    image.src = url
-  }, [url])
+
+    const ctx = canvas.current.getContext('2d')
+    const {dx, dy, dWidth, dHeight} = imgData
+    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
+    ctx.drawImage(img, dx, dy, dWidth, dHeight)
+
+    canvas.current.style.cursor = 'pointer'
+  }, [img])
 
   const handleWheel = (e) => {
-    if (!loaded || !img || !cropping) {
+    if (!img || !cropping) {
       return
     }
     const increment = e.deltaY > 0 ? 0.05 : -0.05
@@ -64,7 +52,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
       return
     }
     amount = Math.min(Math.max(amount, 0), 1)
-    setZoomAmount(amount)
+    dispatch(setZoomAmount(amount))
     const ctx = canvas.current.getContext('2d')
     if (!img) {
       return
@@ -102,11 +90,12 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
     ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
     ctx.drawImage(img, dx, dy, dWidth, dHeight)
     ctx.resetTransform()
-    setImgData({dx, dy, dWidth, dHeight, aspectRatio})
+
+    dispatch(setImgData({dx, dy, dWidth, dHeight}))
   }
 
   const rotate = (amount) => {
-    setRotation(amount)
+    dispatch(setRotation(amount))
     const {dx, dy, dWidth, dHeight} = imgData
     const ctx = canvas.current.getContext('2d')
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
@@ -118,7 +107,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
   }
 
   const dragStart = (e) => {
-    if (!url || !cropping) {
+    if (!img || !cropping) {
       return
     }
     const {dx, dy, dWidth, dHeight} = imgData
@@ -131,8 +120,8 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
     ) {
       return
     }
-    setDragStartPos({x: e.clientX, y: e.clientY})
-    setDragging(true)
+    dispatch(setDragStartPos({x: e.clientX, y: e.clientY}))
+    dispatch(setDragging(true))
   }
 
   const drag = (e) => {
@@ -169,7 +158,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
     if (!dragging) {
       return
     }
-    setDragging(false)
+    dispatch(setDragging(false))
     let {dx, dy, dWidth, dHeight, aspectRatio} = imgData
     const diffX = dragStartPos.x - e.clientX
     const diffY = dragStartPos.y - e.clientY
@@ -185,7 +174,7 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
     } else if (dy < canvas.current.height/2 + radius - dHeight) {
       dy = canvas.current.height/2 + radius - dHeight
     }
-    setImgData({dx, dy, dWidth, dHeight, aspectRatio})
+    dispatch(setImgData({dx, dy, dWidth, dHeight, aspectRatio}))
   }
 
   useImperativeHandle(ref, () => ({
@@ -197,9 +186,9 @@ const Canvas = forwardRef(({url, setUrl, close, cropping, save}, ref) => {
 
       octx.drawImage(canvas.current, sx, sy, radius*2, radius*2, 0, 0, radius*2, radius*2)
       const blob = await offscreen.convertToBlob()
-      const dataUrl = URL.createObjectURL(blob)
-      save(dataUrl)
-      close()
+      const objectUrl = URL.createObjectURL(blob)
+      dispatch(setPhotoUrl(objectUrl))
+      dispatch(close())
     }
   }))
 
