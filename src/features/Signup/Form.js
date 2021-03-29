@@ -1,10 +1,12 @@
 import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+
+import {setName, setJob, setEmail} from '@store/profileSlice'
+import {submit} from '@store/signupSlice'
+
 import style from './Form.module.css'
 
 import {isEmail} from 'validator'
-
-import {setName, setJob, setEmail, submit} from './signupSlice'
 
 import step1 from './step1.svg'
 import step2 from './step2.svg'
@@ -16,9 +18,9 @@ const imgs = {step1, step2, step3, complete}
 const Form = () => {
   const [step, setStep] = useState(0)
   const dispatch = useDispatch()
-  const name = useSelector(store => store.signup.name)
-  const job = useSelector(store => store.signup.job)
-  const email = useSelector(store => store.signup.email)
+  const name = useSelector(store => store.profile.name)
+  const job = useSelector(store => store.profile.job)
+  const email = useSelector(store => store.profile.email)
   const submitted = useSelector(store => store.signup.submitted)
 
   const steps = [

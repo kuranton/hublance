@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux'
 import style from './Header.module.css'
 
-import {show, start} from '../../features/Signup/signupSlice'
+import {show, start} from '@store/signupSlice'
 
 import logo from './logo.png'
 

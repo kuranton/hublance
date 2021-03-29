@@ -2,9 +2,9 @@ import {useDispatch} from 'react-redux'
 
 import style from './Join.module.css'
 
-import {hide, start} from './signupSlice'
+import {hide, start} from '@store/signupSlice'
 
-import UserPic from '../../components/UserPic/UserPic'
+import UserPic from '@components/UserPic/UserPic'
 
 const Join = () => {
   const dispatch = useDispatch()

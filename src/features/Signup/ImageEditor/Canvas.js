@@ -2,7 +2,7 @@ import {forwardRef, useImperativeHandle, useState, useRef, useEffect} from 'reac
 import {useSelector, useDispatch} from 'react-redux'
 
 import {setZoomAmount, setRotation, setImgData, setDragging, setDragStartPos, close} from '@store/imageEditorSlice'
-import {setPhotoUrl} from '../signupSlice'
+import {setPhotoUrl} from '@store/profileSlice'
 
 import Slider from '@components/Slider/Slider'
 

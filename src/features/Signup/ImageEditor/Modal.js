@@ -2,7 +2,7 @@ import {useState, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {close, setUrl, setCropping, setWarning, setDraggingFile} from '@store/imageEditorSlice'
-import {setPhotoUrl} from '../signupSlice'
+import {setPhotoUrl} from '@store/profileSlice'
 
 import style from './Modal.module.css'
 

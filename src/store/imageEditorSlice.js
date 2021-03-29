@@ -23,26 +23,7 @@ const initialState = {
 
 export const imageEditorSlice = createSlice({
   name: 'imageEditor',
-  initialState: {
-    isOpen: false,
-    url: '',
-    cropping: false,
-    draggingFile: false,
-    warning: '',
-    imgData: {
-      dx: 0,
-      dy: 0,
-      dWidth: 0,
-      dHeight: 0,
-      aspectRatio: 0
-    },
-    canvas: {
-      zoomAmount: 0,
-      rotation: 0.5,
-      dragging: false,
-      dragStartPos: {x:0, y:0}
-    }
-  },
+  initialState,
   reducers: {
     open: (state) => {state.isOpen = true},
     close: (state) => {state.isOpen = false},

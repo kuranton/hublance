@@ -1,19 +1,20 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import Select from '../../components/Select/Select'
-import Input from '../../components/Input/Input'
-import Label from '../../components/Label/Label'
-import Button from '../../components/Button/Button'
-import Certifications from '../../components/Certifications/Certifications'
-import ImageEditor from './ImageEditor'
 
-import Progress from './Progress'
-import Title from './Title'
-import AddCertificationModal from './AddCertificationModal'
+import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification} from '@store/profileSlice'
+import {hide} from '@store/signupSlice'
 
 import style from './Details.module.css'
 
-import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide} from './signupSlice'
+import Select from '@components/Select/Select'
+import Input from '@components/Input/Input'
+import Label from '@components/Label/Label'
+import Button from '@components/Button/Button'
+import Certifications from '@components/Certifications/Certifications'
+import ImageEditor from './ImageEditor'
+import Progress from './Progress'
+import Title from './Title'
+import AddCertificationModal from './AddCertificationModal'
 
 const getRates = () => {
   let rates = []
@@ -32,13 +33,13 @@ const Details = () => {
   const [certificationsModal, setCertificationsModal] = useState(false)
 
   const dispatch = useDispatch()
-  const name = useSelector(store => store.signup.name)
-  const rate = useSelector(store => store.signup.rate)
-  const email = useSelector(store => store.signup.email)
-  const about = useSelector(store => store.signup.about)
-  const country = useSelector(store => store.signup.country)
-  const photoUrl = useSelector(store => store.signup.photoUrl)
-  const certifications = useSelector(store => store.signup.certifications)
+  const name = useSelector(store => store.profile.name)
+  const rate = useSelector(store => store.profile.rate)
+  const email = useSelector(store => store.profile.email)
+  const about = useSelector(store => store.profile.about)
+  const country = useSelector(store => store.profile.country)
+  const photoUrl = useSelector(store => store.profile.photoUrl)
+  const certifications = useSelector(store => store.profile.certifications)
 
   useEffect(() => {
     async function fetchCountries() {

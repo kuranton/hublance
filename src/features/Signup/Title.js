@@ -1,6 +1,7 @@
 import {useRef, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setJob} from './signupSlice'
+
+import {setJob} from '@store/profileSlice'
 
 import style from './Title.module.css'
 
@@ -8,7 +9,7 @@ const Title = () => {
   const input = useRef(null)
   const [focus, setFocus] = useState(false)
   const dispatch = useDispatch()
-  const job = useSelector(store => store.signup.job)
+  const job = useSelector(store => store.profile.job)
 
   return(
     <div className={style.wrap}>
