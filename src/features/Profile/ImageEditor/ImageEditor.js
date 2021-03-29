@@ -13,7 +13,7 @@ const [canvasWidth, canvasHeight, radius] = [704, 260, 110]
 const UploadPic = () => {
   const [img, setImg] = useState(null)
   const dispatch = useDispatch()
-  const photoUrl = useSelector(store => store.signup.photoUrl)
+  const photoUrl = useSelector(store => store.profile.photoUrl)
   const isOpen = useSelector(store => store.imageEditor.isOpen)
   const url = useSelector(store => store.imageEditor.url)
 
