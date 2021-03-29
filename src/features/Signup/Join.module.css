@@ -19,8 +19,8 @@
   border-radius: 20px;
   font-family: inherit;
   cursor: pointer;
-  margin-left: -17px;
   max-width: 90px;
+  justify-self: center;
 }
 
 .btnClose {

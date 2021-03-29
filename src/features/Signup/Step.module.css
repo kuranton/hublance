@@ -1,0 +1,59 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(354.05deg, #EF7D01 32.11%, #FFAF57 104.18%);
+  box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.08), inset 0px 4px 4px rgba(255, 255, 255, 0.35);
+  border-radius: 50px;
+  position: relative;
+  margin-top: 25px;
+  padding: 5px 0;
+}
+
+.form * {
+  font-family: inherit;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: block;
+  position: absolute;
+  top: -37px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.input {
+  padding: 16px 30px;
+  min-width: 404px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  background: #FFFFFF;
+  border-radius: 50px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.next, .prev {
+  font-size: 0;
+  background: url(./assets/arrow.svg) 14px center no-repeat;
+  border: none;
+  width: 32px;
+  height: 51px;
+  cursor: pointer;
+}
+
+.next[disabled], .prev[disabled] {
+  opacity: 0.5;
+}
+
+.next {
+  transform: rotate(180deg);
+}
