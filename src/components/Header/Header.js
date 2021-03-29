@@ -1,16 +1,24 @@
-import {useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import style from './Header.module.css'
 
 import {show, start} from '@store/signupSlice'
+import {edit} from '@store/profileSlice'
 
 import logo from './logo.png'
 
 const Header = () => {
   const dispatch = useDispatch()
+  const submitted = useSelector(store => store.signup.submitted)
   const join = () => {
-    dispatch(start())
-    dispatch(show())
+    if (submitted) {
+      dispatch(edit())
+      dispatch(show())
+    } else {
+      dispatch(start())
+      dispatch(show())
+    }
   }
+  const preventOutline = (e) => e.preventDefault()
   return(
     <header className={style.header}>
       <h1 className={style.logo}>
@@ -20,7 +28,7 @@ const Header = () => {
 
       <nav>
         <a href='/' className={style.link}>about</a>
-        <button className={style.linkJoin} onClick={join}>join us</button>
+        <button className={style.linkJoin} onMouseDown={preventOutline} onClick={join}>{submitted ? 'view profile' : 'join us'}</button>
       </nav>
     </header>
   )
