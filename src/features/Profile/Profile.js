@@ -8,7 +8,6 @@ import style from './Profile.module.css'
 
 import Select from '@components/Select/Select'
 import Input from '@components/Input/Input'
-import Label from '@components/Label/Label'
 import Button from '@components/Button/Button'
 import Certifications from '@components/Certifications/Certifications'
 import ImageEditor from './ImageEditor'
@@ -28,7 +27,7 @@ const getRates = () => {
 }
 
 const Profile = () => {
-  const [expanded, setExpanded] = useState(false)
+  // const [expanded, setExpanded] = useState(false)
   const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
 

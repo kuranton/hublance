@@ -1,10 +1,12 @@
-import {useState, useEffect, useRef, useMemo} from 'react'
+import {useState, useEffect, useRef, useMemo, useCallback} from 'react'
+import {useEventListener} from '@util/useEventListener'
+
 import style from './Slider.module.css'
 
 const Slider = ({title, filled, onChange, className}) => {
   const line = useRef({})
   const [dragging, setDragging] = useState(false)
-  const [rect, setRect] = useState(null)
+  const [rect, setRect] = useState({})
 
   useEffect(() => {
     setRect(line.current.getBoundingClientRect())
@@ -19,35 +21,28 @@ const Slider = ({title, filled, onChange, className}) => {
     e.preventDefault()
     setDragging(true)
     setRect(line.current.getBoundingClientRect())
-    document.addEventListener('mousemove', drag)
-    document.addEventListener('mouseup', dragEnd)
   }
-  const drag = (e) => {
+
+  const drag = useCallback(({movementX}) => {
     if (!dragging) {
       return
     }
     if (typeof onChange === 'function') {
-      const addFilled = e.movementX/rect.width
+      const addFilled = movementX/rect.width
       onChange(Math.min(Math.max(0, filled + addFilled), 1))
     }
-  }
-  const dragEnd = () => {
+  }, [dragging, filled, onChange, rect.width])
+
+  const dragEnd = useCallback(() => {
     if (!dragging) {
       return
     }
     setDragging(dragging => dragging = false)
-  }
+  }, [setDragging, dragging])
 
-  useEffect(() => {
-    document.addEventListener('mousemove', drag)
-    document.addEventListener('mouseup', dragEnd)
-    document.addEventListener('mouseleave', dragEnd)
-    return () => {
-      document.removeEventListener('mousemove', drag)
-      document.removeEventListener('mouseup', dragEnd)
-      document.removeEventListener('mouseleave', dragEnd)
-    }
-  }, [dragging, drag, dragEnd])
+  useEventListener('mousemove', drag, document)
+  useEventListener('mouseup', dragEnd, document)
+  useEventListener('mouseleave', dragEnd, document)
 
   return(
     <div className={className}>

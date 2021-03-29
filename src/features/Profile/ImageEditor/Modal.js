@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect} from 'react'
+import {useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {close, setUrl, setCropping, setWarning, setDraggingFile} from '@store/imageEditorSlice'

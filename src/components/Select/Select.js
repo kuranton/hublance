@@ -1,4 +1,6 @@
-import {useState, useRef, useEffect} from 'react'
+import {useState, useRef} from 'react'
+import {useEventListener} from '@util/useEventListener'
+
 import style from './Select.module.css'
 
 import Scroller from '../Scroller/Scroller'
@@ -17,20 +19,19 @@ const Select = ({searchable = false, placeholder, options, height = 200, value, 
     if (input && input.current) {
       input.current.focus()
     }
-    window.addEventListener('mousedown', handleBlur)
   }
 
   const handleBlur = (e) => {
+    if (!open) {
+      return
+    }
     if (wrap && wrap.current && wrap.current.contains(e.target)) {
       return
     }
     setOpen(false)
-    window.removeEventListener('mousedown', handleBlur)
   }
 
-  useEffect(() => {
-    return () => window.removeEventListener('mousedown', handleBlur)
-  }, [])
+  useEventListener('mousedown', handleBlur)
 
   return(
     <div ref={wrap} className={`${style.wrap} ${className ? className : ''}`} onClick={handleClick} {...props}>

@@ -1,4 +1,3 @@
-import {useRef, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {setJob} from '@store/profileSlice'
@@ -6,8 +5,6 @@ import {setJob} from '@store/profileSlice'
 import style from './Title.module.css'
 
 const Title = () => {
-  const input = useRef(null)
-  const [focus, setFocus] = useState(false)
   const dispatch = useDispatch()
   const job = useSelector(store => store.profile.job)
 

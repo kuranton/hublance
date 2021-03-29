@@ -2,7 +2,6 @@ import {useSelector} from 'react-redux'
 import style from './List.module.css'
 
 import Single from './Single'
-import Scroller from '@components/Scroller/Scroller'
 
 import Join from '@features/Signup/Join'
 import Form from '@features/Signup/Form'

@@ -20,7 +20,7 @@ const Modal = ({title, children, close}) => {
       window.removeEventListener('keydown', handleKeypress)
       document.body.removeEventListener('wheel', preventScroll)
     }
-  }, [])
+  }, [close])
   return(
     <Portal>
       <div className={style.background} onClick={close}/>

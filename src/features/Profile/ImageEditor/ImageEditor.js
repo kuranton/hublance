@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {open, setWarning, setUrl, setCropping, setZoomAmount, setRotation, setImgData} from '@store/imageEditorSlice'
+import {open, setWarning, setUrl, setCropping, setZoomAmount, setRotation, setImgData, setAspectRatio} from '@store/imageEditorSlice'
 
 import style from './ImageEditor.module.css'
 
@@ -21,7 +21,7 @@ const UploadPic = () => {
     if (!url && photoUrl) {
       dispatch(setUrl(photoUrl))
     }
-  }, [photoUrl])
+  }, [photoUrl, url, dispatch])
 
   useEffect(() => {
     const image = new Image()
@@ -36,7 +36,8 @@ const UploadPic = () => {
       const dHeight = height*ratio
       const dx = (canvasWidth - dWidth)/2
       const dy = (canvasHeight - dHeight)/2
-      dispatch(setImgData({dx, dy, dWidth, dHeight, aspectRatio: width/height}))
+      dispatch(setAspectRatio(width/height))
+      dispatch(setImgData({dx, dy, dWidth, dHeight}))
       setImg(image)
       dispatch(setWarning(''))
       dispatch(setCropping(true))
@@ -44,7 +45,7 @@ const UploadPic = () => {
       dispatch(setRotation(0.5))
     }
     image.src = url
-  }, [url])
+  }, [url, dispatch])
 
   return(
     <div className={style.wrap}>

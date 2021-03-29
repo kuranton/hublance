@@ -1,7 +1,7 @@
-import {forwardRef, useImperativeHandle, useState, useRef, useEffect} from 'react'
+import {forwardRef, useImperativeHandle, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setZoomAmount, setRotation, setImgData, setDragging, setDragStartPos, close} from '@store/imageEditorSlice'
+import {setZoomAmount, setRotation, setImgData, setDragging, close} from '@store/imageEditorSlice'
 import {setPhotoUrl} from '@store/profileSlice'
 
 import Slider from '@components/Slider/Slider'
@@ -14,21 +14,21 @@ const Canvas = forwardRef(({img}, ref) => {
   const canvas = useRef(null)
 
   const dispatch = useDispatch()
-  const {imgData, cropping} = useSelector(store => store.imageEditor)
-  const {dragging, dragStartPos, zoomAmount, rotation} = useSelector(store => store.imageEditor.canvas)
+  const {imgData, cropping, aspectRatio} = useSelector(store => store.imageEditor)
+  const {dragging, zoomAmount, rotation} = useSelector(store => store.imageEditor.canvas)
 
   useEffect(() => {
     if (!canvas || !canvas.current) {
       return
     }
+
+    const ctx = canvas.current.getContext('2d')
     if (!img) {
-      const ctx = canvas.current.getContext('2d')
       ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
       canvas.current.style.cursor = null
       return
     }
 
-    const ctx = canvas.current.getContext('2d')
     const {dx, dy, dWidth, dHeight} = imgData
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
     ctx.translate(canvas.current.width/2, canvas.current.height/2)
@@ -38,7 +38,7 @@ const Canvas = forwardRef(({img}, ref) => {
     ctx.resetTransform()
 
     canvas.current.style.cursor = 'pointer'
-  }, [img])
+  }, [img, imgData, rotation])
 
   const handleWheel = (e) => {
     if (!img || !cropping) {
@@ -57,12 +57,11 @@ const Canvas = forwardRef(({img}, ref) => {
     }
     amount = Math.min(Math.max(amount, 0), 1)
     dispatch(setZoomAmount(amount))
-    const ctx = canvas.current.getContext('2d')
     if (!img) {
       return
     }
 
-    let {dx, dy, dWidth, dHeight, aspectRatio} = imgData
+    let {dx, dy, dWidth, dHeight} = imgData
     const diff = max - min
     let newWidth, newHeight
     if (aspectRatio < 1) {
@@ -88,26 +87,12 @@ const Canvas = forwardRef(({img}, ref) => {
     }
     dWidth = newWidth
     dHeight = newHeight
-    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
-    ctx.translate(canvas.current.width/2, canvas.current.height/2)
-    ctx.rotate(Math.PI/2*(rotation-0.5))
-    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
-    ctx.drawImage(img, dx, dy, dWidth, dHeight)
-    ctx.resetTransform()
 
     dispatch(setImgData({dx, dy, dWidth, dHeight}))
   }
 
   const rotate = (amount) => {
     dispatch(setRotation(amount))
-    const {dx, dy, dWidth, dHeight} = imgData
-    const ctx = canvas.current.getContext('2d')
-    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
-    ctx.translate(canvas.current.width/2, canvas.current.height/2)
-    ctx.rotate(Math.PI/2*(rotation-0.5))
-    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
-    ctx.drawImage(img, dx, dy, dWidth, dHeight)
-    ctx.resetTransform()
   }
 
   const dragStart = (e) => {
@@ -124,7 +109,6 @@ const Canvas = forwardRef(({img}, ref) => {
     ) {
       return
     }
-    dispatch(setDragStartPos({x: e.clientX, y: e.clientY}))
     dispatch(setDragging(true))
   }
 
@@ -134,9 +118,8 @@ const Canvas = forwardRef(({img}, ref) => {
       return
     }
     let {dx, dy, dWidth, dHeight} = imgData
-    const diffX = dragStartPos.x - e.clientX
-    const diffY = dragStartPos.y - e.clientY
-    const ctx = canvas.current.getContext('2d')
+    const diffX = -e.movementX
+    const diffY = -e.movementY
     dx -= diffX
     dy -= diffY
     if (dx > canvas.current.width/2 - radius) {
@@ -149,12 +132,7 @@ const Canvas = forwardRef(({img}, ref) => {
     } else if (dy < canvas.current.height/2 + radius - dHeight) {
       dy = canvas.current.height/2 + radius - dHeight
     }
-    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
-    ctx.translate(canvas.current.width/2, canvas.current.height/2)
-    ctx.rotate(Math.PI/2*(rotation-0.5))
-    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
-    ctx.drawImage(img, dx, dy, dWidth, dHeight)
-    ctx.resetTransform()
+    dispatch(setImgData({dx, dy, dWidth, dHeight}))
   }
 
   const dragEnd = (e) => {
@@ -163,22 +141,6 @@ const Canvas = forwardRef(({img}, ref) => {
       return
     }
     dispatch(setDragging(false))
-    let {dx, dy, dWidth, dHeight, aspectRatio} = imgData
-    const diffX = dragStartPos.x - e.clientX
-    const diffY = dragStartPos.y - e.clientY
-    dx -= diffX
-    dy -= diffY
-    if (dx > canvas.current.width/2 - radius) {
-      dx = canvas.current.width/2 - radius
-    } else if (dx < canvas.current.width/2 + radius - dWidth) {
-      dx = canvas.current.width/2 + radius - dWidth
-    }
-    if (dy > canvas.current.height/2 - radius) {
-      dy = canvas.current.height/2 - radius
-    } else if (dy < canvas.current.height/2 + radius - dHeight) {
-      dy = canvas.current.height/2 + radius - dHeight
-    }
-    dispatch(setImgData({dx, dy, dWidth, dHeight, aspectRatio}))
   }
 
   useImperativeHandle(ref, () => ({
