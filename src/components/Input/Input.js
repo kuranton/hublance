@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import style from './Input.module.css'
 
 const Input = ({className, textarea = false, defaultValue = '', onSubmit, ...props}) => {
@@ -6,7 +6,7 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, ...pro
   const Tag = textarea ? 'textarea' : 'input'
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.code === 'Enter') {
       if (textarea && !e.ctrlKey) {
         return
       }
@@ -19,6 +19,10 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, ...pro
       onSubmit(value)
     }
   }
+
+  useEffect(() => {
+    setValue(defaultValue)
+  }, [defaultValue])
 
   return(
     <Tag
