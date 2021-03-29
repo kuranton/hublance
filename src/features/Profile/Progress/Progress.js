@@ -8,20 +8,20 @@ import Badge from './Badge'
 const barWidth = 180
 
 const Progress = () => {
-  const signup = useSelector(store => store.signup)
+  const profile = useSelector(store => store.profile)
   const progress = useMemo(() => {
     let total = 0
     let filled = 0
-    for (let key in signup) {
-      if (typeof signup[key] !== 'boolean') {
+    for (let key in profile) {
+      if (typeof profile[key] !== 'boolean') {
         total++
-        if ((Array.isArray(signup[key]) && signup[key].length) || (!Array.isArray(signup[key]) && !!signup[key])) {
+        if ((Array.isArray(profile[key]) && profile[key].length) || (!Array.isArray(profile[key]) && !!profile[key])) {
           filled++
         }
       }
     }
     return filled/total
-  }, [signup])
+  }, [profile])
 
   const percentage = Math.round(progress*100)
   const complete = progress === 1
