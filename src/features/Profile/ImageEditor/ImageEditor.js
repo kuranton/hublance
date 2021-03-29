@@ -24,6 +24,10 @@ const UploadPic = () => {
   }, [photoUrl, url, dispatch])
 
   useEffect(() => {
+    if (!url) {
+      setImg(null)
+      return
+    }
     const image = new Image()
     image.onload = () => {
       if (image.width < 220 || image.height < 220) {

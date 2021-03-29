@@ -1,0 +1,11 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 30px 35px 30px;
+  position: relative;
+  z-index: 1;
+  width: 704px;
+  box-sizing: border-box;
+}

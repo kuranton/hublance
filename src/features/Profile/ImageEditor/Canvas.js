@@ -1,20 +1,16 @@
 import {forwardRef, useImperativeHandle, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setZoomAmount, setRotation, setImgData, setDragging, close} from '@store/imageEditorSlice'
+import {setImgData, setDragging, close, setWarning} from '@store/imageEditorSlice'
 import {setPhotoUrl} from '@store/profileSlice'
-
-import Slider from '@components/Slider/Slider'
 
 import style from './Canvas.module.css'
 
-const radius = 110 //round pic radius after crop
-
-const Canvas = forwardRef(({img}, ref) => {
+const Canvas = forwardRef(({img, zoom, radius}, ref) => {
   const canvas = useRef(null)
 
   const dispatch = useDispatch()
-  const {imgData, cropping, aspectRatio} = useSelector(store => store.imageEditor)
+  const {imgData, cropping} = useSelector(store => store.imageEditor)
   const {dragging, zoomAmount, rotation} = useSelector(store => store.imageEditor.canvas)
 
   useEffect(() => {
@@ -37,8 +33,10 @@ const Canvas = forwardRef(({img}, ref) => {
     ctx.drawImage(img, dx, dy, dWidth, dHeight)
     ctx.resetTransform()
 
+    dispatch(setWarning(''))
+
     canvas.current.style.cursor = 'pointer'
-  }, [img, imgData, rotation])
+  }, [img, imgData, rotation, dispatch])
 
   const handleWheel = (e) => {
     if (!img || !cropping) {
@@ -46,53 +44,6 @@ const Canvas = forwardRef(({img}, ref) => {
     }
     const increment = e.deltaY > 0 ? 0.05 : -0.05
     zoom(zoomAmount + increment)
-  }
-
-  const zoom = (amount) => {
-    const {width, height} = img
-    const min = radius * 2
-    const max = Math.min(width, height)
-    if (min === max) {
-      return
-    }
-    amount = Math.min(Math.max(amount, 0), 1)
-    dispatch(setZoomAmount(amount))
-    if (!img) {
-      return
-    }
-
-    let {dx, dy, dWidth, dHeight} = imgData
-    const diff = max - min
-    let newWidth, newHeight
-    if (aspectRatio < 1) {
-      newWidth = min + diff*amount
-      newHeight = (min + diff*amount)/aspectRatio
-    } else {
-      newWidth = (min + diff*amount)*aspectRatio
-      newHeight = min + diff*amount
-    }
-
-    dx -= (newWidth - dWidth)/2
-    dy -= (newHeight - dHeight)/2
-
-    if (dx > canvas.current.width/2 - radius) {
-      dx = canvas.current.width/2 - radius
-    } else if (dx < canvas.current.width/2 + radius - newWidth) {
-      dx = canvas.current.width/2 + radius - newWidth
-    }
-    if (dy > canvas.current.height/2 - radius) {
-      dy = canvas.current.height/2 - radius
-    } else if (dy < canvas.current.height/2 + radius - newHeight) {
-      dy = canvas.current.height/2 + radius - newHeight
-    }
-    dWidth = newWidth
-    dHeight = newHeight
-
-    dispatch(setImgData({dx, dy, dWidth, dHeight}))
-  }
-
-  const rotate = (amount) => {
-    dispatch(setRotation(amount))
   }
 
   const dragStart = (e) => {
@@ -162,11 +113,7 @@ const Canvas = forwardRef(({img}, ref) => {
     <>
       <canvas ref={canvas} width={704} height={260} onWheel={handleWheel} onMouseDown={dragStart} onMouseMove={drag} onMouseUp={dragEnd} onMouseLeave={dragEnd}/>
       {cropping ?
-        <div className={style.controls}>
-          <p className={style.instruction}>Drag to reposition photo</p>
-          <Slider title='Zoom' onChange={zoom} filled={zoomAmount}/>
-          <Slider title='Straighten' onChange={rotate} filled={rotation}/>
-        </div>
+        <p className={style.instruction}>Drag to reposition photo</p>
       : null}
     </>
   )
