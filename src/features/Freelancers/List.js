@@ -10,9 +10,9 @@ import Profile from '@features/Profile'
 import {freelancers} from './_mockData'
 
 const List = () => {
-  const signupStarted = useSelector(store => store.signup.started)
-  const signedUp = useSelector(store => store.signup.submitted)
-  const signupVisible = useSelector(store => store.signup.visible)
+  const started = useSelector(store => store.signup.started)
+  const visible = useSelector(store => store.signup.visible)
+  const editing = useSelector(store => store.profile.editing)
   return(
     <div className={style.wrap}>
       <div className={style.header}>
@@ -25,13 +25,11 @@ const List = () => {
 
       <div className={style.body}>
         <ul className={style.list}>
-          {signupVisible ?
-            signedUp ?
-              <li>
-                <Profile/>
-              </li>
+          {visible ?
+            editing ?
+              <Profile/>
             :
-            signupStarted ?
+            started ?
               <Form/>
             :
             <li className={style.row}>

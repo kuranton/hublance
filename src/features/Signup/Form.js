@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setName, setJob, setEmail} from '@store/profileSlice'
+import {setName, setJob, setEmail, edit} from '@store/profileSlice'
 import {submit} from '@store/signupSlice'
 
 import style from './Form.module.css'
@@ -75,7 +75,7 @@ const Form = () => {
         <img src={imgs.complete} alt={`Step ${step}`}/>
         <h3 className={style.congrats}>Congratulations!</h3>
         <h3 className={style.message}>You are in HubLance!</h3>
-        <button className={style.btnProfile} onMouseDown={preventOutline}>See your profile</button>
+        <button className={style.btnProfile} onMouseDown={preventOutline} onClick={() => dispatch(edit())}>See your profile</button>
       </>}
 
     </div>
