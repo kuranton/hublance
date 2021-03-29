@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification} from '@store/profileSlice'
 import {hide} from '@store/signupSlice'
 
-import style from './Details.module.css'
+import style from './Profile.module.css'
 
 import Select from '@components/Select/Select'
 import Input from '@components/Input/Input'
@@ -27,7 +27,7 @@ const getRates = () => {
   return rates
 }
 
-const Details = () => {
+const Profile = () => {
   const [expanded, setExpanded] = useState(false)
   const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
@@ -116,4 +116,4 @@ const Details = () => {
   )
 }
 
-export default Details
+export default Profile

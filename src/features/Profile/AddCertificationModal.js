@@ -1,8 +1,8 @@
-import DatePicker from '../../components/DatePicker/DatePicker'
-import Modal from '../../components/Modal/Modal'
-import Label from '../../components/Label/Label'
-import Input from '../../components/Input/Input'
-import Button from '../../components/Button/Button'
+import DatePicker from '@components/DatePicker/DatePicker'
+import Modal from '@components/Modal/Modal'
+import Label from '@components/Label/Label'
+import Input from '@components/Input/Input'
+import Button from '@components/Button/Button'
 
 import style from './AddCertificationModal.module.css'
 import 'react-datepicker/dist/react-datepicker.css'

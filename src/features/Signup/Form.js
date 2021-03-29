@@ -8,10 +8,10 @@ import style from './Form.module.css'
 
 import {isEmail} from 'validator'
 
-import step1 from './step1.svg'
-import step2 from './step2.svg'
-import step3 from './step3.svg'
-import complete from './complete.svg'
+import step1 from './assets/step1.svg'
+import step2 from './assets/step2.svg'
+import step3 from './assets/step3.svg'
+import complete from './assets/complete.svg'
 
 const imgs = {step1, step2, step3, complete}
 

@@ -9,7 +9,7 @@
 
 .buttonExpand {
   font-size: 0;
-  background: url(./arrow.svg) center no-repeat;
+  background: url(@assets/arrow.svg) center no-repeat;
   border: none;
   width: 20px;
   height: 20px;
@@ -76,7 +76,7 @@
   display: block;
   width: 16px;
   height: 16px;
-  background: url(./plus.svg) center no-repeat;
+  background: url(./assets/plus.svg) center no-repeat;
   position: absolute;
   top: 16px;
   left: 24px;

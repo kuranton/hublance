@@ -6,7 +6,7 @@ import Scroller from '@components/Scroller/Scroller'
 
 import Join from '@features/Signup/Join'
 import Form from '@features/Signup/Form'
-import Details from '@features/Signup/Details'
+import Profile from '@features/Profile'
 
 import {freelancers} from './_mockData'
 
@@ -29,7 +29,7 @@ const List = () => {
           {signupVisible ?
             signedUp ?
               <li>
-                <Details/>
+                <Profile/>
               </li>
             :
             signupStarted ?
