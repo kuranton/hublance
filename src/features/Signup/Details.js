@@ -63,7 +63,7 @@ const Details = () => {
 
         <Title/>
 
-        <Input className={style.name} type='text' name='name' placeholder='Name' value={name} onChange={(e) => dispatch(setName(e.target.value))}/>
+        <Input className={style.name} type='text' name='name' placeholder='Name' defaultValue={name} onSubmit={(value) => dispatch(setName(value))}/>
 
         <Select className={style.rate} name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
 
@@ -76,8 +76,8 @@ const Details = () => {
           placeholder='Please share more details about your expertise...'
           className={style.about}
           style={{minHeight: 187}}
-          value={about}
-          onChange={(e) => dispatch(setAbout(e.target.value))}
+          defaultValue={about}
+          onSubmit={(value) => dispatch(setAbout(value))}
         />
 
         <span className={style.label}>
@@ -96,7 +96,7 @@ const Details = () => {
         </div>
 
         <label className={style.label} htmlFor='email' style={{marginTop: '5px'}}>Contact:</label>
-        <Input className={style.contact} type='email' name='email' placeholder='Email' value={email} onChange={(e) => dispatch(setEmail(e.target.value))}/>
+        <Input className={style.contact} type='email' name='email' placeholder='Email' defaultValue={email} onSubmit={(value) => dispatch(setEmail(value))}/>
 
         <Button className={style.btnClose} onClick={() => dispatch(hide())}>Close</Button>
         <Button className={style.btnSave} primary>Save profile</Button>
