@@ -14,7 +14,9 @@ const Step = ({goBack, goForward, backDisabled = false, title, type = 'text', va
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    goForward()
+    if (!forwardDisabled) {
+      goForward()
+    }
   }
 
   const forwardDisabled = !validator(value)
