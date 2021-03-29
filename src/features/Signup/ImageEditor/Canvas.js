@@ -31,7 +31,11 @@ const Canvas = forwardRef(({img}, ref) => {
     const ctx = canvas.current.getContext('2d')
     const {dx, dy, dWidth, dHeight} = imgData
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height)
+    ctx.translate(canvas.current.width/2, canvas.current.height/2)
+    ctx.rotate(Math.PI/2*(rotation-0.5))
+    ctx.translate(canvas.current.width/-2, canvas.current.height/-2)
     ctx.drawImage(img, dx, dy, dWidth, dHeight)
+    ctx.resetTransform()
 
     canvas.current.style.cursor = 'pointer'
   }, [img])
