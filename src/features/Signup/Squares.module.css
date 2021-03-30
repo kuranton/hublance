@@ -1,0 +1,14 @@
+.svg {
+  position: absolute;
+  left: calc(50% - 60.5px);
+  top: 30px;
+}
+
+.svg:not(.complete) path {
+  opacity: 0;
+}
+
+.complete path {
+  transition-timing-function: cubic-bezier(.59,.65,.33,1);
+  transform: translateY(0px) !important;
+}

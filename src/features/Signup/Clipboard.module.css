@@ -1,0 +1,27 @@
+.clipboard {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  transform-origin: center;
+  transform: scale(0.647, 0.647);
+  transition: transform 500ms ease;
+  z-index: 2;
+}
+
+.complete {
+  transform: translate(-120px, -35px);
+  transition-delay: 500ms;
+}
+
+.plusVertical, .plusHorizontal {
+  transition: 300ms ease;
+  transition-delay: 200ms;
+}
+
+.complete .plusVertical {
+  d: path("M88.4,73.1l-5.5,9.6");
+}
+
+.complete .plusHorizontal {
+  d: path("M78.6,80.3l3.8,2.2");
+}

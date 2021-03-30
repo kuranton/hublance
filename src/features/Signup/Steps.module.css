@@ -6,8 +6,9 @@
   box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.08), inset 0px 4px 4px rgba(255, 255, 255, 0.35);
   border-radius: 50px;
   position: relative;
-  margin-top: 25px;
   padding: 5px 0;
+  position: absolute;
+  bottom: 37px;
 }
 
 .form * {
@@ -56,4 +57,15 @@
 
 .next {
   transform: rotate(180deg);
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
 }

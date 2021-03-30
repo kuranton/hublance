@@ -1,0 +1,44 @@
+.wrap {
+  position: relative;
+}
+
+.svg {
+  display: block;
+}
+
+.number {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #848484;
+  position: absolute;
+  transition: color 300ms ease;
+  z-index: 1;
+}
+
+.complete .svg, .complete .number {
+  transition: opacity 300ms ease;
+  transition-delay: 300ms;
+  opacity: 0;
+}
+
+.number.active {
+  color: #fff;
+}
+
+.number:nth-of-type(1) {
+  left: 48px;
+  top: 50px;
+}
+
+.number:nth-of-type(2) {
+  left: 110px;
+  top: 69px;
+}
+
+.number:nth-of-type(3) {
+  left: 172px;
+  top: 51px;
+}

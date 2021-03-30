@@ -3,28 +3,41 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 45px 0 37px 0;
+  padding: 45px 0 123px 0;
+  position: relative;
+  border-bottom: 1px solid #DCDCDC;
 }
 
 .title {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-}
-
-.title {
   margin: 0 auto 7px auto;
 }
 
+.title.fadeOut {
+  transition: 300ms ease;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
 .imgWrap {
-  width: 305px;
-  height: 134px;
-  overflow: hidden;
   margin-top: -17px;
 }
 
+.congratsWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 37px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
 .congrats {
-  margin: 25px auto 10px auto;
+  margin: 0 auto 10px auto;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
@@ -51,4 +64,15 @@
   border-radius: 20px;
   padding: 6px 20px;
   cursor: pointer;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
