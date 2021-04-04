@@ -15,19 +15,7 @@ import Progress from './Progress'
 import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
 
-const getRates = () => {
-  let rates = []
-  for (var i=1; i<21; i++) {
-    rates.push({
-      value: i*5,
-      label: `$${i*5}`
-    })
-  }
-  return rates
-}
-
 const Profile = () => {
-  // const [expanded, setExpanded] = useState(false)
   const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
 
@@ -65,7 +53,14 @@ const Profile = () => {
 
         <Input className={style.name} type='text' name='name' placeholder='Name' defaultValue={name} onSubmit={(value) => dispatch(setName(value))}/>
 
-        <Select className={style.rate} name='rate' placeholder='Rate' options={getRates()} value={rate} onChange={(value) => dispatch(setRate(value))}/>
+        <Input
+          type='number'
+          name='rate'
+          className={style.rate}
+          defaultValue={rate}
+          onSubmit={(value) => dispatch(setRate(value))}
+          prefix='$'
+        />
 
         <Select className={style.country} name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
 
@@ -100,16 +95,6 @@ const Profile = () => {
 
         <Button className={style.btnClose} onClick={() => dispatch(hide())}>Close</Button>
         <Button className={style.btnSave} primary>Save profile</Button>
-
-        {/* <button
-          className={style.buttonExpand}
-          aria-label='expand'
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={() => setExpanded(!expanded)}
-          style={expanded ? {transform: 'rotate(180deg)'} : {}}
-          >
-          Expand
-        </button> */}
       </form>
     </div>
   )
