@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import style from './Input.module.css'
 
-const Input = ({className, textarea = false, defaultValue = '', onSubmit, ...props}) => {
+const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix = '', ...props}) => {
+  const input = useRef(null)
   const [value, setValue] = useState(defaultValue)
   const Tag = textarea ? 'textarea' : 'input'
 
@@ -25,14 +26,20 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, ...pro
   }, [defaultValue])
 
   return(
-    <Tag
-      {...props}
-      className={`${textarea ? style.textarea : style.input} ${className ? className : ''}`}
-      onChange={(e) => setValue(e.target.value)}
-      onBlur={submit}
-      onKeyPress={handleKeyPress}
-      value={value}
-    />
+    <div className={`${textarea ? style.textarea : style.input} ${className ? className : ''}`} onClick={() => input.current.focus()}>
+      {prefix ?
+        <span className={style.prefix}>{prefix}</span>
+      : null}
+      <Tag
+        ref={input}
+        {...props}
+        className={style.field}
+        onChange={(e) => setValue(e.target.value)}
+        onBlur={submit}
+        onKeyPress={handleKeyPress}
+        value={value}
+      />
+    </div>
   )
 }
 

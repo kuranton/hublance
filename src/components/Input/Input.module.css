@@ -9,14 +9,10 @@
   border: 1px solid #DCDCDC;
   border-radius: 20px;
   box-sizing: border-box;
-}
-
-.input:focus, .textarea:focus {
-  outline: none;
-}
-
-.input::placeholder, .textarea::placeholder {
-  color: #848484;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: text;
 }
 
 .input {
@@ -28,6 +24,26 @@
   resize: none;
 }
 
-.wrapper {
+.field {
+  min-width: 0;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.textarea .field {
   width: 100%;
+}
+
+.field:focus {
+  outline: none;
+}
+
+.field::placeholder {
+  color: #848484;
 }
