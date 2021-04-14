@@ -33,10 +33,20 @@ const Select = ({searchable = false, placeholder, options, height = 200, value, 
 
   useEventListener('mousedown', handleBlur)
 
+  let label = placeholder
+  if (value) {
+    const match = options.find(option => option.value === value)
+    if (match) {
+      label = match.label
+    } else {
+      label = value
+    }
+  }
+
   return(
     <div ref={wrap} className={`${style.wrap} ${className ? className : ''}`} onClick={handleClick} {...props}>
 
-      <span className={value ? style.value : style.placeholder}>{value ? options.find(option => option.value === value).label : placeholder}</span>
+      <span className={value ? style.value : style.placeholder}>{label}</span>
       <input type='hidden' value={value}/>
 
       {open ?
