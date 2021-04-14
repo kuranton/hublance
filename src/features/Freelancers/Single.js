@@ -13,7 +13,7 @@ const Single = ({data}) => {
       <div className={style.title}>{data.title}</div>
       <div>{data.name}</div>
       <div>{data.rate}</div>
-      <div>{data.country}</div>
+      <div className={style.country}>{data.country}</div>
       <button
         className={style.buttonExpand}
         aria-label='expand'
@@ -42,7 +42,7 @@ const Single = ({data}) => {
           <span className={style.contactTitle}>
             Contact:
           </span>
-          <a className={style.contact} href='mailto:example@example.com'>example@example.com</a>
+          <a className={style.contact} href={`mailto:${data.email}`}>{data.email}</a>
         </>
       : null
       }
