@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 export const profileSlice = createSlice({
-  name: 'counter',
+  name: 'profile',
   initialState: {
     name: '',
     job: '',
