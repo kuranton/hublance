@@ -27,7 +27,7 @@ const List = () => {
           photoUrl: entry.picture.medium,
           title: titles[Math.floor(Math.random() * titles.length)],
           name: `${entry.name.first} ${entry.name.last}`,
-          rate: Math.floor(Math.random() * 20)*5,
+          rate: Math.floor(Math.random() * 22)*5 + 5,
           country: entry.location.country,
           email: entry.email
         })
