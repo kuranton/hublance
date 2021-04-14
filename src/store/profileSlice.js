@@ -6,7 +6,7 @@ export const profileSlice = createSlice({
     name: '',
     job: '',
     email: '',
-    rate: null,
+    rate: '',
     certifications: [],
     about: '',
     country: '',

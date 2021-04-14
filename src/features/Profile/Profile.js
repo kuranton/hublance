@@ -54,6 +54,7 @@ const Profile = () => {
         <Input className={style.name} type='text' name='name' placeholder='Name' defaultValue={name} onSubmit={(value) => dispatch(setName(value))}/>
 
         <Input
+          type='number'
           name='rate'
           className={style.rate}
           defaultValue={rate}
