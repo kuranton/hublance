@@ -1,5 +1,8 @@
-import {useState, useEffect} from 'react'
-import {useSelector} from 'react-redux'
+import {useEffect, useMemo} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+
+import {fetchFreelancers} from '@store/freelancersSlice'
+
 import style from './List.module.css'
 
 import Single from './Single'
@@ -8,35 +11,31 @@ import Join from '@features/Signup/Join'
 import Form from '@features/Signup/Form'
 import Profile from '@features/Profile'
 
-const titles = ['SEO Specialist', 'Social Media Marketer', 'UI Designer', 'Developer', 'Designer']
-
 const List = () => {
-  const [freelancers, setFreelancers] = useState([])
+  const dispatch = useDispatch()
+  const freelancers = useSelector(store => store.freelancers.list)
+  const filters = useSelector(store => store.filters)
   const started = useSelector(store => store.signup.started)
   const visible = useSelector(store => store.signup.visible)
   const editing = useSelector(store => store.profile.editing)
+  const {certifications, countries, rate} = filters
+
+  const filtered = useMemo(() => freelancers.filter(freelancer => {
+    if (
+      freelancer.rate < rate.min ||
+      (rate.max && freelancer.rate > rate.max) ||
+      (certifications.length && !certifications.every(certification => freelancer.certifications.includes(certification))) ||
+      (countries.length && !countries.includes(freelancer.country))
+    ) {
+      return false
+    } else {
+      return true
+    }
+  }), [freelancers, certifications, countries, rate])
 
   useEffect(() => {
-    async function fetchFreelancers() {
-      const res = await fetch(`https://randomuser.me/api/?results=100`, {dataType: 'json', results: 100})
-      const json = await res.json()
-      let data = []
-      json.results.forEach((entry, index) => {
-        data.push({
-          id: index,
-          photoUrl: entry.picture.medium,
-          title: titles[Math.floor(Math.random() * titles.length)],
-          name: `${entry.name.first} ${entry.name.last}`,
-          rate: Math.floor(Math.random() * 22)*5 + 5,
-          country: entry.location.country,
-          email: entry.email
-        })
-      })
-      setFreelancers(data)
-    }
-
-    fetchFreelancers()
-  }, [])
+    dispatch(fetchFreelancers())
+  }, [dispatch])
 
   return(
     <div className={style.wrap}>
@@ -63,7 +62,7 @@ const List = () => {
           : null
           }
 
-          {freelancers.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
+          {filtered.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
         </ul>
       </div>
     </div>

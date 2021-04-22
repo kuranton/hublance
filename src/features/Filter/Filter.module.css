@@ -1,7 +1,7 @@
 .wrap {
   box-sizing: border-box;
-  height: 56px;
-  padding: 0 24px;
+  min-height: 56px;
+  padding: 14px 22px;
   background: rgba(220, 220, 220, 0.1);
   border: 1px solid #DCDCDC;
   border-radius: 50px;
@@ -13,18 +13,20 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  position: relative;
 }
 
 .addButton {
   display: inline-block;
   box-sizing: border-box;
-  width: 28px;
-  height: 28px;
+  width: 29px;
+  height: 29px;
   font-size: 0;
   background: linear-gradient(135deg, #EF2126 0%, #EE7C00 94.77%);
   border: none;
-  border-radius: 5.5px;
-  margin-left: 5px;
+  border-radius: 4px;
   position: relative;
   cursor: pointer;
 }
@@ -46,14 +48,80 @@
 }
 
 .addButton::after {
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   top: 2px;
   left: 2px;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: #FFEDE0;
-  background-image: url(./plus.svg);
+  background-image: url(assets/plus.svg);
   background-position: center;
   background-repeat: no-repeat;
   transition: background-color 0.3s;
+}
+
+.country, .rate, .certification {
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country {
+  background: #EEEDFF;
+  border-color: #C0B6FF;
+  --remove-color: #9D69E0;
+}
+
+.rate {
+  background: #FFFEDB;
+  border-color: #DFE264;
+  --remove-color: #96991C;
+}
+
+.certification.even {
+  background: #EBFFDB;
+  border-color: #99E264;
+  --remove-color: #4FBB00;
+}
+
+.certification.odd {
+  background: #D7FFF5;
+  border-color: #64E2CB;
+  --remove-color: #00BBAF;
+}
+
+.remove {
+  font-size: 0;
+  padding: 0;
+  margin: 0 0 0 5px;
+  width: 10px;
+  height: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.remove::before, .remove::after {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 1px;
+  position: absolute;
+  top: calc(50% - 0.5px);
+  left: 1px;
+  transform-origin: center;
+  background: var(--remove-color);
+}
+
+.remove::before {
+  transform: rotate(-45deg);
+}
+
+.remove::after {
+  transform: rotate(45deg);
 }
