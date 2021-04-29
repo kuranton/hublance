@@ -7,6 +7,7 @@ import {removeCountry, setMinRate, setMaxRate, removeCertification} from '@store
 import style from './Filter.module.css'
 
 import Popup from './Popup'
+import Badge from './Badge'
 
 const Filter = () => {
   const popupWrap = useRef({})
@@ -29,35 +30,42 @@ const Filter = () => {
   useEventListener('click', closePopup)
   return(
     <div className={style.wrap}>
-      {!certifications.length && !countries.length && !rate.min && !rate.max ?
-        <span>Filters:</span>
-      : null}
+      {/* {!certifications.length && !countries.length && !rate.min && !rate.max ? */}
+      <span className={style.label}>Filters:</span>
+      {/* : null} */}
       {countries.map(country => (
-        <span key={country} className={style.country}>
+        <Badge
+          key={country}
+          className={style.country}
+          remove={() => dispatch(removeCountry(country))}
+        >
           {country}
-          <button className={style.remove} onClick={() => dispatch(removeCountry(country))}>Remove</button>
-        </span>
+        </Badge>
       ))}
       {rate.min || rate.max ?
-        <span className={style.rate}>
+        <Badge
+          className={style.rate}
+          remove={() => {dispatch(setMinRate(0)); dispatch(setMaxRate(0))}}
+        >
           {rate.min ? rate.max ? `$${rate.min} - $${rate.max}` : `Above $${rate.min}` : `Below $${rate.max}`}
-          <button className={style.remove} onClick={() => {dispatch(setMinRate(0)); dispatch(setMaxRate(0))}}>Remove</button>
-        </span>
+        </Badge>
       : null}
       {certifications.map((certification, index) => (
-        <span key={certification} className={`${style.certification} ${index % 2 === 0 ? style.even : style.odd}`}>
+        <Badge
+          key={certification}
+          className={`${style.certification} ${index % 2 === 0 ? style.even : style.odd}`}
+          remove={() => dispatch(removeCertification(certification))}
+        >
           {certification}
-          <button className={style.remove} onClick={() => dispatch(removeCertification(certification))}>Remove</button>
-        </span>
+        </Badge>
       ))}
-      <span className={style.addButton} aria-label='add filter' onMouseDown={(e) => e.preventDefault()} onClick={() => setPopup(true)}>
-        Add filter
-        {popup ?
-          <div ref={popupWrap}>
-            <Popup/>
-          </div>
-        : null}
-      </span>
+
+      <div ref={popupWrap} style={{fontSize: 0, position: 'relative', display: 'inline-block'}}>
+        <button className={`${style.addButton} ${popup ? style.pushed : ''}`} aria-label='add filter' onMouseDown={(e) => e.preventDefault()} onClick={() => setPopup(true)}>
+          Add filter
+        </button>
+        <Popup visible={popup} hide={() => setPopup(false)}/>
+      </div>
     </div>
   )
 }

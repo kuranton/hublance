@@ -1,0 +1,71 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    trasform: scale(1, 1);
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    trasform: scale(1, 1);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+}
+
+.wrap {
+  will-change: width;
+  transition: width 250ms ease;
+}
+
+.measure {
+  position: absolute;
+  visibility: hidden;
+  border: 2px solid;
+  padding: 4px 8px;
+}
+
+.remove {
+  font-size: 0;
+  padding: 0;
+  margin: 0 0 0 5px;
+  width: 10px;
+  height: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.remove::before, .remove::after {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 1px;
+  position: absolute;
+  top: calc(50% - 0.5px);
+  left: 1px;
+  transform-origin: center;
+  background: var(--remove-color);
+}
+
+.remove::before {
+  transform: rotate(-45deg);
+}
+
+.remove::after {
+  transform: rotate(45deg);
+}
