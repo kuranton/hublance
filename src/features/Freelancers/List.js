@@ -1,4 +1,4 @@
-import {useEffect, useMemo} from 'react'
+import {useEffect, useMemo, useState, useCallback} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {fetchFreelancers} from '@store/freelancersSlice'
@@ -12,6 +12,7 @@ import Form from '@features/Signup/Form'
 import Profile from '@features/Profile'
 
 const List = () => {
+  const [offsets, setOffsets] = useState([])
   const dispatch = useDispatch()
   const freelancers = useSelector(store => store.freelancers.list)
   const filters = useSelector(store => store.filters)
@@ -20,22 +21,35 @@ const List = () => {
   const editing = useSelector(store => store.profile.editing)
   const {certifications, countries, rate} = filters
 
-  const filtered = useMemo(() => freelancers.filter(freelancer => {
+  const filtered = useMemo(() => freelancers.reduce((accumulator, currentValue, currentIndex) => {
     if (
-      freelancer.rate < rate.min ||
-      (rate.max && freelancer.rate > rate.max) ||
-      (certifications.length && !certifications.every(certification => freelancer.certifications.includes(certification))) ||
-      (countries.length && !countries.includes(freelancer.country))
+      currentValue.rate > rate.min &&
+      (!rate.max || currentValue.rate < rate.max) &&
+      (!certifications.length || certifications.every(certification => currentValue.certifications.includes(certification))) &&
+      (!countries.length || countries.includes(currentValue.country))
     ) {
-      return false
-    } else {
-      return true
+      let offset = 0
+      offsets.forEach(({index, amount}) => {
+        if (index < currentIndex) {
+          offset += amount
+        }
+      })
+      accumulator.push({...currentValue, offset, index: currentIndex})
     }
-  }), [freelancers, certifications, countries, rate])
+    return accumulator
+  }, []), [freelancers, certifications, countries, rate, offsets])
 
   useEffect(() => {
     dispatch(fetchFreelancers())
   }, [dispatch])
+
+  const addOffset = (item) => {
+    setOffsets([...offsets, item])
+  }
+
+  const removeOffset = useCallback((index) => {
+    setOffsets(offsets => offsets.filter(item => item.index !== index))
+  }, [])
 
   return(
     <div className={style.wrap}>
@@ -56,13 +70,13 @@ const List = () => {
             started ?
               <Form/>
             :
-            <li className={style.row}>
-              <Join/>
-            </li>
+            <Join/>
           : null
           }
 
-          {filtered.map(freelancer => <li key={freelancer.id} className={style.row}><Single data={freelancer}/></li>)}
+          {filtered.map((freelancer, index) =>
+            <Single key={freelancer.id} data={freelancer} addOffset={addOffset} removeOffset={removeOffset} isLast={index > filtered.length - 3}/>
+          )}
         </ul>
       </div>
     </div>

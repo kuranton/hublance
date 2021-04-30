@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.header, .row {
+.header {
   display: grid;
   grid-template-columns: 99px 198px 130px 78px 110px 29px;
   column-gap: 12px;
@@ -55,13 +55,6 @@
 /* Handle on hover */
 .list::-webkit-scrollbar-thumb:hover {
   background: #C6C6C6;
-}
-
-.row {
-  padding: 32px 0;
-  border-bottom: 1px solid #DCDCDC;
-  align-items: center;
-  row-gap: 25px;
 }
 
 .row > div:first-of-type, .row > div:nth-of-type(4),
