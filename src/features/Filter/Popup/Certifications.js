@@ -1,11 +1,4 @@
-import {useState} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-
-import {setCertifications} from '@store/filtersSlice'
-
-import Search from './Search'
 import List from './List'
-import Footer from './Footer'
 
 const certifications = [
   'Hubspot CMS for Developers',
@@ -20,13 +13,7 @@ const certifications = [
   'Consectetur adipiscing elit'
 ]
 
-const Certifications = ({onCancel}) => {
-  const [selected, setSelected] = useState(useSelector(store => store.filters.certifications) || [])
-  const [filter, setFilter] = useState('')
-  const filtered = certifications.filter(item => item.toLowerCase().indexOf(filter.toLowerCase()) !== -1)
-
-  const dispatch = useDispatch()
-
+const Certifications = ({visible, height, setHeight, search, selected, setSelected}) => {
   const add = (item) => {
     setSelected([...selected, item])
   }
@@ -35,11 +22,9 @@ const Certifications = ({onCancel}) => {
   }
 
   return(
-    <>
-      <Search onChange={setFilter}/>
-      <List list={filtered} selected={selected} add={add} remove={remove}/>
-      <Footer onCancel={onCancel} onSave={() => dispatch(setCertifications(selected))}/>
-    </>
+    <div style={!visible ? {display: 'none'} : {}}>
+      <List visible={visible} list={certifications} selected={selected} height={height} setHeight={setHeight} search={search} add={add} remove={remove}/>
+    </div>
   )
 }
 

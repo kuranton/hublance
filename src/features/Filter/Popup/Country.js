@@ -1,19 +1,9 @@
 import {useState, useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
 
-import {setCountries} from '@store/filtersSlice'
-
-import Search from './Search'
 import List from './List'
-import Footer from './Footer'
 
-const Country = ({onCancel}) => {
-  const [selected, setSelected] = useState(useSelector(state => state.filters.countries) || [])
+const Country = ({visible, height, setHeight, search, selected, setSelected}) => {
   const [countries, setCountriesState] = useState([])
-  const [filter, setFilter] = useState('')
-  const filtered = countries.filter(item => item.toLowerCase().indexOf(filter.toLowerCase()) !== -1)
-
-  const dispatch = useDispatch()
 
   const add = (item) => {
     setSelected([...selected, item])
@@ -32,11 +22,9 @@ const Country = ({onCancel}) => {
     fetchCountries()
   }, [])
   return(
-    <>
-      <Search onChange={setFilter}/>
-      <List list={filtered} selected={selected} add={add} remove={remove}/>
-      <Footer onCancel={onCancel} onSave={() => dispatch(setCountries(selected))}/>
-    </>
+    <div style={!visible ? {display: 'none'} : {}}>
+      <List visible={visible} list={countries} selected={selected} height={height} setHeight={setHeight} search={search} add={add} remove={remove}/>
+    </div>
   )
 }
 

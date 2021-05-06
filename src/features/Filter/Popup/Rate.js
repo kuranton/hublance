@@ -1,12 +1,8 @@
-import {useState} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-
-import {setRate as saveRate} from '@store/filtersSlice'
+import {useRef, useLayoutEffect} from 'react'
 
 import listStyle from './List.module.css'
+import itemStyle from './Item.module.css'
 import style from './Rate.module.css'
-
-import Footer from './Footer'
 
 const rates = [{
   label: 'Below $30',
@@ -30,21 +26,29 @@ const rates = [{
   max: 0
 }]
 
-const Certifications = ({onCancel}) => {
-  const [rate, setRate] = useState(useSelector(state => state.filters.rate) || {min: 0, max: 0})
-  const dispatch = useDispatch()
+const Rate = ({visible, setHeight, rate, setRate}) => {
+  const wrap = useRef(null)
   const {min, max} = rate
 
-  const save = () => {
-    dispatch(saveRate(rate))
-  }
+  useLayoutEffect(() => {
+    if (!visible) {
+      return
+    }
+
+    setHeight(wrap.current.getBoundingClientRect().height)
+  }, [visible, setHeight])
 
   return(
-    <>
-      <ul className={listStyle.list} style={{padding: '18px 0 0 0', height: 'auto'}}>
+    <div ref={wrap} style={!visible ? {display: 'none'} : {marginTop: -12}}>
+      <ul className={listStyle.list} style={{height: 'auto'}}>
         {rates.map((item, index) => (
-          <li key={index} className={`${listStyle.item} ${min === item.min && max === item.max ? listStyle.selected : ''}`} onClick={() => setRate({min: item.min, max: item.max})}>
-            <button className={listStyle.radio}>Select</button>
+          <li
+            key={index}
+            className={`${itemStyle.item} ${min === item.min && max === item.max ? itemStyle.selected : ''}`}
+            onClick={() => setRate({min: item.min, max: item.max})}
+            style={{position: 'static'}}
+          >
+            <button className={itemStyle.radio}>Select</button>
             {item.label}
           </li>
         ))}
@@ -60,9 +64,8 @@ const Certifications = ({onCancel}) => {
           <input type='number' name='to' className={style.input} onChange={(e) => setRate({min: rate.min, max: e.target.value})} value={max ? max : ''}/>
         </div>
       </div>
-      <Footer onCancel={onCancel} onSave={save}/>
-    </>
+    </div>
   )
 }
 
-export default Certifications
+export default Rate

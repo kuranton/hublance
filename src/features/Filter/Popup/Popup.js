@@ -1,68 +1,82 @@
-import {useState, useEffect} from 'react'
+import {useState, useLayoutEffect, useRef} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {setCertifications as saveCertifications, setCountries as saveCountries, setRate as saveRate} from '@store/filtersSlice'
+
 import style from './Popup.module.css'
+
+import Header from './Header'
+import Footer from './Footer'
 
 import Certifications from './Certifications'
 import Country from './Country'
 import Rate from './Rate'
 
-const Popup = ({visible}) => {
-  const [shouldRender, setRender] = useState(visible)
+const Popup = ({visible, hide, remove}) => {
+  const typeSelect = useRef(null)
   const [type, setType] = useState('')
+  const [search, setSearch] = useState('')
+  const [bodyHeight, setHeight] = useState(0)
+  const [certifications, setCertifications] = useState(useSelector(store => store.filters.certifications) || [])
+  const [countries, setCountries] = useState(useSelector(state => state.filters.countries) || [])
+  const [rate, setRate] = useState(useSelector(state => state.filters.rate) || {min: 0, max: 0})
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-    if (visible) {
-      setRender(true)
+  const save = () => {
+    switch(type) {
+      case 'certifications':
+        dispatch(saveCertifications(certifications))
+        break
+      case 'country':
+        dispatch(saveCountries(countries))
+        break
+      case 'rate':
+        dispatch(saveRate(rate))
+        break
+      default:
+        break
     }
-  }, [visible])
+  }
 
   const onAnimationEnd = () => {
     if (!visible) {
-      setRender(false)
-      setType('')
+      remove()
     }
   }
 
-  let styleObj = {
-    height: 149
-  }
-
-  if (type === 'certifications' || type === 'country') {
-    styleObj.height = 459
-  } else if (type === 'rate') {
-    styleObj.height = 414
-  }
-
-  if (!visible) {
-    styleObj.animationName = style.disappear
-  }
+  useLayoutEffect(() => {
+    if (!typeSelect.current || type !== '') {
+      return
+    }
+    const height = typeSelect.current.offsetHeight
+    setHeight(height + 24)
+  }, [type])
 
   return(
-    shouldRender && (
-      <div className={`${style.wrap} ${type !== '' ? style.typeSelected : ''}`} onAnimationEnd={onAnimationEnd} style={styleObj}>
-        <div className={style.typeSelect}>
-          <div className={style.row} onMouseDown={() => setType('certifications')}>
+    <div className={`${style.wrap} ${type !== '' ? style.typeSelected : ''}`} onAnimationEnd={onAnimationEnd} style={!visible ? {animationName: style.disappear} : {}}>
+      <Header searchVisible={type !== ''} search={search} setSearch={setSearch}/>
+
+      <div className={style.body} style={(type === '' || type === 'rate') ? {transform: 'translateY(-31px)', zIndex: 1} : {}}>
+        <div className={style.background} style={{transform: `scaleY(${(bodyHeight - (type === '' ? 24 : 0))/100})`}}/>
+        <div ref={typeSelect} className={style.typeSelect}>
+          <div className={style.row} onClick={() => setType('certifications')}>
             Certifications
           </div>
-          <div className={style.row} onMouseDown={() => setType('country')}>
+          <div className={style.row} onClick={() => setType('country')}>
             Country
           </div>
-          <div className={style.row} onMouseDown={() => setType('rate')}>
+          <div className={style.row} onClick={() => setType('rate')}>
             Hourly Rate
           </div>
         </div>
         <div className={style.type}>
-          {type === 'certifications' ?
-            <Certifications onCancel={() => setType('')}/>
-          : null}
-          {type === 'country' ?
-            <Country onCancel={() => setType('')}/>
-          : null}
-          {type === 'rate' ?
-            <Rate onCancel={() => setType('')}/>
-          : null}
+          <Certifications height={bodyHeight} setHeight={setHeight} search={search} visible={type === 'certifications'} selected={certifications} setSelected={setCertifications}/>
+          <Country height={bodyHeight} setHeight={setHeight} search={search} visible={type === 'country'} selected={countries} setSelected={setCountries}/>
+          <Rate setHeight={setHeight} visible={type === 'rate'} rate={rate} setRate={setRate}/>
         </div>
       </div>
-    )
+
+      <Footer translateY={bodyHeight - (type === '' ? 122 : type === 'rate' ? 31 : 0)} buttonsVisible={type !== ''} onCancel={hide} onSave={save}/>
+    </div>
   )
 }
 

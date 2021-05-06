@@ -11,21 +11,27 @@ import Badge from './Badge'
 
 const Filter = () => {
   const popupWrap = useRef({})
-  const [popup, setPopup] = useState(false)
+  const [popupVisible, setPopupVisible] = useState(false)
+  const [popupRender, setPopupRender] = useState(false)
 
   const dispatch = useDispatch()
   const certifications = useSelector(state => state.filters.certifications)
   const countries = useSelector(state => state.filters.countries)
   const rate = useSelector(state => state.filters.rate)
 
+  const openPopup = () => {
+    setPopupRender(true)
+    setPopupVisible(true)
+  }
+
   const closePopup = useCallback((e) => {
-    if (!popup) {
+    if (!popupVisible) {
       return
     }
     if (popupWrap.current && !popupWrap.current.contains(e.target)) {
-      setPopup(false)
+      setPopupVisible(false)
     }
-  }, [popup])
+  }, [popupVisible])
 
   useEventListener('click', closePopup)
   return(
@@ -61,10 +67,12 @@ const Filter = () => {
       ))}
 
       <div ref={popupWrap} style={{fontSize: 0, position: 'relative', display: 'inline-block'}}>
-        <button className={`${style.addButton} ${popup ? style.pushed : ''}`} aria-label='add filter' onMouseDown={(e) => e.preventDefault()} onClick={() => setPopup(true)}>
+        <button className={`${style.addButton} ${popupVisible ? style.pushed : ''}`} aria-label='add filter' onMouseDown={(e) => e.preventDefault()} onClick={openPopup}>
           Add filter
         </button>
-        <Popup visible={popup} hide={() => setPopup(false)}/>
+        {popupRender ?
+          <Popup visible={popupVisible} remove={() => setPopupRender(false)} hide={() => setPopupVisible(false)}/>
+        : null}
       </div>
     </div>
   )
