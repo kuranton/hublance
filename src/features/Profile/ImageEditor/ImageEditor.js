@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {open, setWarning, setUrl, setCropping, setZoomAmount, setRotation, setImgData, setAspectRatio} from '@store/imageEditorSlice'
@@ -11,6 +11,7 @@ import Modal from './Modal'
 const [canvasWidth, canvasHeight, radius] = [704, 260, 110]
 
 const UploadPic = () => {
+  const positionRef = useRef(null)
   const [img, setImg] = useState(null)
   const dispatch = useDispatch()
   const photoUrl = useSelector(store => store.profile.photoUrl)
@@ -53,11 +54,11 @@ const UploadPic = () => {
 
   return(
     <div className={style.wrap}>
-      <button type='button' className={style.edit} onMouseDown={(e) => e.preventDefault()} onClick={() => dispatch(open())} aria-label='Edit photo'>
+      <button ref={positionRef} type='button' className={style.edit} onMouseDown={(e) => e.preventDefault()} onClick={() => dispatch(open())} aria-label='Edit photo'>
         <UserPic url={photoUrl}/>
       </button>
       {isOpen ?
-        <Modal img={img}/>
+        <Modal img={img} positionRef={positionRef}/>
       : null}
     </div>
   )

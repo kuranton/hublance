@@ -1,6 +1,7 @@
 import {useState, useLayoutEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {setCertifications as saveCertifications, setCountries as saveCountries, setRate as saveRate} from '@store/filtersSlice'
+import {filterFreelancers} from '@store/freelancersSlice'
 
 import style from './Popup.module.css'
 
@@ -25,12 +26,15 @@ const Popup = ({visible, hide, remove}) => {
     switch(type) {
       case 'certifications':
         dispatch(saveCertifications(certifications))
+        dispatch(filterFreelancers())
         break
       case 'country':
         dispatch(saveCountries(countries))
+        dispatch(filterFreelancers())
         break
       case 'rate':
         dispatch(saveRate(rate))
+        dispatch(filterFreelancers())
         break
       default:
         break
@@ -57,21 +61,23 @@ const Popup = ({visible, hide, remove}) => {
 
       <div className={style.body} style={(type === '' || type === 'rate') ? {transform: 'translateY(-31px)', zIndex: 1} : {}}>
         <div className={style.background} style={{transform: `scaleY(${(bodyHeight - (type === '' ? 24 : 0))/100})`}}/>
-        <div ref={typeSelect} className={style.typeSelect}>
-          <div className={style.row} onClick={() => setType('certifications')}>
-            Certifications
+        <div className={style.overflowWrap}>
+          <div ref={typeSelect} className={style.typeSelect}>
+            <div className={style.row} onClick={() => setType('certifications')}>
+              Certifications
+            </div>
+            <div className={style.row} onClick={() => setType('country')}>
+              Country
+            </div>
+            <div className={style.row} onClick={() => setType('rate')}>
+              Hourly Rate
+            </div>
           </div>
-          <div className={style.row} onClick={() => setType('country')}>
-            Country
+          <div className={style.type}>
+            <Certifications height={bodyHeight} setHeight={setHeight} search={search} visible={type === 'certifications'} selected={certifications} setSelected={setCertifications}/>
+            <Country height={bodyHeight} setHeight={setHeight} search={search} visible={type === 'country'} selected={countries} setSelected={setCountries}/>
+            <Rate setHeight={setHeight} visible={type === 'rate'} rate={rate} setRate={setRate}/>
           </div>
-          <div className={style.row} onClick={() => setType('rate')}>
-            Hourly Rate
-          </div>
-        </div>
-        <div className={style.type}>
-          <Certifications height={bodyHeight} setHeight={setHeight} search={search} visible={type === 'certifications'} selected={certifications} setSelected={setCertifications}/>
-          <Country height={bodyHeight} setHeight={setHeight} search={search} visible={type === 'country'} selected={countries} setSelected={setCountries}/>
-          <Rate setHeight={setHeight} visible={type === 'rate'} rate={rate} setRate={setRate}/>
         </div>
       </div>
 

@@ -1,0 +1,67 @@
+.track {
+  transition: opacity 250ms ease;
+  position: absolute;
+  top: 0;
+  right: 11px;
+}
+
+.track.hidden {
+  opacity: 0;
+}
+
+.scrollbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 250ms ease;
+  width: 1px;
+  height: 10px;
+  background: #DCDCDC;
+  transform-origin: top;
+}
+
+.thumb {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  transition: transform 250ms ease;
+  width: 5px;
+  height: 10px;
+  transform-origin: top;
+}
+
+.thumbTop, .thumbMid, .thumbBot {
+  position: absolute;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: #DCDCDC;
+}
+
+.thumb:hover > div {
+  background-color: #C6C6C6;
+}
+
+.thumb.dragging > div {
+  background-color: #b2b2b2;
+}
+
+.thumbTop {
+  top: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.thumbMid {
+  top: 5px;
+  transform-origin: top;
+  transition: transform 250ms ease;
+}
+
+.thumbBot {
+  top: 0;
+  height: 6px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: transform 250ms ease;
+}

@@ -1,14 +1,25 @@
 .wrap {
+  box-sizing: border-box;
+  max-width: 800px;
+  margin: 0 auto 97px auto;
+  /* padding: 32px 48px; */
+  box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
   position: relative;
 }
 
 .header {
+  padding: 32px 48px 0 48px;
+  background: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.08);
+}
+
+.tableHead {
   display: grid;
   grid-template-columns: 99px 198px 130px 78px 110px 29px;
   column-gap: 12px;
-}
-
-.header {
   font-size: 14px;
   line-height: 17px;
   font-weight: 700;
@@ -21,64 +32,45 @@
 
 .body {
   box-sizing: border-box;
-  width: calc(100% + 26px);
+  height: 836px;
+  padding: 0 48px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
 }
 
 .list {
   margin: 0;
-  padding: 0 21px 0 0;
+  padding: 0;
   list-style: none;
   font-size: 16px;
   line-height: 19px;
   color: #333333;
-  max-height: 836px;
-  overflow-y: scroll;
-}
-
-.list::-webkit-scrollbar {
-  width: 5px;
-  height: calc(100% - 100px);
-}
-
-/* Track */
-.list::-webkit-scrollbar-track {
-  background: none;
-  box-shadow: inset 0 0 0 2px #FFFFFF, inset 2px 0 0 1px #DCDCDC;
-}
-
-/* Handle */
-.list::-webkit-scrollbar-thumb {
-  background: #DCDCDC;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-.list::-webkit-scrollbar-thumb:hover {
-  background: #C6C6C6;
+  position: relative;
+  will-change: transform;
+  transition: transform 250ms ease;
 }
 
 .row > div:first-of-type, .row > div:nth-of-type(4),
-.header > span:first-of-type, .header > span:nth-of-type(4),
+.tableHead > span:first-of-type, .tableHead > span:nth-of-type(4),
 .row > div:first-of-type, .row > div:nth-of-type(5),
-.header > span:first-of-type, .header > span:nth-of-type(5) {
+.tableHead > span:first-of-type, .tableHead > span:nth-of-type(5) {
   justify-self: center;
 }
 
-.scrollbar {
-  width: 1px;
-  height: 767px;
-  position: absolute;
-  right: -24px;
-  bottom: 18px;
-  background: #DCDCDC;
+.footer {
+  width: 100%;
+  height: 32px;
+  background: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  /* box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.08);
+  clip-path: polygon(-60px 0, calc(100% + 60px) 0, calc(100% + 60px) calc(100% + 60px), -60px calc(100% + 60px)); */
 }
 
-.caret {
-  width: 5px;
-  height: 27px;
-  background: #DCDCDC;
-  border-radius: 5px;
-  position: absolute;
-  top: 0;
-  left: -2px;
+.noMatches {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

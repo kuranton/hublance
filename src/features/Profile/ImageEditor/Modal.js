@@ -13,9 +13,10 @@ import Controls from './Controls'
 
 const accept = ['image/jpeg', 'image/jpg', 'image/png']
 
-const UserPicModal = ({img}) => {
+const UserPicModal = ({img, positionRef}) => {
   const radius = 110 //round pic radius after crop
 
+  const modal = useRef(null)
   const uploader = useRef(null)
   const canvas = useRef(null)
 
@@ -51,11 +52,10 @@ const UserPicModal = ({img}) => {
 
   const saveCrop = () => {
     dispatch(setWarning(''))
-    if (!url) {
-      dispatch(close())
-      return
+    if (url) {
+      canvas.current.saveCrop()
     }
-    canvas.current.saveCrop()
+    modal.current.onClose()
   }
 
   const deletePic = () => {
@@ -109,7 +109,7 @@ const UserPicModal = ({img}) => {
   }
 
   return(
-    <Modal close={() => dispatch(close())} title='Edit Photo'>
+    <Modal ref={modal} close={() => dispatch(close())} title='Edit Photo' positionRef={positionRef}>
       <div className={style.body} onDragEnter={() => dispatch(setDraggingFile(true))}>
         <Canvas ref={canvas} img={img} zoom={zoom} radius={radius}/>
         {!cropping ?

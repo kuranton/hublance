@@ -6,7 +6,7 @@ import {setPhotoUrl} from '@store/profileSlice'
 
 import style from './Canvas.module.css'
 
-const Canvas = forwardRef(({img, zoom, radius}, ref) => {
+const Canvas = forwardRef(({img, zoom, radius, onClose}, ref) => {
   const canvas = useRef(null)
 
   const dispatch = useDispatch()
@@ -105,7 +105,6 @@ const Canvas = forwardRef(({img, zoom, radius}, ref) => {
       const blob = await offscreen.convertToBlob()
       const objectUrl = URL.createObjectURL(blob)
       dispatch(setPhotoUrl(objectUrl))
-      dispatch(close())
     }
   }))
 

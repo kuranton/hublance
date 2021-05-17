@@ -1,0 +1,36 @@
+@keyframes appear {
+  from {
+    transform: translateY(46px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(46px);
+    opacity: 0;
+  }
+}
+
+.noMatches {
+  width: 100%;
+  padding: 6px 6px 6px 46px;
+  min-height: 46px;
+  box-sizing: border-box;
+  display: flex;
+  color: #848484;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+}

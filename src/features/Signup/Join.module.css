@@ -1,3 +1,12 @@
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .wrap {
   display: grid;
   grid-template-columns: 99px 198px 130px 78px 110px 29px;
@@ -5,6 +14,9 @@
   row-gap: 25px;
   align-items: center;
   height: 120px;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
 }
 
 .title {

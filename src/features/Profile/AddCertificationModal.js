@@ -1,3 +1,5 @@
+import {useRef} from 'react'
+
 import DatePicker from '@components/DatePicker/DatePicker'
 import Modal from '@components/Modal/Modal'
 import Label from '@components/Label/Label'
@@ -7,14 +9,15 @@ import Button from '@components/Button/Button'
 import style from './AddCertificationModal.module.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const AddCertificationModal = ({close, add}) => {
+const AddCertificationModal = ({close, add, positionRef}) => {
+  const modalRef = useRef(null)
   const handleSubmit = (e) => {
     e.preventDefault()
     add()
-    close()
+    modalRef.current.onClose()
   }
   return(
-    <Modal close={close} title='Add Certification'>
+    <Modal ref={modalRef} close={close} title='Add Certification' positionRef={positionRef}>
       <div className={style.body}>
         <form className={style.form} onSubmit={handleSubmit}>
           <div>

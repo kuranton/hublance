@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useEventListener} from '@util/useEventListener'
 
 import {removeCountry, setMinRate, setMaxRate, removeCertification} from '@store/filtersSlice'
+import {filterFreelancers} from '@store/freelancersSlice'
 
 import style from './Filter.module.css'
 
@@ -33,17 +34,18 @@ const Filter = () => {
     }
   }, [popupVisible])
 
-  useEventListener('click', closePopup)
+  useEventListener('mousedown', closePopup)
   return(
     <div className={style.wrap}>
-      {/* {!certifications.length && !countries.length && !rate.min && !rate.max ? */}
       <span className={style.label}>Filters:</span>
-      {/* : null} */}
       {countries.map(country => (
         <Badge
           key={country}
           className={style.country}
-          remove={() => dispatch(removeCountry(country))}
+          remove={() => {
+            dispatch(removeCountry(country))
+            dispatch(filterFreelancers())
+          }}
         >
           {country}
         </Badge>
@@ -51,7 +53,11 @@ const Filter = () => {
       {rate.min || rate.max ?
         <Badge
           className={style.rate}
-          remove={() => {dispatch(setMinRate(0)); dispatch(setMaxRate(0))}}
+          remove={() => {
+            dispatch(setMinRate(0))
+            dispatch(setMaxRate(0))
+            dispatch(filterFreelancers())
+          }}
         >
           {rate.min ? rate.max ? `$${rate.min} - $${rate.max}` : `Above $${rate.min}` : `Below $${rate.max}`}
         </Badge>
@@ -60,7 +66,10 @@ const Filter = () => {
         <Badge
           key={certification}
           className={`${style.certification} ${index % 2 === 0 ? style.even : style.odd}`}
-          remove={() => dispatch(removeCertification(certification))}
+          remove={() => {
+            dispatch(removeCertification(certification))
+            dispatch(filterFreelancers())
+          }}
         >
           {certification}
         </Badge>

@@ -1,10 +1,38 @@
+@keyframes appear {
+  from {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+}
+
+.wrap {
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  will-change: transform, opacity;
+}
+
 .form {
   display: grid;
   grid-template-columns: 99px 178px 154px 78px auto;
   column-gap: 12px;
   row-gap: 25px;
   padding: 0 0 45px 0;
-  border-bottom: 1px solid #DCDCDC;
 }
 
 .buttonExpand {

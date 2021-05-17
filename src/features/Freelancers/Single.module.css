@@ -1,12 +1,41 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .wrap {
   padding: 32px 0;
   border-top: 1px solid #DCDCDC;
   transition: transform 250ms ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
   background: #fff;
 }
 
-.wrap:last-of-type {
-  border-bottom: 1px solid #DCDCDC;
+.background {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #fff;
 }
 
 .last {
@@ -30,7 +59,9 @@
 .expandContent {
   padding-top: 25px;
   position: absolute;
-  transition: opacity 250ms ease;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
 }
 
 .title {

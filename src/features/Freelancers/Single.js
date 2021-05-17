@@ -1,37 +1,60 @@
 import {useState, useRef, useLayoutEffect, useEffect} from 'react'
+import {useDispatch} from 'react-redux'
+import {addOffset, removeOffset} from '@store/freelancersSlice'
 
 import style from './Single.module.css'
 
 import UserPic from '../../components/UserPic/UserPic'
 import Certifications from '../../components/Certifications/Certifications'
 
-const Single = ({data, addOffset, removeOffset, isLast}) => {
+const Single = ({data, setScroll, scroll, isLast, listHeight, offset}) => {
   const expandContent = useRef(null)
+  const [shouldRender, setRender] = useState(data.visible)
   const [expanded, setExpanded] = useState(false)
+  const [animating, setAnimating] = useState(false)
   const [height, setHeight] = useState(0)
+  const dispatch = useDispatch()
 
   useLayoutEffect(() => {
+    if (!expandContent.current) {
+      return
+    }
     const {height} = expandContent.current.getBoundingClientRect()
     setHeight(height)
   }, [expandContent])
 
   const toggleExpand = () => {
     if (expanded) {
-      removeOffset(data.index)
-    } else if (!expanded && !isLast) {
-      addOffset({amount: height, index: data.index})
+      dispatch(removeOffset({amount: height, index: data.index}))
+      if (isLast) {
+        setScroll(scroll => scroll - height)
+      }
+    } else {
+      dispatch(addOffset({amount: height, index: data.index}))
+      const overflow = height - 715 + data.offset - scroll
+      if (overflow > 0) {
+        setScroll(scroll => scroll + overflow)
+      }
     }
     setExpanded(!expanded)
+    setAnimating(true)
   }
 
   useEffect(() => {
-    return () => removeOffset(data.index)
-  }, [removeOffset, data.index])
+    if (data.visible) {
+      setRender(true)
+    }
+  }, [data.visible])
+
+  if (!shouldRender) {
+    return null
+  }
 
   return(
     <li
-      className={`${style.wrap} ${expanded ? style.expanded : ''} ${isLast ? style.last : ''}`}
-      style={isLast ? {transform: `translateY(${data.offset}px)`, height: !expanded ? 120 : 120 + height} : {transform: `translateY(${data.offset}px)`}}
+      className={`${style.wrap} ${expanded ? style.expanded : ''}`}
+      style={{transform: `translateY(${data.offset + offset}px)`, animationName: data.visible ? style.appear : style.disappear}}
+      onAnimationEnd={() => setRender(data.visible)}
     >
       <div className={style.collapseContent}>
         <UserPic url={data.photoUrl} letter={data.name.substring(0, 1)}/>
@@ -50,25 +73,27 @@ const Single = ({data, addOffset, removeOffset, isLast}) => {
         </button>
       </div>
 
-      <div ref={expandContent} className={style.expandContent} style={{opacity: expanded ? 1 : 0}}>
-        <span className={style.aboutTitle}>
-          About:
-        </span>
-        <p className={style.about}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        </p>
+      {(expanded || !height || animating) ?
+        <div ref={expandContent} className={style.expandContent} style={{animationName: expanded ? style.appear : style.disappear}} onAnimationEnd={() => setAnimating(false)}>
+          <span className={style.aboutTitle}>
+            About:
+          </span>
+          <p className={style.about}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          </p>
 
-        <span className={style.certificationsTitle}>
-          Certifications ({4}/6):
-        </span>
-        <Certifications list={[0,0,0,0,0,0,0]}/>
+          <span className={style.certificationsTitle}>
+            Certifications ({4}/6):
+          </span>
+          <Certifications list={[0,0,0,0,0,0,0]}/>
 
-        <span className={style.contactTitle}>
-          Contact:
-        </span>
-        <a className={style.contact} href={`mailto:${data.email}`}>{data.email}</a>
-      </div>
+          <span className={style.contactTitle}>
+            Contact:
+          </span>
+          <a className={style.contact} href={`mailto:${data.email}`}>{data.email}</a>
+        </div>
+      : null}
     </li>
   )
 }

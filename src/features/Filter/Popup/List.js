@@ -3,14 +3,16 @@ import {useEventListener} from '@util/useEventListener'
 
 import style from './List.module.css'
 
+import Scrollbar from '@components/Scrollbar'
 import Item from './Item'
+import NoMatches from './NoMatches'
 
 const List = ({visible, list, search, height, setHeight, selected, add, remove, set, multiple = true}) => {
   const listRef = useRef({})
+  const [dragging, setDragging] = useState(false)
   const [scroll, setScroll] = useState(0)
   const [filtered, setFiltered] = useState([])
   const [contentHeight, setContentHeight] = useState(0)
-  const [dragging, setDragging] = useState(false)
 
   const select = (item) => {
     if (!multiple) {
@@ -50,6 +52,7 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
       }
       return data
     })
+    offset = Math.max(offset, 46)
     setContentHeight(offset)
     setFiltered(arr)
     setScroll(scroll => Math.max(Math.min(offset - 317, scroll), 0))
@@ -57,47 +60,15 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
     setHeight(height + 24) //24 is padding
   }, [visible, search, setHeight, list])
 
-  const dragStart = (e) => {
-    e.preventDefault()
-    setDragging(true)
-  }
-
-  const drag = useCallback((e) => {
-    if (!dragging) {
-      return
-    }
-    setScroll(scroll => Math.max(Math.min(contentHeight - 317, scroll + e.movementY*contentHeight/(height - 24)), 0))
-  }, [dragging, height, contentHeight])
-
-  const dragEnd = useCallback(() => {
-    if (!dragging) {
-      return
-    }
-    setDragging(false)
-  }, [dragging])
-
-  useEventListener('mousemove', drag)
-  useEventListener('mouseup', dragEnd)
-
   return(
     <>
       <ul ref={listRef} className={style.list} style={{transform: `translateY(${-scroll}px)`, height: contentHeight, transition: dragging ? 'none' : null}}>
+        <NoMatches visible={!filtered.find(item => item.visible)}/>
         {filtered.map((item, index) => (
           <Item key={item.content} selected={selected.indexOf(item.content) !== -1} onSelect={() => select(item.content)} multiple={multiple} data={item}/>
         ))}
       </ul>
-      <div className={`${style.track} ${height >= contentHeight ? style.hidden : ''}`}>
-        <div className={style.scrollbar} style={{transform: `scaleY(${(height - 24)/10})`}}/>
-        <div
-          onMouseDown={dragStart}
-          className={`${style.thumb} ${dragging ? style.dragging : ''}`}
-          style={{transform: `translateY(${scroll/contentHeight*(height - 24)}px)`, transition: dragging ? 'none' : null}}
-        >
-          <div className={style.thumbTop}/>
-          <div className={style.thumbMid} style={{transform: `scaleY(${(height - 24)/5 * (height - 24)/contentHeight - 2})`}}/>
-          <div className={style.thumbBot} style={{transform: `translateY(${(height - 24) * (height - 24)/contentHeight - 5}px)`}}/>
-        </div>
-      </div>
+      <Scrollbar scroll={scroll} setScroll={setScroll} wrapHeight={height - 24} contentHeight={contentHeight} maxHeight={317} dragging={dragging} setDragging={setDragging}/>
     </>
   )
 }

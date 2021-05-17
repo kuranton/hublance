@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification} from '@store/profileSlice'
@@ -15,7 +15,10 @@ import Progress from './Progress'
 import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
 
-const Profile = () => {
+const Profile = ({setOffset}) => {
+  const wrap = useRef(null)
+  const certificationsButton = useRef(null)
+  const [fading, setFading] = useState(false)
   const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
 
@@ -40,8 +43,24 @@ const Profile = () => {
 
     fetchCountries()
   }, [])
+
+  useLayoutEffect(() => {
+    setOffset(wrap.current.getBoundingClientRect().height)
+  }, [wrap.current, setOffset])
+
+  const close = () => {
+    setFading(true)
+    setOffset(-1)
+  }
+
+  const handleAnimationEnd = () => {
+    if (fading) {
+      dispatch(hide())
+    }
+  }
+
   return(
-    <div className={style.wrap}>
+    <div ref={wrap} className={style.wrap} style={{animationName: fading ? style.disappear : style.appear}} onAnimationEnd={handleAnimationEnd}>
       <Progress/>
 
       <form className={style.form}>
@@ -70,7 +89,7 @@ const Profile = () => {
           textarea={true}
           placeholder='Please share more details about your expertise...'
           className={style.about}
-          style={{minHeight: 187}}
+          style={{minHeight: 187, resize: 'vertical'}}
           defaultValue={about}
           onSubmit={(value) => dispatch(setAbout(value))}
         />
@@ -80,12 +99,12 @@ const Profile = () => {
         </span>
         <div className={style.certificationsWrap}>
           <div className={style.certifications}>
-            <button type='button' className={style.btnAddCert} onClick={() => setCertificationsModal(true)}>Add certification</button>
+            <button ref={certificationsButton} type='button' className={style.btnAddCert} onClick={() => setCertificationsModal(true)}>Add certification</button>
             <div>
               <Certifications list={certifications} slidesToShow={2}/>
             </div>
             {certificationsModal ?
-              <AddCertificationModal close={() => setCertificationsModal(false)} add={() => dispatch(addCertification())}/>
+              <AddCertificationModal close={() => setCertificationsModal(false)} add={() => dispatch(addCertification())} positionRef={certificationsButton}/>
             : null}
           </div>
         </div>
@@ -93,7 +112,7 @@ const Profile = () => {
         <label className={style.label} htmlFor='email' style={{marginTop: '5px'}}>Contact:</label>
         <Input className={style.contact} type='email' name='email' placeholder='Email' defaultValue={email} onSubmit={(value) => dispatch(setEmail(value))}/>
 
-        <Button className={style.btnClose} onClick={() => dispatch(hide())}>Close</Button>
+        <Button className={style.btnClose} onClick={close}>Close</Button>
         <Button className={style.btnSave} primary>Save profile</Button>
       </form>
     </div>

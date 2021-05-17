@@ -15,7 +15,7 @@
   font-size: 0;
 }
 
-.link, .linkJoin {
+.link, .linkJoin, .measure {
   color: inherit;
   text-decoration: none;
   margin-left: 34px;
@@ -24,11 +24,18 @@
   line-height: 19px;
 }
 
-.linkJoin {
+.linkJoin, .measure {
   font-family: inherit;
   padding: 6px 13px 7px 13px;
   border: 1px solid #fff;
   border-radius: 20px;
   background: none;
   cursor: pointer;
+}
+
+.measure {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
 }

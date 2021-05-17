@@ -22,32 +22,86 @@ export const fetchFreelancers = createAsyncThunk(
     let data = []
     json.results.forEach((entry, index) => {
       data.push({
-        id: index,
+        index,
         photoUrl: entry.picture.medium,
         title: titles[Math.floor(Math.random() * titles.length)],
         name: `${entry.name.first} ${entry.name.last}`,
         rate: Math.floor(Math.random() * 22)*5 + 5,
         country: entry.location.country,
         email: entry.email,
-        certifications: certs.filter(cert => Math.random() > 0.75)
+        certifications: certs.filter(cert => Math.random() > 0.75),
+        offset: index * 120,
+        additionalOffset: 0,
+        visible: true
       })
     })
     dispatch(setFreelancers(data))
+    dispatch(filterFreelancers())
   }
 )
 
 export const freelancersSlice = createSlice({
   name: 'freelancers',
   initialState: {
-    list: []
+    list: [],
+    totalHeight: 0
   },
   reducers: {
     setFreelancers: (state, action) => {
       state.list = action.payload
+    },
+    setFiltered: (state, action) => {
+      state.filtered = action.payload
+    },
+    setTotalHeight: (state, action) => {
+      state.totalHeight = action.payload
+    },
+    addOffset: (state, action) => {
+      const {index, amount} = action.payload
+      state.list[index].additionalOffset = amount
+      state.totalHeight += amount
+      for (var i = index + 1; i < state.list.length; i++) {
+        state.list[i].offset += amount
+      }
+    },
+    removeOffset: (state, action) => {
+      const {index, amount} = action.payload
+      state.list[index].additionalOffset = 0
+      state.totalHeight -= amount
+      for (var i = index + 1; i < state.list.length; i++) {
+        state.list[i].offset -= amount
+      }
     }
   }
 })
 
-export const {setFreelancers, setFiltered} = freelancersSlice.actions
+export const filterFreelancers = () => (dispatch, getState) => {
+  const {freelancers, filters} = getState()
+  const {certifications, countries, rate} = filters
+  const {list} = freelancers
+  let offset = 0
+  const arr = list.map(item => {
+    let freelancer = {...item}
+    if (
+      freelancer.rate > rate.min &&
+      (!rate.max || freelancer.rate < rate.max) &&
+      (!certifications.length || certifications.every(certification => freelancer.certifications.includes(certification))) &&
+      (!countries.length || countries.includes(freelancer.country))
+    ) {
+      freelancer.visible = true
+      freelancer.offset = offset
+      offset += freelancer.additionalOffset
+      offset += 120
+    } else {
+      freelancer.visible = false
+    }
+    return freelancer
+  })
+
+  dispatch(setFreelancers(arr))
+  dispatch(setTotalHeight(offset))
+}
+
+export const {setFreelancers, setTotalHeight, addOffset, removeOffset} = freelancersSlice.actions
 
 export default freelancersSlice.reducer

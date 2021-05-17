@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import style from './Header.module.css'
 
@@ -19,6 +20,7 @@ const Header = () => {
     }
   }
   const preventOutline = (e) => e.preventDefault()
+  const [a, set] = useState(false)
   return(
     <header className={style.header}>
       <h1 className={style.logo}>
@@ -28,7 +30,8 @@ const Header = () => {
 
       <nav>
         <a href='/' className={style.link}>about</a>
-        <button className={style.linkJoin} onMouseDown={preventOutline} onClick={join}>{submitted ? 'view profile' : 'join us'}</button>
+        <button className={style.linkJoin} onMouseDown={preventOutline} onClick={() => set(!a)}>{a ? 'view profile' : 'join us'}</button>
+        <div className={style.measure}>{a ? 'view profile' : 'join us'}</div>
       </nav>
     </header>
   )
