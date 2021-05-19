@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import style from './Header.module.css'
 
@@ -8,6 +8,7 @@ import {edit} from '@store/profileSlice'
 import logo from './logo.png'
 
 const Header = () => {
+  const [updatedText, setUpdatedText] = useState(false)
   const dispatch = useDispatch()
   const submitted = useSelector(store => store.signup.submitted)
   const join = () => {
@@ -20,7 +21,6 @@ const Header = () => {
     }
   }
   const preventOutline = (e) => e.preventDefault()
-  const [a, set] = useState(false)
   return(
     <header className={style.header}>
       <h1 className={style.logo}>
@@ -28,10 +28,18 @@ const Header = () => {
         <span>Hublance</span>
       </h1>
 
-      <nav>
-        <a href='/' className={style.link}>about</a>
-        <button className={style.linkJoin} onMouseDown={preventOutline} onClick={() => set(!a)}>{a ? 'view profile' : 'join us'}</button>
-        <div className={style.measure}>{a ? 'view profile' : 'join us'}</div>
+      <nav className={style.nav}>
+        <a href='/' className={style.about} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}>about</a>
+        <button className={style.join} onMouseDown={preventOutline} onClick={join}>
+          <span className={style.joinLeft} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}/>
+          <span className={style.joinMid} style={{transform: `scaleX(${submitted ? 7.2 : 3.6})`}}/>
+          <span className={style.joinRight}/>
+          {updatedText ?
+            <span className={style.joinText} style={{animationName: style.appear}}>view profile</span>
+          :
+          <span className={style.joinText} style={submitted ? {animationName: style.disappear} : {}} onAnimationEnd={() => setUpdatedText(true)}>join us</span>
+          }
+        </button>
       </nav>
     </header>
   )

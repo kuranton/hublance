@@ -15,27 +15,93 @@
   font-size: 0;
 }
 
-.link, .linkJoin, .measure {
+.nav {
+  display: flex;
+  align-items: center;
+  height: 38px;
+}
+
+.about, .join {
   color: inherit;
   text-decoration: none;
-  margin-left: 34px;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
 }
 
-.linkJoin, .measure {
+.about {
+  margin-right: 30px;
+  transition: transform 250ms ease;
+}
+
+.join {
   font-family: inherit;
   padding: 6px 13px 7px 13px;
-  border: 1px solid #fff;
+  border: none;
   border-radius: 20px;
   background: none;
   cursor: pointer;
+  position: relative;
+  width: 76px;
+  box-sizing: border-box;
+  height: 32px;
 }
 
-.measure {
+.joinLeft, .joinRight, .joinMid {
+  height: 100%;
+  width: 40px;
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  cursor: default;
+  top: 0;
+  bottom: 0;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  transition: transform 250ms ease;
+}
+
+.joinLeft {
+  left: 0;
+  clip-path: polygon(0 0, 20px 0, 20px 100%, 0 100%);
+}
+
+.joinRight {
+  right: 0;
+  clip-path: polygon(calc(100% - 20px) 0, 100% 0, 100% 100%, calc(100% - 20px) 100%);
+}
+
+.joinMid {
+  border-radius: 0;
+  width: 10px;
+  border-left: 0;
+  border-right: 0;
+  right: 20px;
+  transform-origin: center right;
+}
+
+.joinText {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
