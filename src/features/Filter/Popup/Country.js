@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-import List from './List'
+import List from '@components/Popup/List'
 
 const Country = ({visible, height, setHeight, search, selected, setSelected}) => {
   const [countries, setCountriesState] = useState([])

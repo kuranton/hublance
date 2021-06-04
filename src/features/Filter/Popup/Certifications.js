@@ -1,4 +1,4 @@
-import List from './List'
+import List from '@components/Popup/List'
 
 const certifications = [
   'Hubspot CMS for Developers',

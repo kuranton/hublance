@@ -29,6 +29,7 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
 
   const handleWheel = (e) => {
     e.preventDefault()
+    e.stopPropagation()
     const newScroll = Math.max(Math.min(contentHeight - 317, scroll + e.deltaY/5), 0)
     setScroll(newScroll)
   }
@@ -61,7 +62,7 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
   }, [visible, search, setHeight, list])
 
   return(
-    <>
+    <div style={{position: 'relative'}}>
       <ul ref={listRef} className={style.list} style={{transform: `translateY(${-scroll}px)`, height: contentHeight, transition: dragging ? 'none' : null}}>
         <NoMatches visible={!filtered.find(item => item.visible)}/>
         {filtered.map((item, index) => (
@@ -69,7 +70,7 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
         ))}
       </ul>
       <Scrollbar scroll={scroll} setScroll={setScroll} wrapHeight={height - 24} contentHeight={contentHeight} maxHeight={317} dragging={dragging} setDragging={setDragging}/>
-    </>
+    </div>
   )
 }
 

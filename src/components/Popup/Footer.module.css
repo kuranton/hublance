@@ -10,6 +10,11 @@
   border-bottom-right-radius: 8px;
   will-change: transform;
   transition: transform 250ms ease;
+  position: absolute;
+  top: 43px;
+  left: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .buttonsHidden > button {

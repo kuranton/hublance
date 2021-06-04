@@ -35,10 +35,7 @@ const Profile = ({setOffset}) => {
     async function fetchCountries() {
       const res = await fetch(`https://restcountries.eu/rest/v2/all?fields=name`)
       const json = await res.json()
-      setCountries(json.map(item => ({
-        value: item.name,
-        label: item.name
-      })))
+      setCountries(json.map(item => item.name))
     }
 
     fetchCountries()
@@ -81,7 +78,7 @@ const Profile = ({setOffset}) => {
           prefix='$'
         />
 
-        <Select className={style.country} name='country' placeholder='Country' options={countries} value={country} onChange={(value) => dispatch(setCountry(value))} searchable/>
+        <Select className={style.country} name='country' placeholder='Country' options={countries} selected={[country]} add={(value) => dispatch(setCountry(value))} searchable/>
 
         <label htmlFor='about' className={style.label}>About:</label>
         <Input

@@ -5,8 +5,8 @@ import {filterFreelancers} from '@store/freelancersSlice'
 
 import style from './Popup.module.css'
 
-import Header from './Header'
-import Footer from './Footer'
+import Header from '@components/Popup/Header'
+import Footer from '@components/Popup/Footer'
 
 import Certifications from './Certifications'
 import Country from './Country'

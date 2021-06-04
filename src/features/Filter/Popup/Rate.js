@@ -1,7 +1,7 @@
 import {useRef, useLayoutEffect} from 'react'
 
-import listStyle from './List.module.css'
-import itemStyle from './Item.module.css'
+import listStyle from '@components/Popup/List.module.css'
+import itemStyle from '@components/Popup/Item.module.css'
 import style from './Rate.module.css'
 
 const rates = [{
