@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useEventListener} from '@util/useEventListener'
 
-import {fetchFreelancers} from '@store/freelancersSlice'
+import {loadFreelancers} from '@store/freelancersSlice'
 
 import style from './List.module.css'
 
@@ -38,7 +38,7 @@ const List = ({defaultOffset = 0}) => {
   useEventListener('wheel', handleWheel, body.current)
 
   useEffect(() => {
-    dispatch(fetchFreelancers())
+    dispatch(loadFreelancers())
   }, [dispatch])
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const List = ({defaultOffset = 0}) => {
             style={loading ? {filter: 'blur(2px)', opacity: 1} : {opacity: 0}}
           >
             {!oldFreelancers.find(freelancer => freelancer.visible) ?
-              <li className={style.noMatches}>No matches, please try using less filters.</li>
+              <li className={style.noMatches} style={{transform: `translateY(${profileOffset}px)`}}>No matches, please try using less filters.</li>
             : null}
             {oldFreelancers.map((freelancer, index) =>
               <Single
@@ -110,7 +110,7 @@ const List = ({defaultOffset = 0}) => {
             style={loading ? {opacity: 0} : {opacity: 1, animationName: style.load}}
           >
             {!freelancers.find(freelancer => freelancer.visible) ?
-              <li className={style.noMatches}>No matches, please try using less filters.</li>
+              <li className={style.noMatches} style={{transform: `translateY(${profileOffset}px)`}}>No matches, please try using less filters.</li>
             : null}
             {freelancers.map((freelancer, index) =>
               <Single
