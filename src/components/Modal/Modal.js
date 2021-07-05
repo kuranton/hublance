@@ -1,13 +1,11 @@
-import {useState, useEffect, useLayoutEffect, useMemo, useRef, forwardRef, useImperativeHandle} from 'react'
+import {useState, useEffect, useLayoutEffect, useMemo, useCallback, forwardRef, useImperativeHandle} from 'react'
 import {Portal} from 'react-portal'
 
 import style from './Modal.module.css'
 
 const Modal = forwardRef(({title, children, close, positionRef}, ref) => {
-  const modalRef = useRef(null)
   const [visible, setVisible] = useState(false)
   const [closing, setClosing] = useState(false)
-  const [scale, setScale] = useState({x: 0, y: 0})
 
   const styles = useMemo(() => {
     if (visible) {
@@ -23,12 +21,12 @@ const Modal = forwardRef(({title, children, close, positionRef}, ref) => {
         opacity: 0
       })
     }
-  }, [visible, positionRef.current, modalRef.current])
+  }, [visible, positionRef])
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setVisible(false)
     setClosing(true)
-  }
+  }, [setVisible, setClosing])
 
   useImperativeHandle(ref, () => ({
     onClose
@@ -63,7 +61,7 @@ const Modal = forwardRef(({title, children, close, positionRef}, ref) => {
       timeout = setTimeout(close, 250)
     }
     return () => clearTimeout(timeout)
-  }, [closing])
+  }, [closing, close])
 
   return(
     <Portal>

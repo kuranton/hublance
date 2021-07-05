@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useMemo, useState, useCallback, memo} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useEventListener} from '@util/useEventListener'
 
@@ -25,7 +25,6 @@ const List = ({defaultOffset = 0}) => {
   const dispatch = useDispatch()
   const freelancers = useSelector(store => store.freelancers.list)
   const loading = useSelector(store => store.freelancers.loading)
-  const length = useSelector(store => store.freelancers.length)
   const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + profileOffset, 120)
   const started = useSelector(store => store.signup.started)
   const visible = useSelector(store => store.signup.visible)

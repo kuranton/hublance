@@ -1,7 +1,7 @@
 import {forwardRef, useImperativeHandle, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setImgData, setDragging, close, setWarning} from '@store/imageEditorSlice'
+import {setImgData, setDragging, setWarning} from '@store/imageEditorSlice'
 import {setPhotoUrl} from '@store/profileSlice'
 
 import style from './Canvas.module.css'

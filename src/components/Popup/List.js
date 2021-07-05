@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect, useCallback} from 'react'
+import {useRef, useState, useEffect} from 'react'
 import {useEventListener} from '@util/useEventListener'
 
 import style from './List.module.css'

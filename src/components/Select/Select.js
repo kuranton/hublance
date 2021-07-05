@@ -3,10 +3,8 @@ import {useEventListener} from '@util/useEventListener'
 
 import style from './Select.module.css'
 
-import Scroller from '@components/Scroller'
 import Popup from '@components/Popup'
 import Header from '@components/Popup/Header'
-import Footer from '@components/Popup/Footer'
 import List from '@components/Popup/List'
 
 const Select = ({searchable = false, placeholder, options, selected, height = 200, value, add, remove, className, onChange, ...props}) => {

@@ -1,4 +1,4 @@
-import {useState, useRef, useLayoutEffect, useEffect} from 'react'
+import {useState, useRef, useLayoutEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {addOffset, removeOffset} from '@store/freelancersSlice'
 

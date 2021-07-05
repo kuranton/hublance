@@ -43,7 +43,7 @@ const Profile = ({setOffset}) => {
 
   useLayoutEffect(() => {
     setOffset(wrap.current.getBoundingClientRect().height)
-  }, [wrap.current, setOffset])
+  }, [setOffset])
 
   const close = () => {
     setFading(true)

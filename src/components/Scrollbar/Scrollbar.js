@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react'
+import {useCallback} from 'react'
 import {useEventListener} from '@util/useEventListener'
 
 import style from './Scrollbar.module.css'
@@ -14,14 +14,14 @@ const Scrollbar = ({scroll, setScroll, wrapHeight, contentHeight, maxHeight, dra
       return
     }
     setScroll(scroll => Math.max(Math.min(contentHeight - maxHeight, scroll + e.movementY*contentHeight/wrapHeight), 0))
-  }, [dragging, wrapHeight, contentHeight])
+  }, [dragging, wrapHeight, contentHeight, maxHeight, setScroll])
 
   const dragEnd = useCallback(() => {
     if (!dragging) {
       return
     }
     setDragging(false)
-  }, [dragging])
+  }, [dragging, setDragging])
 
   useEventListener('mousemove', drag)
   useEventListener('mouseup', dragEnd)
