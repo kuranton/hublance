@@ -1,7 +1,7 @@
 import {useState, useLayoutEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {setCertifications as saveCertifications, setCountries as saveCountries, setRate as saveRate} from '@store/filtersSlice'
-import {filterFreelancers} from '@store/freelancersSlice'
+import {loadFreelancers} from '@store/freelancersSlice'
 
 import style from './Popup.module.css'
 
@@ -26,15 +26,15 @@ const Popup = ({visible, hide, remove}) => {
     switch(type) {
       case 'certifications':
         dispatch(saveCertifications(certifications))
-        dispatch(filterFreelancers())
+        dispatch(loadFreelancers({}))
         break
       case 'country':
         dispatch(saveCountries(countries))
-        dispatch(filterFreelancers())
+        dispatch(loadFreelancers({}))
         break
       case 'rate':
         dispatch(saveRate(rate))
-        dispatch(filterFreelancers())
+        dispatch(loadFreelancers({}))
         break
       default:
         break

@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useEventListener} from '@util/useEventListener'
 
 import {removeCountry, setMinRate, setMaxRate, removeCertification} from '@store/filtersSlice'
-import {filterFreelancers} from '@store/freelancersSlice'
+import {loadFreelancers} from '@store/freelancersSlice'
 
 import style from './Filter.module.css'
 
@@ -44,7 +44,7 @@ const Filter = () => {
           className={style.country}
           remove={() => {
             dispatch(removeCountry(country))
-            dispatch(filterFreelancers())
+            dispatch(loadFreelancers({}))
           }}
         >
           {country}
@@ -56,7 +56,7 @@ const Filter = () => {
           remove={() => {
             dispatch(setMinRate(0))
             dispatch(setMaxRate(0))
-            dispatch(filterFreelancers())
+            dispatch(loadFreelancers({}))
           }}
         >
           {rate.min ? rate.max ? `$${rate.min} - $${rate.max}` : `Above $${rate.min}` : `Below $${rate.max}`}
@@ -68,7 +68,7 @@ const Filter = () => {
           className={`${style.certification} ${index % 2 === 0 ? style.even : style.odd}`}
           remove={() => {
             dispatch(removeCertification(certification))
-            dispatch(filterFreelancers())
+            dispatch(loadFreelancers({}))
           }}
         >
           {certification}

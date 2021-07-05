@@ -49,6 +49,7 @@ const fetchFreelancers = async (count, filters, startIndex = 0) => {
 export const loadFreelancers = createAsyncThunk(
   'freelancers/loadFreelancersStatus',
   async (options, {dispatch, getState}) => {
+    console.log('load')
     const count = options.count || 100
     const add = options.add || false
     if (add) {
@@ -69,6 +70,7 @@ export const loadFreelancers = createAsyncThunk(
     } else {
       dispatch(setLoading(false))
     }
+    console.log('end')
   }
 )
 
@@ -119,38 +121,6 @@ export const freelancersSlice = createSlice({
     }
   }
 })
-
-export const filterFreelancers = () => (dispatch, getState) => {
-  const {freelancers, filters} = getState()
-  const {certifications, countries, rate} = filters
-  const {list} = freelancers
-
-  dispatch(setLoading(true))
-  let offset = 0
-  const arr = list.map(item => {
-    let freelancer = {...item}
-    if (
-      freelancer.rate > rate.min &&
-      (!rate.max || freelancer.rate < rate.max) &&
-      (!certifications.length || certifications.every(certification => freelancer.certifications.includes(certification))) &&
-      (!countries.length || countries.includes(freelancer.country))
-    ) {
-      freelancer.visible = true
-      freelancer.offset = offset
-      offset += freelancer.additionalOffset
-      offset += 120
-    } else {
-      freelancer.visible = false
-    }
-    return freelancer
-  })
-
-  setTimeout(() => {
-    dispatch(setLoading(false))
-    dispatch(setFreelancers(arr))
-    dispatch(setTotalHeight(offset))
-  }, 1000)
-}
 
 export const {setFreelancers, addFreelancers, setTotalHeight, setLoading, setLoadingAdditional, addOffset, removeOffset} = freelancersSlice.actions
 
