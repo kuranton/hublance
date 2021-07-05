@@ -56,7 +56,10 @@ const List = ({defaultOffset = 0}) => {
 
   useEffect(() => {
     setOldFreelancers(freelancers)
-  }, [loading, freelancers])
+    if (loading) {
+      setScroll(0)
+    }
+  }, [loading, freelancers, setScroll])
 
   useEffect(() => {
     const max = contentHeight - 800
