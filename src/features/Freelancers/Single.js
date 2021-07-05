@@ -7,12 +7,12 @@ import style from './Single.module.css'
 import UserPic from '../../components/UserPic/UserPic'
 import Certifications from '../../components/Certifications/Certifications'
 
-const Single = ({data, setScroll, scroll, isLast, listHeight, offset}) => {
+const Single = ({data, setScroll, scroll, isLast, listHeight, offset, loading}) => {
   const expandContent = useRef(null)
-  const [shouldRender, setRender] = useState(data.visible)
   const [expanded, setExpanded] = useState(false)
   const [animating, setAnimating] = useState(false)
   const [height, setHeight] = useState(0)
+  const [allowTransition, setAllowTransition] = useState(true)
   const dispatch = useDispatch()
 
   useLayoutEffect(() => {
@@ -22,6 +22,13 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, offset}) => {
     const {height} = expandContent.current.getBoundingClientRect()
     setHeight(height)
   }, [expandContent])
+
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      setAllowTransition(!loading)
+    }, 0)
+
+  }, [loading])
 
   const toggleExpand = () => {
     if (expanded) {
@@ -40,21 +47,14 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, offset}) => {
     setAnimating(true)
   }
 
-  useEffect(() => {
-    if (data.visible) {
-      setRender(true)
-    }
-  }, [data.visible])
-
-  if (!shouldRender) {
+  if (!data.visible) {
     return null
   }
 
   return(
     <li
       className={`${style.wrap} ${expanded ? style.expanded : ''}`}
-      style={{transform: `translateY(${data.offset + offset}px)`, animationName: data.visible ? style.appear : style.disappear}}
-      onAnimationEnd={() => setRender(data.visible)}
+      style={{transform: `translateY(${data.offset + offset}px)`, transition: allowTransition ? null : 'none'}}
     >
       <div className={style.collapseContent}>
         <UserPic url={data.photoUrl} letter={data.name.substring(0, 1)}/>

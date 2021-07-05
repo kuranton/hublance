@@ -16,7 +16,8 @@ const certs = [
 
 export const fetchFreelancers = createAsyncThunk(
   'freelancers/fetchFreelancersStatus',
-  async (arg, {dispatch}) => {
+  async (arg, {dispatch, getState}) => {
+    dispatch(setLoading(true))
     const res = await fetch(`https://randomuser.me/api/?results=100`, {dataType: 'json', results: 100})
     const json = await res.json()
     let data = []
@@ -36,6 +37,15 @@ export const fetchFreelancers = createAsyncThunk(
       })
     })
     dispatch(setFreelancers(data))
+
+    const {filters} = getState()
+    const {certifications, countries, rate} = filters
+
+    if (!rate.max && !rate.min && !certifications.length && !countries.length) {
+      dispatch(setLoading(false))
+      return
+    }
+
     dispatch(filterFreelancers())
   }
 )
@@ -44,7 +54,8 @@ export const freelancersSlice = createSlice({
   name: 'freelancers',
   initialState: {
     list: [],
-    totalHeight: 0
+    totalHeight: 0,
+    loading: false
   },
   reducers: {
     setFreelancers: (state, action) => {
@@ -55,6 +66,9 @@ export const freelancersSlice = createSlice({
     },
     setTotalHeight: (state, action) => {
       state.totalHeight = action.payload
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload
     },
     addOffset: (state, action) => {
       const {index, amount} = action.payload
@@ -79,6 +93,8 @@ export const filterFreelancers = () => (dispatch, getState) => {
   const {freelancers, filters} = getState()
   const {certifications, countries, rate} = filters
   const {list} = freelancers
+
+  dispatch(setLoading(true))
   let offset = 0
   const arr = list.map(item => {
     let freelancer = {...item}
@@ -98,10 +114,13 @@ export const filterFreelancers = () => (dispatch, getState) => {
     return freelancer
   })
 
-  dispatch(setFreelancers(arr))
-  dispatch(setTotalHeight(offset))
+  setTimeout(() => {
+    dispatch(setLoading(false))
+    dispatch(setFreelancers(arr))
+    dispatch(setTotalHeight(offset))
+  }, 1000)
 }
 
-export const {setFreelancers, setTotalHeight, addOffset, removeOffset} = freelancersSlice.actions
+export const {setFreelancers, setTotalHeight, setLoading, addOffset, removeOffset} = freelancersSlice.actions
 
 export default freelancersSlice.reducer

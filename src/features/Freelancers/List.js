@@ -20,9 +20,12 @@ const List = ({defaultOffset = 0}) => {
   const [scroll, setScroll] = useState(0)
   const [dragging, setDragging] = useState(false)
   const [profileOffset, setProfileOffset] = useState(120)
+  const [oldFreelancers, setOldFreelancers] = useState([])
 
   const dispatch = useDispatch()
   const freelancers = useSelector(store => store.freelancers.list)
+  const loading = useSelector(store => store.freelancers.loading)
+  const length = useSelector(store => store.freelancers.length)
   const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + profileOffset, 120)
   const started = useSelector(store => store.signup.started)
   const visible = useSelector(store => store.signup.visible)
@@ -51,6 +54,10 @@ const List = ({defaultOffset = 0}) => {
     }
   }, [visible, editing, started])
 
+  useEffect(() => {
+    setOldFreelancers(freelancers)
+  }, [loading, freelancers])
+
   return(
     <div className={style.wrap}>
       <div className={style.header}>
@@ -65,32 +72,61 @@ const List = ({defaultOffset = 0}) => {
       </div>
 
       <div ref={body} className={style.body}>
-        <ul className={style.list} style={{height: contentHeight, transform: `translateY(${-scroll}px)`, transition: dragging ? 'none' : null}}>
-          {visible ?
-            editing ?
-              <Profile setOffset={setProfileOffset}/>
-            :
-            started ?
-              <Form/>
-            :
-            <Join setOffset={setProfileOffset}/>
-          : null
-          }
-          {!freelancers.find(freelancer => freelancer.visible) ?
-            <li className={style.noMatches}>No matches, please try using less filters.</li>
-          : null}
-          {freelancers.map((freelancer, index) =>
-            <Single
-              key={freelancer.index}
-              data={freelancer}
-              setScroll={setScroll}
-              scroll={scroll}
-              listHeight={contentHeight}
-              isLast={index > freelancers.length - 3}
-              offset={profileOffset}
-            />
-          )}
-        </ul>
+        <div className={style.listWrap} style={{height: contentHeight, transform: `translateY(${-scroll}px)`, transition: dragging ? 'none' : null}}>
+          <ul className={style.list} style={{zIndex: 1}}>
+            <div className={style.background} style={{transform: `scaleY(${profileOffset/10})`}}/>
+            {visible ?
+              editing ?
+                <Profile setOffset={setProfileOffset}/>
+              :
+              started ?
+                <Form/>
+              :
+              <Join setOffset={setProfileOffset}/>
+            : null
+            }
+          </ul>
+          <div className={style.separator} style={{transform: `translateY(${profileOffset}px)`}}/>
+          <ul
+            className={style.list}
+            style={loading ? {filter: 'blur(2px)', opacity: 1} : {opacity: 0}}
+          >
+            {!oldFreelancers.find(freelancer => freelancer.visible) ?
+              <li className={style.noMatches}>No matches, please try using less filters.</li>
+            : null}
+            {oldFreelancers.map((freelancer, index) =>
+              <Single
+                key={freelancer.index}
+                data={freelancer}
+                setScroll={setScroll}
+                scroll={scroll}
+                listHeight={contentHeight}
+                offset={profileOffset}
+                loading={loading}
+              />
+            )}
+          </ul>
+          <ul
+            className={style.list}
+            style={loading ? {opacity: 0} : {opacity: 1, animationName: style.load}}
+          >
+            {!freelancers.find(freelancer => freelancer.visible) ?
+              <li className={style.noMatches}>No matches, please try using less filters.</li>
+            : null}
+            {freelancers.map((freelancer, index) =>
+              <Single
+                key={freelancer.index}
+                data={freelancer}
+                setScroll={setScroll}
+                scroll={scroll}
+                listHeight={contentHeight}
+                offset={profileOffset}
+                loading={loading}
+              />
+            )}
+          </ul>
+
+        </div>
         <Scrollbar
           scroll={scroll}
           setScroll={setScroll}
