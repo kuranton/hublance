@@ -25,6 +25,7 @@ const List = ({defaultOffset = 0}) => {
   const dispatch = useDispatch()
   const freelancers = useSelector(store => store.freelancers.list)
   const loading = useSelector(store => store.freelancers.loading)
+  const loadingAdditional = useSelector(store => store.freelancers.loadingAdditional)
   const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + profileOffset, 120)
   const started = useSelector(store => store.signup.started)
   const visible = useSelector(store => store.signup.visible)
@@ -38,7 +39,7 @@ const List = ({defaultOffset = 0}) => {
   useEventListener('wheel', handleWheel, body.current)
 
   useEffect(() => {
-    dispatch(loadFreelancers())
+    dispatch(loadFreelancers({}))
   }, [dispatch])
 
   useEffect(() => {
@@ -56,6 +57,13 @@ const List = ({defaultOffset = 0}) => {
   useEffect(() => {
     setOldFreelancers(freelancers)
   }, [loading, freelancers])
+
+  useEffect(() => {
+    const max = contentHeight - 800
+    if (scroll > max * 0.9 && !loading && !loadingAdditional) {
+      dispatch(loadFreelancers({count: 20, add: true}))
+    }
+  }, [dispatch, scroll, contentHeight, loading, loadingAdditional])
 
   return(
     <div className={style.wrap}>

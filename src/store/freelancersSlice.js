@@ -14,40 +14,61 @@ const certs = [
   'Consectetur adipiscing elit'
 ]
 
-export const fetchFreelancers = createAsyncThunk(
-  'freelancers/fetchFreelancersStatus',
-  async (arg, {dispatch, getState}) => {
-    dispatch(setLoading(true))
-    const res = await fetch(`https://randomuser.me/api/?results=100`, {dataType: 'json', results: 100})
-    const json = await res.json()
-    let data = []
-    json.results.forEach((entry, index) => {
-      data.push({
-        index,
-        photoUrl: entry.picture.medium,
-        title: titles[Math.floor(Math.random() * titles.length)],
-        name: `${entry.name.first} ${entry.name.last}`,
-        rate: Math.floor(Math.random() * 22)*5 + 5,
-        country: entry.location.country,
-        email: entry.email,
-        certifications: certs.filter(cert => Math.random() > 0.75),
-        offset: index * 120,
-        additionalOffset: 0,
-        visible: true
-      })
+const fetchFreelancers = async (count, filters, startIndex = 0) => {
+  const {certifications, countries, rate} = filters
+  const min = rate.min || 5
+  const max = rate.max || 115
+  const crt = certifications.length ? certifications : certs
+
+  const res = await fetch(`https://randomuser.me/api/?results=${count}`, {dataType: 'json', results: count})
+  const json = await res.json()
+
+  let data = []
+  json.results.forEach((entry, index) => {
+    data.push({
+      index: startIndex + index,
+      photoUrl: entry.picture.medium,
+      title: titles[Math.floor(Math.random() * titles.length)],
+      name: `${entry.name.first} ${entry.name.last}`,
+      // rate: Math.floor(Math.random() * 22)*5 + 5,
+      // country: entry.location.country,
+
+      rate: Math.floor(Math.random() * (max - min)) + min,
+      country: countries.length ? countries[Math.floor(Math.random() * countries.length)] : entry.location.country,
+
+      email: entry.email,
+      certifications: crt.filter(cert => Math.random() > 0.75),
+      offset: (startIndex + index) * 120,
+      additionalOffset: 0,
+      visible: true
     })
-    dispatch(setFreelancers(data))
+  })
+  return data
+}
 
-    const {filters} = getState()
-    const {certifications, countries, rate} = filters
-
-    if (!rate.max && !rate.min && !certifications.length && !countries.length) {
-      dispatch(setLoading(false))
-      dispatch(setTotalHeight(data.length * 120))
-      return
+export const loadFreelancers = createAsyncThunk(
+  'freelancers/loadFreelancersStatus',
+  async (options, {dispatch, getState}) => {
+    const count = options.count || 100
+    const add = options.add || false
+    if (add) {
+      dispatch(setLoadingAdditional(true))
+    } else {
+      dispatch(setLoading(true))
     }
-
-    dispatch(filterFreelancers())
+    const {filters, freelancers} = getState()
+    const startIndex = add ? freelancers.list.length : 0
+    const data = await fetchFreelancers(count, filters, startIndex)
+    if (add) {
+      dispatch(addFreelancers(data))
+    } else {
+      dispatch(setFreelancers(data))
+    }
+    if (add) {
+      dispatch(setLoadingAdditional(false))
+    } else {
+      dispatch(setLoading(false))
+    }
   }
 )
 
@@ -56,11 +77,17 @@ export const freelancersSlice = createSlice({
   initialState: {
     list: [],
     totalHeight: 0,
-    loading: false
+    loading: true,
+    loadingAdditional: false
   },
   reducers: {
     setFreelancers: (state, action) => {
       state.list = action.payload
+      state.totalHeight = action.payload.length * 120
+    },
+    addFreelancers: (state, action) => {
+      state.list = [...state.list, ...action.payload]
+      state.totalHeight += action.payload.length * 120
     },
     setFiltered: (state, action) => {
       state.filtered = action.payload
@@ -70,6 +97,9 @@ export const freelancersSlice = createSlice({
     },
     setLoading: (state, action) => {
       state.loading = action.payload
+    },
+    setLoadingAdditional: (state, action) => {
+      state.loadingAdditional = action.payload
     },
     addOffset: (state, action) => {
       const {index, amount} = action.payload
@@ -122,6 +152,6 @@ export const filterFreelancers = () => (dispatch, getState) => {
   }, 1000)
 }
 
-export const {setFreelancers, setTotalHeight, setLoading, addOffset, removeOffset} = freelancersSlice.actions
+export const {setFreelancers, addFreelancers, setTotalHeight, setLoading, setLoadingAdditional, addOffset, removeOffset} = freelancersSlice.actions
 
 export default freelancersSlice.reducer
