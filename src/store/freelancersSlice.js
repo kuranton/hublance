@@ -43,6 +43,7 @@ export const fetchFreelancers = createAsyncThunk(
 
     if (!rate.max && !rate.min && !certifications.length && !countries.length) {
       dispatch(setLoading(false))
+      dispatch(setTotalHeight(data.length * 120))
       return
     }
 
