@@ -1,14 +1,16 @@
 import {useState, useRef, useLayoutEffect} from 'react'
 import style from './Badge.module.css'
 
+import {getTextWidth} from '@util/getTextWidth'
+
 const Badge = ({className, remove, children}) => {
   const measure = useRef({})
   const [disappearing, setDisappearing] = useState(false)
   const [width, setWidth] = useState(0)
 
   useLayoutEffect(() => {
-    setWidth(measure.current.getBoundingClientRect().width + 4) // 4 is margin
-  }, [measure])
+    setWidth(getTextWidth(children, '500 14px ProximaSoft') + 39) // 4 margin + 15px close button + 20px padding and border
+  }, [children, setWidth])
 
   const onAnimationEnd = () => {
     if (disappearing) {
@@ -19,7 +21,7 @@ const Badge = ({className, remove, children}) => {
 
   return(
     <div className={style.wrap} style={{width: disappearing ? 0 : width}}>
-      <span className={className} onAnimationEnd={onAnimationEnd} style={{animationName: disappearing ? style.disappear : style.appear}}>
+      <span className={className} onAnimationEnd={onAnimationEnd} style={width ? {animationName: disappearing ? style.disappear : style.appear} : {}}>
         {children}
         <button className={style.remove} onClick={() => setDisappearing(true)}>Remove</button>
       </span>
