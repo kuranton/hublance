@@ -1,4 +1,4 @@
-import {useState, useRef, useLayoutEffect} from 'react'
+import {useState, useRef, useLayoutEffect, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {addOffset, removeOffset} from '@store/freelancersSlice'
 
@@ -27,7 +27,12 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, offset, loading}) 
     setTimeout(() => {
       setAllowTransition(!loading)
     }, 0)
+  }, [loading])
 
+  useEffect(() => {
+    if (loading) {
+      setExpanded(false)
+    }
   }, [loading])
 
   const toggleExpand = () => {

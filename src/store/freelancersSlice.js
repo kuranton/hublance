@@ -49,7 +49,6 @@ const fetchFreelancers = async (count, filters, startIndex = 0) => {
 export const loadFreelancers = createAsyncThunk(
   'freelancers/loadFreelancersStatus',
   async (options, {dispatch, getState}) => {
-    console.log('load')
     const count = options.count || 100
     const add = options.add || false
     if (add) {
@@ -70,7 +69,6 @@ export const loadFreelancers = createAsyncThunk(
     } else {
       dispatch(setLoading(false))
     }
-    console.log('end')
   }
 )
 
