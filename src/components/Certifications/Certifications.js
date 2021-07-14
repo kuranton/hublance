@@ -16,8 +16,8 @@ const Certifications = ({list}) => {
         buttonLeft={<Arrow left={true}/>}
         buttonRight={<Arrow/>}
       >
-        {list.map((item, index) => (
-          <div key={index} className={style.certification}/>
+        {list.map(item => (
+          <div key={item.id} className={`${style.certification} ${style[item.id]}`}/>
         ))}
       </Carousel>
     </div>

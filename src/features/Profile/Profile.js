@@ -101,7 +101,7 @@ const Profile = ({setOffset}) => {
               <Certifications list={certifications} slidesToShow={2}/>
             </div>
             {certificationsModal ?
-              <AddCertificationModal close={() => setCertificationsModal(false)} add={() => dispatch(addCertification())} positionRef={certificationsButton}/>
+              <AddCertificationModal close={() => setCertificationsModal(false)} add={(cert) => dispatch(addCertification(cert))} positionRef={certificationsButton}/>
             : null}
           </div>
         </div>

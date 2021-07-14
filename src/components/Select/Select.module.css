@@ -29,6 +29,8 @@
 .placeholder, .search, .value {
   font-size: inherit;
   line-height: inherit;
+  display: block;
+  min-height: 19px;
 }
 
 .placeholder {

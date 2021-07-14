@@ -8,7 +8,9 @@
   width: 56px;
   border-radius: 50%;
   margin-right: 30px;
-  background: #EEEEEE;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .arrow {
@@ -16,4 +18,32 @@
   width: 20px;
   height: 20px;
   background: url(./arrow-grey.svg) center no-repeat;
+}
+
+.cms-for-developers {
+  background-image: url(@assets/certifications/cms-for-developers.png);
+}
+
+.contextual-marketing {
+  background-image: url(@assets/certifications/contextual-marketing.png);
+}
+
+.growth-driven-design-agency {
+  background-image: url(@assets/certifications/growth-driven-design.png);
+}
+
+.sales-software {
+  background-image: url(@assets/certifications/sales-software.png);
+}
+
+.content-marketing {
+  background-image: url(@assets/certifications/content-marketing.png);
+}
+
+.growth-driven-design {
+  background-image: url(@assets/certifications/growth-driven-design.png);
+}
+
+.sales-enablement {
+  background-image: url(@assets/certifications/sales-enablement.png);
 }

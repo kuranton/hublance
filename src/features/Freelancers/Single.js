@@ -89,9 +89,9 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, offset, loading}) 
           </p>
 
           <span className={style.certificationsTitle}>
-            Certifications ({4}/6):
+            Certifications ({data.certifications.length}/6):
           </span>
-          <Certifications list={[0,0,0,0,0,0,0]}/>
+          <Certifications list={data.certifications}/>
 
           <span className={style.contactTitle}>
             Contact:

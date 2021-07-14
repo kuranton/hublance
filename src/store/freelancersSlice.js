@@ -1,24 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const titles = ['SEO Specialist', 'Social Media Marketer', 'UI Designer', 'Developer', 'Designer']
-const certs = [
-  'Hubspot CMS for Developers',
-  'Contextual Marketing',
-  'Growth-Driven Design Agency',
-  'HubSpot Sales Software',
-  'Content Marketing',
-  'Growth-Driven Design',
-  'Sales Enablement',
-  'Lorem Ipsum',
-  'Dolor sit amet',
-  'Consectetur adipiscing elit'
-]
 
-const fetchFreelancers = async (count, filters, startIndex = 0) => {
-  const {certifications, countries, rate} = filters
+const fetchFreelancers = async (count, filters, certifications, startIndex = 0) => {
+  const {certifications: certs, countries, rate} = filters
   const min = rate.min || 5
   const max = rate.max || 115
-  const crt = certifications.length ? certifications : certs
+  const crt = certs.length ? certifications.filter(cert => certs.indexOf(cert) !== -1) : certifications
 
   const res = await fetch(`https://randomuser.me/api/?results=${count}`, {dataType: 'json', results: count})
   const json = await res.json()
@@ -56,9 +44,9 @@ export const loadFreelancers = createAsyncThunk(
     } else {
       dispatch(setLoading(true))
     }
-    const {filters, freelancers} = getState()
+    const {filters, freelancers, certifications} = getState()
     const startIndex = add ? freelancers.list.length : 0
-    const data = await fetchFreelancers(count, filters, startIndex)
+    const data = await fetchFreelancers(count, filters, certifications, startIndex)
     if (add) {
       dispatch(addFreelancers(data))
     } else {

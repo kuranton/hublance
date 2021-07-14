@@ -35,7 +35,7 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
   }
 
   useEventListener('wheel', handleWheel, listRef.current)
-
+  
   useEffect(() => {
     if (!visible) {
       return

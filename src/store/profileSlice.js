@@ -21,12 +21,15 @@ export const profileSlice = createSlice({
     setRate: (state, action) => {state.rate = action.payload},
     setCountry: (state, action) => {state.country = action.payload},
     setPhotoUrl: (state, action) => {state.photoUrl = action.payload},
-    addCertification: (state) => {state.certifications.push(0)},
+    addCertification: (state, action) => {state.certifications.push(action.payload)},
+    removeCertification: (state, action) => {
+      state.certifications = state.certifications.filter(certification => certification.name !== action.payload)
+    },
     edit: (state) => {state.editing = true},
     stopEditing: (state) => {state.editing = false}
   },
 })
 
-export const {setName, setJob, setEmail, setAbout, setRate, setCountry, setPhotoUrl, addCertification, edit, stopEditing} = profileSlice.actions
+export const {setName, setJob, setEmail, setAbout, setRate, setCountry, setPhotoUrl, addCertification, removeCertififcation, edit, stopEditing} = profileSlice.actions
 
 export default profileSlice.reducer
