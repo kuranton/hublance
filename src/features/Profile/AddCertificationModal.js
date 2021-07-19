@@ -58,7 +58,7 @@ const AddCertificationModal = ({close, add, positionRef}) => {
 
           <div className={style.buttonsGroup}>
             <Button className={style.close} onClick={close}>Close</Button>
-            <Button type='submit' className={style.submit} primary>
+            <Button type='submit' className={style.submit} primary disabled={!selected.length}>
               Add certification
             </Button>
           </div>

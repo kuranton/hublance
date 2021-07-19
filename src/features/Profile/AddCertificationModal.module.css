@@ -20,3 +20,11 @@
 .close {
   margin-right: 10px;
 }
+
+.submit {
+  transition: opacity 250ms ease;
+}
+
+.submit[disabled] {
+  opacity: 0.5;
+}
