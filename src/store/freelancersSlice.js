@@ -6,7 +6,8 @@ const fetchFreelancers = async (count, filters, certifications, startIndex = 0) 
   const {certifications: certs, countries, rate} = filters
   const min = rate.min || 5
   const max = rate.max || 115
-  const crt = certs.length ? certifications.filter(cert => certs.indexOf(cert) !== -1) : certifications
+  const crt = certifications.filter(cert => certs.indexOf(cert.name) !== -1)
+  const crtAdd = certifications.filter(cert => certs.indexOf(cert.name) === -1).filter(cert => Math.random() > 0.75)
 
   const res = await fetch(`https://randomuser.me/api/?results=${count}`, {dataType: 'json', results: count})
   const json = await res.json()
@@ -25,7 +26,7 @@ const fetchFreelancers = async (count, filters, certifications, startIndex = 0) 
       country: countries.length ? countries[Math.floor(Math.random() * countries.length)] : entry.location.country,
 
       email: entry.email,
-      certifications: crt.filter(cert => Math.random() > 0.75),
+      certifications: [...crt, ...crtAdd],
       offset: (startIndex + index) * 120,
       additionalOffset: 0,
       visible: true
