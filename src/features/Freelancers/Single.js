@@ -91,7 +91,7 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, offset, loading}) 
           <span className={style.certificationsTitle}>
             Certifications ({data.certifications.length}/6):
           </span>
-          <Certifications list={data.certifications}/>
+          <Certifications list={data.certifications} containerRef={expandContent} scroll={scroll}/>
 
           <span className={style.contactTitle}>
             Contact:

@@ -15,9 +15,10 @@ import Progress from './Progress'
 import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
 
-const Profile = ({setOffset}) => {
+const Profile = ({setOffset, scroll}) => {
   const wrap = useRef(null)
   const certificationsButton = useRef(null)
+  const certificationsWrap = useRef(null)
   const [fading, setFading] = useState(false)
   const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
@@ -94,11 +95,11 @@ const Profile = ({setOffset}) => {
         <span className={style.label}>
           Certifications ({certifications.length}):
         </span>
-        <div className={style.certificationsWrap}>
+        <div ref={certificationsWrap} className={style.certificationsWrap}>
           <div className={style.certifications}>
             <button ref={certificationsButton} type='button' className={style.btnAddCert} onClick={() => setCertificationsModal(true)}>Add certification</button>
             <div>
-              <Certifications list={certifications} slidesToShow={2}/>
+              <Certifications list={certifications} scroll={scroll}/>
             </div>
             {certificationsModal ?
               <AddCertificationModal close={() => setCertificationsModal(false)} add={(cert) => dispatch(addCertification(cert))} positionRef={certificationsButton}/>

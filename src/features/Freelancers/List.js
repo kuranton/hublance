@@ -87,7 +87,7 @@ const List = ({defaultOffset = 0}) => {
             <div className={style.background} style={{transform: `scaleY(${profileOffset/10})`}}/>
             {visible ?
               editing ?
-                <Profile setOffset={setProfileOffset}/>
+                <Profile setOffset={setProfileOffset} scroll={scroll}/>
               :
               started ?
                 <Form/>
