@@ -32,7 +32,7 @@ const Tooltip = ({width = 150, scroll = 0, children}) => {
   }
 
   useEffect(() => {
-    handleMouseLeave()
+    setVisible(false)
   }, [scroll])
 
   return(

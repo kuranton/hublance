@@ -5,6 +5,8 @@ import style from './Header.module.css'
 import {show, start} from '@store/signupSlice'
 import {edit} from '@store/profileSlice'
 
+import {Link} from 'react-router-dom'
+
 import logo from './logo.png'
 
 const Header = () => {
@@ -23,13 +25,15 @@ const Header = () => {
   const preventOutline = (e) => e.preventDefault()
   return(
     <header className={style.header}>
-      <h1 className={style.logo}>
-        <img src={logo} alt='Hublance' width={162} height={38}/>
-        <span>Hublance</span>
-      </h1>
+      <Link to='/'>
+        <h1 className={style.logo}>
+          <img src={logo} alt='Hublance' width={162} height={38}/>
+          <span>Hublance</span>
+        </h1>
+      </Link>
 
       <nav className={style.nav}>
-        <a href='/' className={style.about} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}>about</a>
+        <Link to='/about' className={style.about} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}>about</Link>
         <button className={style.join} onMouseDown={preventOutline} onClick={join}>
           <span className={style.joinLeft} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}/>
           <span className={style.joinMid} style={{transform: `scaleX(${submitted ? 7.2 : 3.6})`}}/>
