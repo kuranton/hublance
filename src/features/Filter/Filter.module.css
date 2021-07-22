@@ -1,11 +1,16 @@
 .wrap {
+  background: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 32px 48px 24px 48px;
+  position: relative;
+}
+
+.box {
   box-sizing: border-box;
   min-height: 56px;
   padding: 14px 22px;
-  background: rgba(220, 220, 220, 0.1);
-  border: 1px solid #DCDCDC;
   border-radius: 50px;
-  margin-bottom: 24px;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -20,6 +25,15 @@
 
 .label {
   margin-right: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.popupWrap {
+  font-size: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 250ms ease;
 }
 
 .addButton {
@@ -75,7 +89,49 @@
   background: linear-gradient(135deg, #bf1a1e 0%, #be6300 94.77%);
 }
 
-.country, .rate, .certification {
+.background {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: #fff;
+  z-index: -1;
+  transform-origin: top;
+  transition: transform 250ms ease;
+}
+
+.borderTop, .borderMiddle, .borderBottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #DCDCDC;
+  background: #fcfcfc;
+  border-radius: 50px;
+  z-index: 0;
+  transform-origin: top;
+  transition: transform 250ms ease;
+}
+
+.borderTop {
+  mask-image: linear-gradient(to top, transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+}
+
+.borderMiddle {
+  border-radius: 0;
+  border-top: 0;
+  border-bottom: 0;
+  height: 1px;
+  top: 50%;
+}
+
+.borderBottom {
+  mask-image: linear-gradient(to bottom, transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+}
+
+.countries, .rate, .certifications {
   border: 2px solid;
   border-radius: 4px;
   padding: 4px 8px;
@@ -88,7 +144,7 @@
   animation-duration: 250ms;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
-  transform-origin: left center;
+  transform-origin: center;
   transition: background-color 250ms ease;
   will-change: transform, opacity;
 }
@@ -104,7 +160,7 @@
   }
 }
 
-.country {
+.countries {
   background-color: #EEEDFF;
   border-color: #C0B6FF;
   --remove-color: #9D69E0;
@@ -116,13 +172,13 @@
   --remove-color: #96991C;
 }
 
-.certification.even {
+.certifications.even {
   background-color: #EBFFDB;
   border-color: #99E264;
   --remove-color: #4FBB00;
 }
 
-.certification.odd {
+.certifications.odd {
   background-color: #D7FFF5;
   border-color: #64E2CB;
   --remove-color: #00BBAF;

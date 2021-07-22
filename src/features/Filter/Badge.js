@@ -1,16 +1,13 @@
-import {useState, useRef, useLayoutEffect} from 'react'
+import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+
+import {unsetWidth} from '@store/filtersSlice'
+
 import style from './Badge.module.css'
 
-import {getTextWidth} from '@util/getTextWidth'
-
-const Badge = ({className, remove, children}) => {
-  const measure = useRef({})
+const Badge = ({className, remove, transform, index = 0, type, children}) => {
+  const dispatch = useDispatch()
   const [disappearing, setDisappearing] = useState(false)
-  const [width, setWidth] = useState(0)
-
-  useLayoutEffect(() => {
-    setWidth(getTextWidth(children, '500 14px ProximaSoft') + 39) // 4 margin + 15px close button + 20px padding and border
-  }, [children, setWidth])
 
   const onAnimationEnd = () => {
     if (disappearing) {
@@ -18,16 +15,16 @@ const Badge = ({className, remove, children}) => {
     }
   }
 
+  const handleClick = () => {
+    dispatch(unsetWidth({type, index}))
+    setDisappearing(true)
+  }
 
   return(
-    <div className={style.wrap} style={{width: disappearing ? 0 : width}}>
-      <span className={className} onAnimationEnd={onAnimationEnd} style={width ? {animationName: disappearing ? style.disappear : style.appear} : {}}>
+    <div className={style.wrap} style={{transform}}>
+      <span className={`${className} ${style.badge}`} onAnimationEnd={onAnimationEnd} style={{animationName: disappearing ? style.disappear : style.appear}}>
         {children}
-        <button className={style.remove} onClick={() => setDisappearing(true)}>Remove</button>
-      </span>
-      <span ref={measure} className={style.measure}>
-        {children}
-        <button className={style.remove}/>
+        <button className={style.remove} onClick={handleClick}>Remove</button>
       </span>
     </div>
   )

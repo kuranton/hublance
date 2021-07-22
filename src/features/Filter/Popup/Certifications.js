@@ -1,19 +1,10 @@
+import {useSelector} from 'react-redux'
+
 import List from '@components/Popup/List'
 
-const certifications = [
-  'Hubspot CMS for Developers',
-  'Contextual Marketing',
-  'Growth-Driven Design Agency',
-  'HubSpot Sales Software',
-  'Content Marketing',
-  'Growth-Driven Design',
-  'Sales Enablement',
-  'Lorem Ipsum',
-  'Dolor sit amet',
-  'Consectetur adipiscing elit'
-]
-
 const Certifications = ({visible, height, setHeight, search, selected, setSelected}) => {
+  const certifications = useSelector(store => store.certifications.map(certification => certification.name))
+  
   const add = (item) => {
     setSelected([...selected, item])
   }

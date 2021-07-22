@@ -27,15 +27,9 @@
 }
 
 .wrap {
-  will-change: width;
-  transition: width 250ms ease;
-}
-
-.measure {
   position: absolute;
-  visibility: hidden;
-  border: 2px solid;
-  padding: 4px 8px;
+  transition: transform 250ms ease;
+  z-index: 1;
 }
 
 .remove {
