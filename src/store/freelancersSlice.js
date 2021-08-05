@@ -1,11 +1,9 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 
-// const titles = ['SEO Specialist', 'Social Media Marketer', 'UI Designer', 'Developer', 'Designer']
+const fetchFreelancers = async (count, filters, startIndex = 0) => {
+  const {certifications, countries, rate} = filters
+  const params = new URLSearchParams({count, skip: startIndex, minRate: rate.min, maxRate: rate.max, countries, certifications})
 
-const fetchFreelancers = async (count, filters, certifications, startIndex = 0) => {
-  // const {certifications: certs, countries, rate} = filters
-
-  const params = new URLSearchParams({count, skip: startIndex})
   const res = await fetch(`https://localhost:3600/users?${params}`)
   let {data, count: totalCount} = await res.json()
 
@@ -34,7 +32,7 @@ export const loadFreelancers = createAsyncThunk(
       dispatch(setLoading(true))
     }
     const startIndex = add ? freelancers.list.length : 0
-    const {data, totalCount} = await fetchFreelancers(count, filters, certifications, startIndex)
+    const {data, totalCount} = await fetchFreelancers(count, filters, startIndex)
     if (add) {
       dispatch(addFreelancers(data))
     } else {
