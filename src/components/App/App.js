@@ -1,15 +1,20 @@
-import React from 'react';
+import React from 'react'
 import style from './App.module.css'
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 import About from '@components/About'
+import Login from '@features/Login'
 import List from '@features/Freelancers/List'
 
 function App() {
+  const signedUp = useSelector(store => store.profile.status.signedUp)
+
   return (
     <Router>
       <div className={style.app}>
@@ -17,6 +22,10 @@ function App() {
         <Switch>
           <Route path='/about'>
             <About/>
+          </Route>
+          <Route path='/login'>
+            {signedUp ? <Redirect to='/'/>
+            : <Login/>}
           </Route>
           <Route path='/'>
             <h2 className={style.tagline}>Find the best HubSpot freelancer</h2>
@@ -26,7 +35,7 @@ function App() {
         <Footer/>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

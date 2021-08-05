@@ -1,8 +1,7 @@
 import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {edit} from '@store/profileSlice'
-import {show, start} from '@store/signupSlice'
+import {edit, show, startSignup} from '@store/profileSlice'
 
 import Button from '@components/Button'
 
@@ -10,7 +9,7 @@ import style from './About.module.css'
 
 const About = () => {
   const dispatch = useDispatch()
-  const submitted = useSelector(store => store.signup.submitted)
+  const submitted = useSelector(store => store.profile.status.signedUp)
   let history = useHistory()
 
   const join = () => {
@@ -18,7 +17,7 @@ const About = () => {
     if (submitted) {
       dispatch(edit())
     } else {
-      dispatch(start())
+      dispatch(startSignup())
     }
     history.push('/')
   }

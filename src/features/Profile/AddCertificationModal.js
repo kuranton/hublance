@@ -16,7 +16,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 const AddCertificationModal = ({close, add, positionRef}) => {
   const modalRef = useRef(null)
   const [selected, setSelected] = useState([])
-  const added = useSelector(store => store.profile.certifications)
+  const added = useSelector(store => store.profile.data.certifications)
   const certifications = useSelector(store => store.certifications)
   const list = useMemo(() => {
     const names = certifications.map(cert => cert.name)

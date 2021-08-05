@@ -28,9 +28,10 @@ const List = ({defaultOffset = 0}) => {
   const loading = useSelector(store => store.freelancers.loading)
   const loadingAdditional = useSelector(store => store.freelancers.loadingAdditional)
   const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + profileOffset, 120)
-  const started = useSelector(store => store.signup.started)
-  const visible = useSelector(store => store.signup.visible)
-  const editing = useSelector(store => store.profile.editing)
+  const started = useSelector(store => store.profile.status.signupStarted)
+  const visible = useSelector(store => store.profile.status.visible)
+  const editing = useSelector(store => store.profile.status.editing)
+  const signedUp = useSelector(store => store.profile.status.signedUp)
 
   const handleWheel = (e) => {
     e.preventDefault()
@@ -44,7 +45,7 @@ const List = ({defaultOffset = 0}) => {
   }, [dispatch])
 
   useEffect(() => {
-    if (!visible) {
+    if (!visible || (!editing && signedUp)) {
       setProfileOffset(-1)
     } else if (!editing) {
       if (started) {
@@ -53,7 +54,7 @@ const List = ({defaultOffset = 0}) => {
         setProfileOffset(121)
       }
     }
-  }, [visible, editing, started])
+  }, [visible, editing, started, signedUp])
 
   useEffect(() => {
     setOldFreelancers(freelancers)
@@ -95,9 +96,10 @@ const List = ({defaultOffset = 0}) => {
                 started ?
                   <Form/>
                 :
-                <Join setOffset={setProfileOffset}/>
-              : null
-              }
+                !signedUp ?
+                  <Join setOffset={setProfileOffset}/>
+                : null
+              : null}
             </ul>
             <div className={style.separator} style={{transform: `translateY(${profileOffset}px)`}}/>
             <ul

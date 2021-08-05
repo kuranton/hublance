@@ -14,7 +14,7 @@ const UploadPic = () => {
   const positionRef = useRef(null)
   const [img, setImg] = useState(null)
   const dispatch = useDispatch()
-  const photoUrl = useSelector(store => store.profile.photoUrl)
+  const photoUrl = useSelector(store => store.profile.data.photoUrl)
   const isOpen = useSelector(store => store.imageEditor.isOpen)
   const url = useSelector(store => store.imageEditor.url)
 

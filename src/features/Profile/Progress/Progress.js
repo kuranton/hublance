@@ -12,10 +12,10 @@ const Progress = () => {
   const progress = useMemo(() => {
     let total = 0
     let filled = 0
-    for (let key in profile) {
-      if (typeof profile[key] !== 'boolean') {
+    for (let key in profile.data) {
+      if (typeof profile.data[key] !== 'boolean') {
         total++
-        if ((Array.isArray(profile[key]) && profile[key].length) || (!Array.isArray(profile[key]) && !!profile[key])) {
+        if ((Array.isArray(profile.data[key]) && profile.data[key].length) || (!Array.isArray(profile.data[key]) && !!profile.data[key])) {
           filled++
         }
       }

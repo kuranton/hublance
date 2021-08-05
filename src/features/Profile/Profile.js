@@ -1,8 +1,7 @@
 import {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification} from '@store/profileSlice'
-import {hide} from '@store/signupSlice'
+import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide, update} from '@store/profileSlice'
 
 import style from './Profile.module.css'
 
@@ -24,13 +23,13 @@ const Profile = ({setOffset, scroll}) => {
   const [certificationsModal, setCertificationsModal] = useState(false)
 
   const dispatch = useDispatch()
-  const name = useSelector(store => store.profile.name)
-  const rate = useSelector(store => store.profile.rate)
-  const email = useSelector(store => store.profile.email)
-  const about = useSelector(store => store.profile.about)
-  const country = useSelector(store => store.profile.country)
-  const photoUrl = useSelector(store => store.profile.photoUrl)
-  const certifications = useSelector(store => store.profile.certifications)
+  const name = useSelector(store => store.profile.data.name)
+  const rate = useSelector(store => store.profile.data.rate)
+  const email = useSelector(store => store.profile.data.email)
+  const about = useSelector(store => store.profile.data.about)
+  const country = useSelector(store => store.profile.data.country)
+  const photoUrl = useSelector(store => store.profile.data.photoUrl)
+  const certifications = useSelector(store => store.profile.data.certifications)
 
   useEffect(() => {
     async function fetchCountries() {
@@ -111,7 +110,7 @@ const Profile = ({setOffset, scroll}) => {
         <Input className={style.contact} type='email' name='email' placeholder='Email' defaultValue={email} onSubmit={(value) => dispatch(setEmail(value))}/>
 
         <Button className={style.btnClose} onClick={close}>Close</Button>
-        <Button className={style.btnSave} primary>Save profile</Button>
+        <Button className={style.btnSave} primary onClick={() => dispatch(update())}>Save profile</Button>
       </form>
     </div>
   )

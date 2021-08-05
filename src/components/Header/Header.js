@@ -2,8 +2,7 @@ import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import style from './Header.module.css'
 
-import {show, start} from '@store/signupSlice'
-import {edit} from '@store/profileSlice'
+import {edit, show, startSignup} from '@store/profileSlice'
 
 import {Link} from 'react-router-dom'
 
@@ -12,13 +11,13 @@ import logo from './logo.png'
 const Header = () => {
   const [updatedText, setUpdatedText] = useState(false)
   const dispatch = useDispatch()
-  const submitted = useSelector(store => store.signup.submitted)
+  const submitted = useSelector(store => store.profile.status.signedUp)
   const join = () => {
     if (submitted) {
       dispatch(edit())
       dispatch(show())
     } else {
-      dispatch(start())
+      dispatch(startSignup())
       dispatch(show())
     }
   }
@@ -33,7 +32,10 @@ const Header = () => {
       </Link>
 
       <nav className={style.nav}>
-        <Link to='/about' className={style.about} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}>about</Link>
+        <Link to='/about' className={style.link} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}>about</Link>
+        {!submitted ?
+          <Link to='/login' className={style.link} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}>log in</Link>
+        : null}
         <button className={style.join} onMouseDown={preventOutline} onClick={join}>
           <span className={style.joinLeft} style={{transform: `translateX(${submitted ? -36 : 0}px)`}}/>
           <span className={style.joinMid} style={{transform: `scaleX(${submitted ? 7.2 : 3.6})`}}/>

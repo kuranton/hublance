@@ -1,33 +1,35 @@
 import {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setName, setJob, setEmail} from '@store/profileSlice'
-import {submit} from '@store/signupSlice'
+import {setName, setPassword, setEmail, signUp} from '@store/profileSlice'
 
 import style from './Steps.module.css'
 
 import {isEmail} from 'validator'
 
 
-const Steps = ({step, setStep}) => {
+const Steps = ({step, setStep, signedUp}) => {
   const [shouldRender, setShouldRender] = useState(step < 3)
   const input = useRef()
   const dispatch = useDispatch()
   const steps = [{
     title: 'Name',
     name: 'name',
-    value: useSelector(store => store.profile.name),
-    action: setName
-  }, {
-    title: 'Job Title',
-    name: 'job-title',
-    value: useSelector(store => store.profile.job),
-    action: setJob
+    value: useSelector(store => store.profile.data.name),
+    action: setName,
+    type: 'text'
   }, {
     title: 'Email',
     name: 'email',
-    value: useSelector(store => store.profile.email),
-    action: setEmail
+    value: useSelector(store => store.profile.data.email),
+    action: setEmail,
+    type: 'email'
+  }, {
+    title: 'Password',
+    name: 'password',
+    value: useSelector(store => store.profile.data.password),
+    action: setPassword,
+    type: 'password'
   }]
   const {title, name, value, action} = steps[Math.min(step, 2)]
 
@@ -36,6 +38,12 @@ const Steps = ({step, setStep}) => {
       input.current.focus()
     }
   }, [])
+
+  useEffect(() => {
+    if (signedUp) {
+      setStep(3)
+    }
+  }, [signedUp, setStep])
 
   const preventOutline = (e) => e.preventDefault()
 
@@ -50,11 +58,12 @@ const Steps = ({step, setStep}) => {
       return
     }
     if (step === 2) {
-      dispatch(submit())
+      dispatch(signUp())
+    } else {
+      setStep(step + 1)
     }
-    setStep(step + 1)
   }
-  const forwardDisabled = step !== 2 ? !value : !isEmail(value)
+  const forwardDisabled = step !== 1 ? !value : !isEmail(value)
 
   const onAnimationEnd = () => {
     if (step > 2) {
@@ -74,7 +83,7 @@ const Steps = ({step, setStep}) => {
         {title}
       </label>
 
-      <input ref={input} type={step !== 2 ? 'text' : 'email'} name={name} placeholder='Type here...' onChange={(e) => dispatch(action(e.target.value))} value={value} className={style.input}/>
+      <input ref={input} type={steps[step] ? steps[step].type : 'text'} name={name} placeholder='Type here...' onChange={(e) => dispatch(action(e.target.value))} value={value} className={style.input}/>
 
       <button type='button' onClick={goForward} onMouseDown={preventOutline} disabled={forwardDisabled} className={style.next}>Next</button>
     </form>

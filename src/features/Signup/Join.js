@@ -3,11 +3,11 @@ import {useDispatch} from 'react-redux'
 
 import style from './Join.module.css'
 
-import {hide, start} from '@store/signupSlice'
+import {hide, startSignup} from '@store/profileSlice'
 
 import UserPic from '@components/UserPic/UserPic'
 
-const actions = {hide, start}
+const actions = {hide, startSignup}
 
 const Join = ({setOffset}) => {
   const [fading, setFading] = useState(false)
@@ -15,7 +15,7 @@ const Join = ({setOffset}) => {
   const dispatch = useDispatch()
 
   const onJoin = () => {
-    setActionName('start')
+    setActionName('startSignup')
     setFading(true)
     setOffset(316)
   }
