@@ -5,7 +5,7 @@ const fetchFreelancers = async (count, filters, startIndex = 0) => {
   const params = new URLSearchParams({count, skip: startIndex, minRate: rate.min, maxRate: rate.max, countries, certifications})
 
   const res = await fetch(`https://localhost:3600/users?${params}`)
-  let {data, count: totalCount} = await res.json()
+  let data = await res.json()
 
   data = data.map((entry, index) => ({
     ...entry,
@@ -14,7 +14,7 @@ const fetchFreelancers = async (count, filters, startIndex = 0) => {
     additionalOffset: 0,
     visible: true
   }))
-  return {data, totalCount}
+  return data
 }
 
 export const loadFreelancers = createAsyncThunk(
@@ -22,17 +22,14 @@ export const loadFreelancers = createAsyncThunk(
   async (options, {dispatch, getState}) => {
     const count = options.count || 100
     const add = options.add || false
-    const {filters, freelancers, certifications} = getState()
-    if (add && freelancers.list.length >= freelancers.totalCount) {
-      return
-    }
+    const {filters, freelancers} = getState()
     if (add) {
       dispatch(setLoadingAdditional(true))
     } else {
       dispatch(setLoading(true))
     }
     const startIndex = add ? freelancers.list.length : 0
-    const {data, totalCount} = await fetchFreelancers(count, filters, startIndex)
+    const data = await fetchFreelancers(count, filters, startIndex)
     if (add) {
       dispatch(addFreelancers(data))
     } else {
@@ -43,7 +40,9 @@ export const loadFreelancers = createAsyncThunk(
     } else {
       dispatch(setLoading(false))
     }
-    dispatch(setTotalCount(totalCount))
+    if (!data.length) {
+      dispatch(setNoMoreResults(true))
+    }
   }
 )
 
@@ -54,7 +53,7 @@ export const freelancersSlice = createSlice({
     totalHeight: 0,
     loading: true,
     loadingAdditional: false,
-    totalCount: 0
+    noMoreResults: false
   },
   reducers: {
     setFreelancers: (state, action) => {
@@ -93,10 +92,10 @@ export const freelancersSlice = createSlice({
         state.list[i].offset -= amount
       }
     },
-    setTotalCount: (state, action) => {state.totalCount = action.payload}
+    setNoMoreResults: (state, action) => {state.noMoreResults = action.payload}
   }
 })
 
-export const {setFreelancers, addFreelancers, setTotalHeight, setLoading, setLoadingAdditional, addOffset, removeOffset, setTotalCount} = freelancersSlice.actions
+export const {setFreelancers, addFreelancers, setTotalHeight, setLoading, setLoadingAdditional, addOffset, removeOffset, setNoMoreResults} = freelancersSlice.actions
 
 export default freelancersSlice.reducer

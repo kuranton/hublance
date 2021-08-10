@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useEventListener} from '@util/useEventListener'
 
-import {loadFreelancers} from '@store/freelancersSlice'
+import {loadFreelancers, setNoMoreResults} from '@store/freelancersSlice'
 
 import style from './List.module.css'
 
@@ -17,6 +17,7 @@ import Single from './Single'
 
 const List = ({defaultOffset = 0}) => {
   const body = useRef(null)
+  const timeout = useRef(null)
   const [scroll, setScroll] = useState(0)
   const [dragging, setDragging] = useState(false)
   const [profileOffset, setProfileOffset] = useState(120)
@@ -24,7 +25,9 @@ const List = ({defaultOffset = 0}) => {
   const [transform, setTransform] = useState(0)
 
   const dispatch = useDispatch()
+  const filters = useSelector(store => store.filters)
   const freelancers = useSelector(store => store.freelancers.list)
+  const noMoreResults = useSelector(store => store.freelancers.noMoreResults)
   const loading = useSelector(store => store.freelancers.loading)
   const loadingAdditional = useSelector(store => store.freelancers.loadingAdditional)
   const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + profileOffset, 120)
@@ -39,6 +42,10 @@ const List = ({defaultOffset = 0}) => {
   }
 
   useEventListener('wheel', handleWheel, body.current)
+
+  useEffect(() => {
+    dispatch(setNoMoreResults(false))
+  }, [dispatch, filters])
 
   useEffect(() => {
     dispatch(loadFreelancers({}))
@@ -64,11 +71,15 @@ const List = ({defaultOffset = 0}) => {
   }, [loading, freelancers, setScroll])
 
   useEffect(() => {
-    const max = contentHeight - 800
-    if (scroll > max * 0.9 && !loading && !loadingAdditional) {
-      dispatch(loadFreelancers({count: 20, add: true}))
+    const loadAdditional = () => {
+      const max = contentHeight - 800
+      if (scroll > max * 0.9 && !loading && !loadingAdditional && !noMoreResults) {
+        dispatch(loadFreelancers({count: 20, add: true}))
+      }
     }
-  }, [dispatch, scroll, contentHeight, loading, loadingAdditional])
+    clearTimeout(timeout.current)
+    timeout.current = setTimeout(loadAdditional, 100)
+  }, [dispatch, scroll, contentHeight, loading, loadingAdditional, noMoreResults])
 
   return(
     <div className={style.wrap}>
