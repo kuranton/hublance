@@ -91,16 +91,16 @@ const UserPicModal = ({img, positionRef}) => {
 
     dx -= (newWidth - dWidth)/2
     dy -= (newHeight - dHeight)/2
-
-    if (dx > canvas.current.width/2 - radius) {
-      dx = canvas.current.width/2 - radius
-    } else if (dx < canvas.current.width/2 + radius - newWidth) {
-      dx = canvas.current.width/2 + radius - newWidth
+    const {ref} = canvas.current
+    if (dx > ref.width/2 - radius) {
+      dx = ref.width/2 - radius
+    } else if (dx < ref.width/2 + radius - newWidth) {
+      dx = ref.width/2 + radius - newWidth
     }
-    if (dy > canvas.current.height/2 - radius) {
-      dy = canvas.current.height/2 - radius
-    } else if (dy < canvas.current.height/2 + radius - newHeight) {
-      dy = canvas.current.height/2 + radius - newHeight
+    if (dy > ref.height/2 - radius) {
+      dy = ref.height/2 - radius
+    } else if (dy < ref.height/2 + radius - newHeight) {
+      dy = ref.height/2 + radius - newHeight
     }
     dWidth = newWidth
     dHeight = newHeight

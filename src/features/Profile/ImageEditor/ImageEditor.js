@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {open, setWarning, setUrl, setCropping, setZoomAmount, setRotation, setImgData, setAspectRatio} from '@store/imageEditorSlice'
+import {open, setWarning, setCropping, setZoomAmount, setRotation, setImgData, setAspectRatio} from '@store/imageEditorSlice'
 
 import style from './ImageEditor.module.css'
 
@@ -17,12 +17,6 @@ const UploadPic = () => {
   const photoUrl = useSelector(store => store.profile.data.photoUrl)
   const isOpen = useSelector(store => store.imageEditor.isOpen)
   const url = useSelector(store => store.imageEditor.url)
-
-  useEffect(() => {
-    if (!url && photoUrl) {
-      dispatch(setUrl(photoUrl))
-    }
-  }, [photoUrl, url, dispatch])
 
   useEffect(() => {
     if (!url) {
@@ -49,6 +43,7 @@ const UploadPic = () => {
       dispatch(setZoomAmount(0))
       dispatch(setRotation(0.5))
     }
+    image.crossOrigin = 'anonymous'
     image.src = url
   }, [url, dispatch])
 

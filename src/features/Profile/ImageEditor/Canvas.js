@@ -1,8 +1,7 @@
 import {forwardRef, useImperativeHandle, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setImgData, setDragging, setWarning} from '@store/imageEditorSlice'
-import {setPhotoUrl} from '@store/profileSlice'
+import {setImgData, setDragging, setWarning, save} from '@store/imageEditorSlice'
 
 import style from './Canvas.module.css'
 
@@ -96,6 +95,8 @@ const Canvas = forwardRef(({img, zoom, radius, onClose}, ref) => {
 
   useImperativeHandle(ref, () => ({
     saveCrop: async () => {
+      const input = document.createElement('input')
+      input.type = 'file'
       const offscreen = new OffscreenCanvas(radius*2, radius*2)
       const octx = offscreen.getContext('2d')
       const sx = canvas.current.width/2 - radius
@@ -103,9 +104,9 @@ const Canvas = forwardRef(({img, zoom, radius, onClose}, ref) => {
 
       octx.drawImage(canvas.current, sx, sy, radius*2, radius*2, 0, 0, radius*2, radius*2)
       const blob = await offscreen.convertToBlob()
-      const objectUrl = URL.createObjectURL(blob)
-      dispatch(setPhotoUrl(objectUrl))
-    }
+      dispatch(save(blob))
+    },
+    ref: canvas.current
   }))
 
   return(
