@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import style from './App.module.css'
 
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {tryGetData} from '@store/profileSlice'
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
@@ -10,10 +11,16 @@ import Footer from '../Footer/Footer'
 
 import About from '@components/About'
 import Login from '@features/Login'
+import Logout from '@features/Logout'
 import List from '@features/Freelancers/List'
 
 function App() {
-  const signedUp = useSelector(store => store.profile.status.signedUp)
+  const dispatch = useDispatch()
+  const authenticated = useSelector(store => store.auth.authenticated)
+
+  useEffect(() => {
+    dispatch(tryGetData())
+  }, [dispatch])
 
   return (
     <Router>
@@ -24,8 +31,12 @@ function App() {
             <About/>
           </Route>
           <Route path='/login'>
-            {signedUp ? <Redirect to='/'/>
+            {authenticated ? <Redirect to='/'/>
             : <Login/>}
+          </Route>
+          <Route path='/logout'>
+            {!authenticated ? <Redirect to='/'/>
+            : <Logout/>}
           </Route>
           <Route path='/'>
             <h2 className={style.tagline}>Find the best HubSpot freelancer</h2>

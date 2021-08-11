@@ -34,7 +34,7 @@ const List = ({defaultOffset = 0}) => {
   const started = useSelector(store => store.profile.status.signupStarted)
   const visible = useSelector(store => store.profile.status.visible)
   const editing = useSelector(store => store.profile.status.editing)
-  const signedUp = useSelector(store => store.profile.status.signedUp)
+  const authenticated = useSelector(store => store.auth.authenticated)
 
   const handleWheel = (e) => {
     e.preventDefault()
@@ -52,7 +52,7 @@ const List = ({defaultOffset = 0}) => {
   }, [dispatch])
 
   useEffect(() => {
-    if (!visible || (!editing && signedUp)) {
+    if (!visible || (!editing && authenticated)) {
       setProfileOffset(-1)
     } else if (!editing) {
       if (started) {
@@ -61,7 +61,7 @@ const List = ({defaultOffset = 0}) => {
         setProfileOffset(121)
       }
     }
-  }, [visible, editing, started, signedUp])
+  }, [visible, editing, started, authenticated])
 
   useEffect(() => {
     setOldFreelancers(freelancers)
@@ -107,7 +107,7 @@ const List = ({defaultOffset = 0}) => {
                 started ?
                   <Form/>
                 :
-                !signedUp ?
+                !authenticated ?
                   <Join setOffset={setProfileOffset}/>
                 : null
               : null}

@@ -1,7 +1,8 @@
 import {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setName, setPassword, setEmail, signUp} from '@store/profileSlice'
+import {setName} from '@store/profileSlice'
+import {setPassword, setEmail, signUp} from '@store/authSlice'
 
 import style from './Steps.module.css'
 
@@ -21,13 +22,13 @@ const Steps = ({step, setStep, signedUp}) => {
   }, {
     title: 'Email',
     name: 'email',
-    value: useSelector(store => store.profile.data.email),
+    value: useSelector(store => store.auth.credentials.email),
     action: setEmail,
     type: 'email'
   }, {
     title: 'Password',
     name: 'password',
-    value: useSelector(store => store.profile.data.password),
+    value: useSelector(store => store.auth.credentials.password),
     action: setPassword,
     type: 'password'
   }]

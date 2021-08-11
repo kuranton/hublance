@@ -34,4 +34,9 @@
 .submit {
   margin-top: 5px;
   margin-left: auto;
+  transition: 250ms ease;
+}
+
+.submit[disabled] {
+  cursor: default;
 }

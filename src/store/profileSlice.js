@@ -1,91 +1,24 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-
-export const logIn = createAsyncThunk(
-  'profile/loginStatus',
-  async (options, {dispatch, getState}) => {
-    const {email, password} = getState().profile.data
-    try {
-      const res = await fetch('https://localhost:3600/auth', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email, password})
-      })
-      if (!res.ok) {
-        return
-      }
-      const {data, accessToken, accessExpiry} = await res.json()
-      dispatch(setAccessToken(accessToken))
-      dispatch(setExpiry(accessExpiry))
-      dispatch(setSignedUp())
-      dispatch(setData(data))
-    } catch(e) {
-      console.log(e)
-    }
-  }
-)
-
-export const signUp = createAsyncThunk(
-  'profile/saveStatus',
-  async (options, {dispatch, getState}) => {
-    const {data} = getState().profile
-    try {
-      const res = await fetch('https://localhost:3600/users', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      if (!res.ok) {
-        return
-      }
-      const json = await res.json()
-      dispatch(setId(json.data._id))
-      dispatch(setAccessToken(json.accessToken))
-      dispatch(setExpiry(json.accessExpiry))
-      dispatch(setPassword(''))
-      dispatch(setSignedUp())
-    } catch(e) {
-      console.log(e)
-    }
-  }
-)
-
-const refreshToken = createAsyncThunk(
-  'profile/updateStatus',
-  async (options, {dispatch}) => {
-    try {
-      const res = await fetch('https://localhost:3600/auth/refresh', {
-        method: 'POST',
-        mode: 'cors'
-      })
-      const {accessToken, accessExpiry} = res
-      dispatch(setAccessToken(accessToken))
-      dispatch(setExpiry(accessExpiry))
-    } catch (e) {
-      console.log(e)
-    }
-  }
-)
+import {refreshToken} from '@store/authSlice'
 
 export const update = createAsyncThunk(
   'profile/updateStatus',
   async (options, {dispatch, getState}) => {
-    const {data, accessToken} = getState().profile
-    if (new Date(accessToken.expiry) < Date.now()) {
+    const state = getState()
+    let {token, expiry} = state.auth.accessToken
+    const {data} = state.profile
+    if (new Date(expiry) < Date.now()) {
       await dispatch(refreshToken())
+      const accessToken = getState().auth
+      token = accessToken.token
     }
     try {
-      await fetch(`https://localhost:3600/users/${data._id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/users/${data._id}`, {
         method: 'PATCH',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken.token}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(data)
       })
@@ -95,38 +28,69 @@ export const update = createAsyncThunk(
   }
 )
 
+export const tryGetData = createAsyncThunk(
+  'profile/updateStatus',
+  async (options, {dispatch, getState}) => {
+    let {token, expiry} = getState().auth.accessToken
+    if (!token || new Date(expiry) < Date.now()) {
+      await dispatch(refreshToken())
+      const {accessToken} = getState().auth
+      token = accessToken.token
+    }
+    const {_id} = getState().profile.data
+    if (!token) {
+      return
+    }
+    try {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/users/${_id}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      if (!res.ok) {
+        return
+      }
+      const data = await res.json()
+      dispatch(setData(data))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+)
+
+const initialState = {
+  data: {
+    _id: '',
+    name: '',
+    title: '',
+    email: '',
+    password: '',
+    rate: '',
+    certifications: [],
+    about: '',
+    country: '',
+    photoUrl: ''
+  },
+  status: {
+    editing: false,
+    visible: true,
+    signupStarted: false
+  }
+}
+
 export const profileSlice = createSlice({
   name: 'profile',
-  initialState: {
-    data: {
-      name: '',
-      title: '',
-      email: '',
-      password: '',
-      rate: '',
-      certifications: [],
-      about: '',
-      country: '',
-      photoUrl: ''
-    },
-    status: {
-      editing: false,
-      visible: true,
-      signupStarted: false,
-      signedUp: false
-    },
-    accessToken: {
-      token: '',
-      expiry: null
-    }
-  },
+  initialState,
   reducers: {
     setData: (state, action) => {state.data = action.payload},
+    clear: (state) => initialState,
     setId: (state, action) => {state.data._id = action.payload},
     setName: (state, action) => {state.data.name = action.payload},
     setTitle: (state, action) => {state.data.title = action.payload},
     setEmail: (state, action) => {state.data.email = action.payload},
-    setPassword: (state, action) => {state.data.password = action.payload},
     setAbout: (state, action) => {state.data.about = action.payload},
     setRate: (state, action) => {state.data.rate = action.payload},
     setCountry: (state, action) => {state.data.country = action.payload},
@@ -139,16 +103,13 @@ export const profileSlice = createSlice({
     stopEditing: (state) => {state.status.editing = false},
     startSignup: (state) => {state.status.signupStarted = true},
     show: (state) => {state.status.visible = true},
-    hide: (state) => {state.status.visible = false},
-    setSignedUp: (state) => {state.status.signedUp = true},
-    setAccessToken: (state, action) => {state.accessToken.token = action.payload},
-    setExpiry: (state, action) => {state.accessToken.expiry = action.payload}
+    hide: (state) => {state.status.visible = false}
   },
 })
 
 export const {
-  setData, setId, setName, setTitle, setEmail, setPassword, setAbout, setRate, setCountry, setPhotoUrl, addCertification,
-  removeCertififcation, edit, stopEditing, startSignup, show, hide, setSignedUp, setAccessToken, setExpiry
+  setData, clear, setId, setName, setTitle, setEmail, setAbout, setRate, setCountry, setPhotoUrl, addCertification,
+  removeCertififcation, edit, stopEditing, startSignup, show, hide
 } = profileSlice.actions
 
 export default profileSlice.reducer

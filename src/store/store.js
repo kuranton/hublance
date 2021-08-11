@@ -1,5 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
 
+import authSlice from './authSlice'
 import freelancersSlice from './freelancersSlice'
 import filtersSlice from './filtersSlice'
 import profileSlice from './profileSlice'
@@ -8,6 +9,7 @@ import certificationsSlice from './certificationsSlice'
 
 export default configureStore({
   reducer: {
+    auth: authSlice,
     freelancers: freelancersSlice,
     filters: filtersSlice,
     profile: profileSlice,
