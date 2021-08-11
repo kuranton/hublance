@@ -31,7 +31,7 @@ export const logIn = createAsyncThunk(
   async (options, {dispatch, getState}) => {
     const {email, password} = getState().auth.credentials
     try {
-      const res = await fetch('https://localhost:3600/auth', {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth`, {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

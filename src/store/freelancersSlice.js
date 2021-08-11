@@ -4,7 +4,7 @@ const fetchFreelancers = async (count, filters, startIndex = 0) => {
   const {certifications, countries, rate} = filters
   const params = new URLSearchParams({count, skip: startIndex, minRate: rate.min, maxRate: rate.max, countries, certifications})
 
-  const res = await fetch(`https://localhost:3600/users?${params}`)
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/users?${params}`)
   let data = await res.json()
 
   data = data.map((entry, index) => ({
