@@ -52,7 +52,7 @@ const List = ({defaultOffset = 0}) => {
   }, [dispatch])
 
   useEffect(() => {
-    if (!visible || (!editing && authenticated)) {
+    if (!visible || (authenticated && !started && !editing)) {
       setProfileOffset(-1)
     } else if (!editing) {
       if (started) {

@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import style from './Header.module.css'
@@ -10,7 +9,6 @@ import {Link} from 'react-router-dom'
 import logo from './logo.png'
 
 const Header = () => {
-  const [updatedText, setUpdatedText] = useState(false)
   const dispatch = useDispatch()
   const authenticated = useSelector(store => store.auth.authenticated)
   const history = useHistory()
@@ -45,10 +43,9 @@ const Header = () => {
           <span className={style.joinLeft} style={{transform: `translateX(${authenticated ? -36 : 0}px)`}}/>
           <span className={style.joinMid} style={{transform: `scaleX(${authenticated ? 7.2 : 3.6})`}}/>
           <span className={style.joinRight}/>
-          {updatedText ?
-            <span className={style.joinText} style={{animationName: style.appear}}>view profile</span>
-          :
-          <span className={style.joinText} style={authenticated ? {animationName: style.disappear} : {}} onAnimationEnd={() => setUpdatedText(true)}>join us</span>
+          {authenticated
+            ? <span className={style.joinText}>view profile</span>
+            : <span className={style.joinText}>join us</span>
           }
         </button>
       </nav>

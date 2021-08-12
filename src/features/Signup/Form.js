@@ -13,7 +13,7 @@ const Form = () => {
   const [fading, setFading] = useState(false)
   const [step, setStep] = useState(0)
   const dispatch = useDispatch()
-  const signedUp = useSelector(store => store.profile.status.signedUp)
+  const authenticated = useSelector(store => store.auth.authenticated)
 
   const preventOutline = (e) => e.preventDefault()
 
@@ -34,9 +34,9 @@ const Form = () => {
       <Steps
         step={step}
         setStep={setStep}
-        signedUp={signedUp}
+        signedUp={authenticated}
       />
-      {signedUp ?
+      {authenticated ?
         <div className={style.congratsWrap} style={{animation: `500ms ${style.fadeIn} forwards`, animationDelay: '500ms'}}>
           <h3 className={style.congrats}>Congratulations!</h3>
           <h3 className={style.message}>You are in HubLance!</h3>
