@@ -136,7 +136,8 @@ export const refreshToken = createAsyncThunk(
       dispatch(setAccessToken({token: accessToken, expiry: accessExpiry}))
       dispatch(setAuthenticated(true))
     } catch (e) {
-      dispatch(setAuthenticated(false))
+      dispatch(clearProfile())
+      dispatch(clear())
       console.log(e)
     }
   }
