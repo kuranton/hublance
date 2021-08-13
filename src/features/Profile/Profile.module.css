@@ -30,6 +30,7 @@
 .form {
   display: grid;
   grid-template-columns: 99px 178px 154px 78px auto;
+  grid-template-columns: 99px 178px 154px 78px minmax(0, 1fr);
   column-gap: 12px;
   row-gap: 25px;
   padding: 0 0 45px 0;
@@ -78,6 +79,7 @@
 .certifications {
   display: grid;
   grid-template-columns: 183px auto;
+  grid-template-columns: 183px minmax(0, 1fr);
   column-gap: 20px;
   min-height: 56px;
   align-items: center;

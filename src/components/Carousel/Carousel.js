@@ -6,7 +6,6 @@ const Carousel = ({children, slideWidth, slideMargin, buttonWidth, buttonLeft, b
   const [width, setWidth] = useState(0)
   const wrap = useRef({offsetWidth:0})
   const slidesToShow = Math.floor(width/(slideWidth + slideMargin))
-  console.log(width, slideWidth, slideMargin, slidesToShow)
   const innerWrapWidth = slidesToShow * slideWidth + (slidesToShow - 1) * slideMargin
   const innerWrapTransform = slide > 0 ? (width - innerWrapWidth)/2 : 0
 
