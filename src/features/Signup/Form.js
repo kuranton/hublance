@@ -14,6 +14,7 @@ const Form = () => {
   const [step, setStep] = useState(0)
   const dispatch = useDispatch()
   const authenticated = useSelector(store => store.auth.authenticated)
+  const error = useSelector(store => store.auth.errors.signup)
 
   const preventOutline = (e) => e.preventDefault()
 
@@ -44,6 +45,9 @@ const Form = () => {
         </div>
       : null}
 
+      {error &&
+        <p className={style.error}>{error}</p>
+      }
     </li>
   )
 }

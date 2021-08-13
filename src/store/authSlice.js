@@ -11,6 +11,10 @@ const initialState = {
   accessToken: {
     token: '',
     expiry: null
+  },
+  errors: {
+    login: '',
+    signup: ''
   }
 }
 
@@ -22,13 +26,16 @@ export const authSlice = createSlice({
     setEmail: (state, action) => {state.credentials.email = action.payload},
     setPassword: (state, action) => {state.credentials.password = action.payload},
     setAccessToken: (state, action) => {state.accessToken = action.payload},
-    setAuthenticated: (state, action) => {state.authenticated = action.payload}
+    setAuthenticated: (state, action) => {state.authenticated = action.payload},
+    setLoginError: (state, action) => {state.errors.login = action.payload},
+    setSignupError: (state, action) => {state.errors.signup = action.payload}
   },
 })
 
 export const logIn = createAsyncThunk(
   'profile/loginStatus',
   async (options, {dispatch, getState}) => {
+    dispatch(setLoginError(''))
     const {email, password} = getState().auth.credentials
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/auth`, {
@@ -41,6 +48,8 @@ export const logIn = createAsyncThunk(
         body: JSON.stringify({email, password})
       })
       if (!res.ok) {
+        const {message} = await res.json()
+        dispatch(setLoginError(message))
         return
       }
       const {data, accessToken, accessExpiry} = await res.json()
@@ -90,6 +99,7 @@ export const logOut = createAsyncThunk(
 export const signUp = createAsyncThunk(
   'profile/saveStatus',
   async (options, {dispatch, getState}) => {
+    dispatch(setSignupError(''))
     const state = getState()
     const {name} = state.profile.data
     const {email, password} = state.auth.credentials
@@ -104,6 +114,8 @@ export const signUp = createAsyncThunk(
         body: JSON.stringify({name, email, password})
       })
       if (!res.ok) {
+        const {message} = await res.json()
+        dispatch(setSignupError(message))
         return
       }
       const {data, accessToken, accessExpiry} = await res.json()
@@ -144,7 +156,7 @@ export const refreshToken = createAsyncThunk(
 )
 
 export const {
-  clear, setEmail, setPassword, setAccessToken, setAuthenticated
+  clear, setEmail, setPassword, setAccessToken, setAuthenticated, setLoginError, setSignupError
 } = authSlice.actions
 
 export default authSlice.reducer
