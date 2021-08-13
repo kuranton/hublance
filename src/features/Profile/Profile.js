@@ -78,7 +78,7 @@ const Profile = ({setOffset, scroll}) => {
           prefix='$'
         />
 
-        <Select className={style.country} name='country' placeholder='Country' options={countries} selected={[country]} add={(value) => dispatch(setCountry(value))} searchable/>
+        <Select className={style.country} name='country' placeholder='Country' options={countries} selected={[country]} set={(value) => dispatch(setCountry(value))} multiple={false} searchable/>
 
         <label htmlFor='about' className={style.label}>About:</label>
         <Input

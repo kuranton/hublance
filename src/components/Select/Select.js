@@ -51,7 +51,7 @@ const Select = ({searchable = false, placeholder, options, selected, height = 20
             <List visible={open} list={options} selected={selected} height={bodyHeight} setHeight={setHeight} search={search} add={add} remove={remove} set={set} multiple={multiple}/>
           </div>
 
-          <div className={style.footer} style={{transform: `translateY(${bodyHeight - (multiple ? 0 : 38)}px)`}}/>
+          <div className={style.footer} style={{transform: `translateY(${bodyHeight - (searchable ? 0 : 38)}px)`}}/>
         </div>
       </Popup>
 
