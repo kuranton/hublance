@@ -28,4 +28,5 @@
   animation-duration: 250ms;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
+  z-index: 1;
 }
