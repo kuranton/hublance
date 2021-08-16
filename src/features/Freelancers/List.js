@@ -37,8 +37,11 @@ const List = ({defaultOffset = 0}) => {
   const authenticated = useSelector(store => store.auth.authenticated)
 
   const handleWheel = (e) => {
-    e.preventDefault()
-    requestAnimationFrame(() => setScroll(scroll => Math.max(Math.min(contentHeight - 800, scroll + e.deltaY), 0)))
+    const lowerBoundary = contentHeight - 800
+    if ((scroll < lowerBoundary && e.deltaY >= 0) || (scroll > 0 && e.deltaY <= 0)) {
+      e.preventDefault()
+    }
+    requestAnimationFrame(() => setScroll(scroll => Math.max(Math.min(lowerBoundary, scroll + e.deltaY), 0)))
   }
 
   useEventListener('wheel', handleWheel, body.current)
