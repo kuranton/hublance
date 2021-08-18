@@ -3,6 +3,7 @@ import style from './App.module.css'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {tryGetData} from '@store/profileSlice'
+import {loadCountries} from '@store/countriesSlice'
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
@@ -20,6 +21,7 @@ function App() {
 
   useEffect(() => {
     dispatch(tryGetData())
+    dispatch(loadCountries())
   }, [dispatch])
 
   return (

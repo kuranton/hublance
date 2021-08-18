@@ -100,6 +100,16 @@ const List = ({defaultOffset = 0}) => {
         </div>
 
         <div ref={body} className={style.body}>
+          <Scrollbar
+            scroll={scroll}
+            setScroll={setScroll}
+            wrapHeight={800}
+            contentHeight={contentHeight}
+            maxHeight={800}
+            dragging={dragging}
+            setDragging={setDragging}
+            style={{right: 25}}
+          />
           <div className={style.listWrap} style={{height: contentHeight, transform: `translateY(${-scroll}px)`, transition: dragging ? 'none' : null}}>
             <ul className={style.list} style={{zIndex: 1}}>
               <div className={style.background} style={{transform: `scaleY(${profileOffset/10})`}}/>
@@ -156,16 +166,6 @@ const List = ({defaultOffset = 0}) => {
             </ul>
 
           </div>
-          <Scrollbar
-            scroll={scroll}
-            setScroll={setScroll}
-            wrapHeight={800}
-            contentHeight={contentHeight}
-            maxHeight={800}
-            dragging={dragging}
-            setDragging={setDragging}
-            style={{right: 25}}
-          />
         </div>
 
         <div className={style.footer}/>

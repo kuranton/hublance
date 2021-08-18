@@ -1,4 +1,4 @@
-import {useState, useEffect, useLayoutEffect, useRef} from 'react'
+import {useState, useLayoutEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide, update} from '@store/profileSlice'
@@ -19,10 +19,10 @@ const Profile = ({setOffset, scroll}) => {
   const certificationsButton = useRef(null)
   const certificationsWrap = useRef(null)
   const [fading, setFading] = useState(false)
-  const [countries, setCountries] = useState([])
   const [certificationsModal, setCertificationsModal] = useState(false)
 
   const dispatch = useDispatch()
+  const countries = useSelector(store => store.countries)
   const name = useSelector(store => store.profile.data.name)
   const rate = useSelector(store => store.profile.data.rate)
   const email = useSelector(store => store.profile.data.email)
@@ -30,16 +30,6 @@ const Profile = ({setOffset, scroll}) => {
   const country = useSelector(store => store.profile.data.country)
   const photoUrl = useSelector(store => store.profile.data.photoUrl)
   const certifications = useSelector(store => store.profile.data.certifications)
-
-  useEffect(() => {
-    async function fetchCountries() {
-      const res = await fetch(`https://restcountries.eu/rest/v2/all?fields=name`)
-      const json = await res.json()
-      setCountries(json.map(item => item.name))
-    }
-
-    fetchCountries()
-  }, [])
 
   useLayoutEffect(() => {
     setOffset(wrap.current.getBoundingClientRect().height)
@@ -78,7 +68,17 @@ const Profile = ({setOffset, scroll}) => {
           prefix='$'
         />
 
-        <Select className={style.country} name='country' placeholder='Country' options={countries} selected={[country]} set={(value) => dispatch(setCountry(value))} multiple={false} searchable/>
+        <Select
+          className={style.country}
+          name='country'
+          placeholder='Country'
+          options={countries}
+          selected={[country]}
+          set={(value) => dispatch(setCountry(value))}
+          multiple={false}
+          searchFields={['name', 'alpha3Code', 'altSpellings']}
+          searchable
+        />
 
         <label htmlFor='about' className={style.label}>About:</label>
         <Input

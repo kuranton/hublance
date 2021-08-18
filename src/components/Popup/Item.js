@@ -8,7 +8,7 @@ const Item = ({selected, onSelect, multiple, data}) => {
       style={{animationName: data.visible ? style.appear : style.disappear, transform: `translateY(${data.offset}px)`}}
     >
       <button type='button' className={multiple ? style.checkbox : style.radio}>Select</button>
-      {data.content}
+      {data.name}
     </li>
   )
 }
