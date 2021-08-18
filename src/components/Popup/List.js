@@ -99,7 +99,7 @@ const List = ({visible, list, search, height, setHeight, selected, add, remove, 
       <ul ref={listRef} className={style.list} style={{transform: `translateY(${-scroll}px)`, height: contentHeight, transition: dragging ? 'none' : null}}>
         <NoMatches visible={!filtered.find(item => item.visible)}/>
         {filtered.map((item, index) => (
-          <Item key={item.name} selected={selected.indexOf(item.content) !== -1} onSelect={() => select(item.name)} multiple={multiple} data={item}/>
+          <Item key={item.name} selected={selected.indexOf(item.name) !== -1} onSelect={() => select(item.name)} multiple={multiple} data={item}/>
         ))}
       </ul>
       <Scrollbar scroll={scroll} setScroll={setScroll} wrapHeight={height - 24} contentHeight={contentHeight} maxHeight={317} dragging={dragging} setDragging={setDragging}/>
