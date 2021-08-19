@@ -11,8 +11,10 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 import About from '@components/About'
-import Login from '@features/Login'
-import Logout from '@features/Logout'
+import Login from '@features/Auth/Login'
+import PasswordRecovery from '@features/Auth/PasswordRecovery'
+import ResetPassword from '@features/Auth/ResetPassword'
+import Logout from '@features/Auth/Logout'
 import List from '@features/Freelancers/List'
 
 function App() {
@@ -35,6 +37,14 @@ function App() {
           <Route path='/login'>
             {authenticated ? <Redirect to='/'/>
             : <Login/>}
+          </Route>
+          <Route path='/password-recovery'>
+            {authenticated ? <Redirect to='/'/>
+            : <PasswordRecovery/>}
+          </Route>
+          <Route path='/reset-password'>
+            {authenticated ? <Redirect to='/'/>
+            : <ResetPassword/>}
           </Route>
           <Route path='/logout'>
             {!authenticated ? <Redirect to='/'/>

@@ -14,8 +14,12 @@ const initialState = {
   },
   errors: {
     login: '',
-    signup: ''
-  }
+    signup: '',
+    recovery: '',
+    reset: ''
+  },
+  recoveryRequested: false,
+  passwordReset: false
 }
 
 export const authSlice = createSlice({
@@ -27,15 +31,18 @@ export const authSlice = createSlice({
     setPassword: (state, action) => {state.credentials.password = action.payload},
     setAccessToken: (state, action) => {state.accessToken = action.payload},
     setAuthenticated: (state, action) => {state.authenticated = action.payload},
-    setLoginError: (state, action) => {state.errors.login = action.payload},
-    setSignupError: (state, action) => {state.errors.signup = action.payload}
+    setError: (state, action) => {
+      state.errors = {...state.errors, ...action.payload}
+    },
+    setRecoveryRequested: (state, action) => {state.recoveryRequested = action.payload},
+    setPasswordReset: (state, action) => {state.passwordReset = action.payload}
   },
 })
 
 export const logIn = createAsyncThunk(
   'profile/loginStatus',
   async (options, {dispatch, getState}) => {
-    dispatch(setLoginError(''))
+    dispatch(setError({login: ''}))
     const {email, password} = getState().auth.credentials
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/auth`, {
@@ -49,7 +56,7 @@ export const logIn = createAsyncThunk(
       })
       if (!res.ok) {
         const {message} = await res.json()
-        dispatch(setLoginError(message))
+        dispatch(setError({login: message}))
         return
       }
       const {data, accessToken, accessExpiry} = await res.json()
@@ -99,7 +106,7 @@ export const logOut = createAsyncThunk(
 export const signUp = createAsyncThunk(
   'profile/saveStatus',
   async (options, {dispatch, getState}) => {
-    dispatch(setSignupError(''))
+    dispatch(setError({signup: ''}))
     const state = getState()
     const {name} = state.profile.data
     const {email, password} = state.auth.credentials
@@ -115,7 +122,7 @@ export const signUp = createAsyncThunk(
       })
       if (!res.ok) {
         const {message} = await res.json()
-        dispatch(setSignupError(message))
+        dispatch(setError({signup: message}))
         return
       }
       const {data, accessToken, accessExpiry} = await res.json()
@@ -155,8 +162,61 @@ export const refreshToken = createAsyncThunk(
   }
 )
 
+export const requestPasswordRecovery = createAsyncThunk(
+  'profile/passwordRecoveryStatus',
+  async (options, {dispatch, getState}) => {
+    dispatch(setError({recovery: ''}))
+    try {
+      const {email} = getState().auth.credentials
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/recovery`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email})
+      })
+      if (!res.ok) {
+        const {message} = await res.json()
+        dispatch(setError({recovery: message}))
+        return
+      }
+      dispatch(setRecoveryRequested(true))
+    } catch(e) {
+      console.log(e)
+    }
+  }
+)
+
+export const resetPassword = createAsyncThunk(
+  'profile/resetStatus',
+  async ({id, token}, {dispatch, getState}) => {
+    dispatch(setError({reset: ''}))
+    try {
+      const {password} = getState().auth.credentials
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/reset`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id, token, password})
+      })
+      if (!res.ok) {
+        const {message} = await res.json()
+        dispatch(setError({reset: message}))
+        return
+      }
+      dispatch(setPassword(''))
+      dispatch(setPasswordReset(true))
+    } catch(e) {
+      console.log(e)
+    }
+  }
+)
+
 export const {
-  clear, setEmail, setPassword, setAccessToken, setAuthenticated, setLoginError, setSignupError
+  clear, setEmail, setPassword, setAccessToken, setAuthenticated, setError, setRecoveryRequested, setPasswordReset
 } = authSlice.actions
 
 export default authSlice.reducer
