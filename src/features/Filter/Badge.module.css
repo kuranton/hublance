@@ -28,7 +28,7 @@
 
 .wrap {
   position: absolute;
-  transition: transform 250ms ease;
+  transition: transform 350ms ease;
   z-index: 1;
 }
 
