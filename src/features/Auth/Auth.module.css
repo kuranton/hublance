@@ -65,9 +65,12 @@
   border-color: #848484;
 }
 
-.error {
-  margin: 5px auto;
+.error, .suggestion {
+  margin: 5px auto 5px 0;
   font-size: 12px;
+}
+
+.error {
   color: red;
 }
 

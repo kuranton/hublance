@@ -1,8 +1,9 @@
 import {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {validatePassword} from '@util/validatePassword'
 
 import {setName} from '@store/profileSlice'
-import {setPassword, setEmail, signUp} from '@store/authSlice'
+import {setPassword, setEmail, signUp, setError} from '@store/authSlice'
 
 import style from './Steps.module.css'
 
@@ -10,29 +11,48 @@ import {isEmail} from 'validator'
 
 
 const Steps = ({step, setStep, signedUp}) => {
+  const [warning, setWarningState] = useState('')
   const [shouldRender, setShouldRender] = useState(step < 3)
   const input = useRef()
   const dispatch = useDispatch()
+
+  const setWarning = (value) => {
+    dispatch(setError({signup: ''}))
+    setWarningState(value)
+  }
+
+  const changePassword = (e) => {
+    if (warning) {
+      const validation = validatePassword(steps[step].value)
+      if (!validation.passes) {
+        setWarning(`${validation.warning}. ${validation.suggestions.join(' ')}}`)
+      } else {
+        setWarning('')
+      }
+    }
+    dispatch(setPassword(e.target.value))
+  }
+
   const steps = [{
     title: 'Name',
     name: 'name',
     value: useSelector(store => store.profile.data.name),
-    action: setName,
+    onChange: (e) => dispatch(setName(e.target.value)),
     type: 'text'
   }, {
     title: 'Email',
     name: 'email',
     value: useSelector(store => store.auth.credentials.email),
-    action: setEmail,
+    onChange: (e) => dispatch(setEmail(e.target.value)),
     type: 'email'
   }, {
     title: 'Password',
     name: 'password',
     value: useSelector(store => store.auth.credentials.password),
-    action: setPassword,
+    onChange: changePassword,
     type: 'password'
   }]
-  const {title, name, value, action} = steps[Math.min(step, 2)]
+  const {title, name, value, onChange} = steps[Math.min(step, 2)]
 
   useEffect(() => {
     if (input && input.current) {
@@ -59,6 +79,12 @@ const Steps = ({step, setStep, signedUp}) => {
       return
     }
     if (step === 2) {
+      const validation = validatePassword(steps[step].value)
+      if (!validation.passes) {
+        const warning = `${validation.warning}. ${validation.suggestions.join(' ')}}`
+        setWarning(warning)
+        return
+      }
       dispatch(signUp())
     } else {
       setStep(step + 1)
@@ -84,7 +110,11 @@ const Steps = ({step, setStep, signedUp}) => {
         {title}
       </label>
 
-      <input ref={input} type={steps[step] ? steps[step].type : 'text'} name={name} placeholder='Type here...' onChange={(e) => dispatch(action(e.target.value))} value={value} className={style.input}/>
+      {warning &&
+        <p className={style.warning}>{warning}</p>
+      }
+
+      <input ref={input} type={steps[step] ? steps[step].type : 'text'} name={name} placeholder='Type here...' onChange={onChange} value={value} className={style.input}/>
 
       <button type='button' onClick={goForward} onMouseDown={preventOutline} disabled={forwardDisabled} className={style.next}>Next</button>
     </form>
