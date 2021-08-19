@@ -11,6 +11,7 @@ const ResetPassword = () => {
   const dispatch = useDispatch()
   const password = useSelector(store => store.auth.credentials.password)
   const passwordReset = useSelector(store => store.auth.passwordReset)
+  const error = useSelector(store => store.auth.errors.reset)
   const location = useLocation()
   const history = useHistory()
 
@@ -34,6 +35,11 @@ const ResetPassword = () => {
       <h2 className={style.title}>Reset Password</h2>
       <form className={style.form} onSubmit={handleSubmit}>
         <input type='password' className={style.input} value={password} placeholder='New Password' onChange={(e) => dispatch(setPassword(e.target.value))}/>
+
+        {error &&
+          <p className={style.error}>{error}</p>
+        }
+
         <Button type='submit' className={style.submit} primary disabled={!password}>Submit</Button>
       </form>
     </div>

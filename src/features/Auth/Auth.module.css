@@ -47,13 +47,15 @@
 }
 
 .input {
+  font-family: inherit;
   background: rgba(220, 220, 220, 0.1);
   border: 1px solid #DCDCDC;
   box-sizing: border-box;
   border-radius: 20px;
   transition: border-color 250ms ease;
   font-size: 18px;
-  padding: 8px 15px;
+  font-weight: 600;
+  padding: 6px 15px;
   margin: 15px auto;
   width: 345px;
 }
