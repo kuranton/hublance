@@ -46,11 +46,16 @@ const Profile = ({setOffset, scroll}) => {
     }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(update())
+  }
+
   return(
     <div ref={wrap} className={style.wrap} style={{animationName: fading ? style.disappear : style.appear}} onAnimationEnd={handleAnimationEnd}>
       <Progress/>
 
-      <form className={style.form}>
+      <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.photoGroup}>
           <ImageEditor url={photoUrl} save={(value) => dispatch(setPhotoUrl(value))}/>
         </div>
@@ -110,7 +115,7 @@ const Profile = ({setOffset, scroll}) => {
         <Input className={style.contact} type='email' name='email' placeholder='Email' defaultValue={email} onSubmit={(value) => dispatch(setEmail(value))}/>
 
         <Button className={style.btnClose} onClick={close}>Close</Button>
-        <Button className={style.btnSave} primary onClick={() => dispatch(update())}>Save profile</Button>
+        <Button type='submit' className={style.btnSave} primary>Save profile</Button>
       </form>
     </div>
   )

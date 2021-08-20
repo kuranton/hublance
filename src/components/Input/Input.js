@@ -1,8 +1,6 @@
 import {useState, useEffect, useRef} from 'react'
 import style from './Input.module.css'
 
-import {isEmail} from 'validator'
-
 const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix = '', type = 'text', ...props}) => {
   const input = useRef(null)
   const [value, setValue] = useState(defaultValue)
@@ -19,9 +17,6 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix
 
   const submit = () => {
     if (typeof onSubmit === 'function') {
-      if (type === 'email' && !isEmail(value)) {
-        return
-      }
       onSubmit(value)
     }
   }
@@ -44,6 +39,7 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix
         <span className={style.prefix}>{prefix}</span>
       : null}
       <Tag
+        type={type === 'email' ? type : 'text'}
         ref={input}
         {...props}
         className={style.field}
