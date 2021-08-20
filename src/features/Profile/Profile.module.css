@@ -62,10 +62,6 @@
   align-self: flex-start;
 }
 
-.country {
-  max-width: 112px;
-}
-
 .about, .certificationsWrap, .contact {
   grid-column: 3 / span 3;
 }
