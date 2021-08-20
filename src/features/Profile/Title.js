@@ -23,19 +23,21 @@ const Title = () => {
   }, [title])
 
   return(
-    <div className={style.wrap}>
-      <textarea
-        name='title'
-        placeholder='Type job title...'
-        className={style.title}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyPress={handleKeyPress}
-        onBlur={() => dispatch(setTitle(value))}
-        value={value}
-        rows={1}
-      />
-      <div className={style.stretch} aria-hidden='true'>
-        {`${value} `}
+    <div>
+      <div className={style.wrap}>
+        <textarea
+          name='title'
+          placeholder='Type job title...'
+          className={style.title}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyPress={handleKeyPress}
+          onBlur={() => dispatch(setTitle(value))}
+          value={value}
+          rows={1}
+        />
+        <div className={style.stretch} aria-hidden='true'>
+          {`${value} `}
+        </div>
       </div>
     </div>
   )
