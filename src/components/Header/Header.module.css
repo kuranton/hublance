@@ -60,12 +60,12 @@
 
 .joinLeft {
   left: 0;
-  clip-path: polygon(0 0, 20px 0, 20px 100%, 0 100%);
+  clip-path: polygon(0 0, 22px 0, 22px 100%, 0 100%);
 }
 
 .joinRight {
   right: 0;
-  clip-path: polygon(calc(100% - 20px) 0, 100% 0, 100% 100%, calc(100% - 20px) 100%);
+  clip-path: polygon(calc(100% - 20px) 0, 110% 0, 110% 100%, calc(100% - 20px) 100%);
 }
 
 .joinMid {
