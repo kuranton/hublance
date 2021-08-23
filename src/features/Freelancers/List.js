@@ -9,18 +9,15 @@ import style from './List.module.css'
 import Scrollbar from '@components/Scrollbar'
 
 import Filter from '@features/Filter'
-import Join from '@features/Signup/Join'
-import Form from '@features/Signup/Form'
 import Profile from '@features/Profile'
 
 import Single from './Single'
 
-const List = ({defaultOffset = 0}) => {
+const List = () => {
   const body = useRef(null)
   const timeout = useRef(null)
   const [scroll, setScroll] = useState(0)
   const [dragging, setDragging] = useState(false)
-  const [profileOffset, setProfileOffset] = useState(120)
   const [oldFreelancers, setOldFreelancers] = useState([])
   const [transform, setTransform] = useState(0)
 
@@ -30,10 +27,7 @@ const List = ({defaultOffset = 0}) => {
   const noMoreResults = useSelector(store => store.freelancers.noMoreResults)
   const loading = useSelector(store => store.freelancers.loading)
   const loadingAdditional = useSelector(store => store.freelancers.loadingAdditional)
-  const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + profileOffset, 120)
-  const started = useSelector(store => store.profile.status.signupStarted)
-  const visible = useSelector(store => store.profile.status.visible)
-  const editing = useSelector(store => store.profile.status.editing)
+  const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight), 120)
   const authenticated = useSelector(store => store.auth.authenticated)
 
   const handleWheel = (e) => {
@@ -53,18 +47,6 @@ const List = ({defaultOffset = 0}) => {
   useEffect(() => {
     dispatch(loadFreelancers({}))
   }, [dispatch])
-
-  useEffect(() => {
-    if (!visible || (authenticated && !started && !editing)) {
-      setProfileOffset(-1)
-    } else if (!editing) {
-      if (started) {
-        setProfileOffset(316)
-      } else {
-        setProfileOffset(121)
-      }
-    }
-  }, [visible, editing, started, authenticated])
 
   useEffect(() => {
     setOldFreelancers(freelancers)
@@ -112,26 +94,17 @@ const List = ({defaultOffset = 0}) => {
           />
           <div className={style.listWrap} style={{height: contentHeight, transform: `translateY(${-scroll}px)`, transition: dragging ? 'none' : null}}>
             <ul className={style.list} style={{zIndex: 1}}>
-              <div className={style.background} style={{transform: `scaleY(${profileOffset/10})`}}/>
-              {visible ?
-                (editing && authenticated) ?
-                  <Profile setOffset={setProfileOffset} scroll={scroll}/>
-                :
-                started ?
-                  <Form/>
-                :
-                !authenticated ?
-                  <Join setOffset={setProfileOffset}/>
-                : null
+              <div className={style.background}/>
+              {authenticated ?
+                <Profile scroll={scroll}/>
               : null}
             </ul>
-            <div className={style.separator} style={{transform: `translateY(${profileOffset}px)`}}/>
             <ul
               className={style.list}
               style={loading ? {filter: 'blur(2px)', opacity: 1} : {opacity: 0}}
             >
-              {!oldFreelancers.find(freelancer => freelancer.visible) ?
-                <li className={style.noMatches} style={{transform: `translateY(${profileOffset}px)`}}>No matches, please try using less filters.</li>
+              {!oldFreelancers.find(freelancer => freelancer.visible) && !authenticated ?
+                <li className={style.noMatches}>No matches, please try using less filters.</li>
               : null}
               {oldFreelancers.map((freelancer, index) =>
                 <Single
@@ -140,7 +113,6 @@ const List = ({defaultOffset = 0}) => {
                   setScroll={setScroll}
                   scroll={scroll}
                   listHeight={contentHeight}
-                  offset={profileOffset}
                   loading={loading}
                 />
               )}
@@ -150,7 +122,7 @@ const List = ({defaultOffset = 0}) => {
               style={loading ? {opacity: 0} : {opacity: 1, animationName: style.load}}
             >
               {!freelancers.find(freelancer => freelancer.visible) ?
-                <li className={style.noMatches} style={{transform: `translateY(${profileOffset}px)`}}>No matches, please try using less filters.</li>
+                <li className={style.noMatches}>No matches, please try using less filters.</li>
               : null}
               {freelancers.map((freelancer, index) =>
                 <Single
@@ -159,7 +131,6 @@ const List = ({defaultOffset = 0}) => {
                   setScroll={setScroll}
                   scroll={scroll}
                   listHeight={contentHeight}
-                  offset={profileOffset}
                   loading={loading}
                 />
               )}

@@ -7,7 +7,7 @@ import style from './Single.module.css'
 import UserPic from '../../components/UserPic/UserPic'
 import Certifications from '../../components/Certifications/Certifications'
 
-const Single = ({data, setScroll, scroll, isLast, listHeight, offset, loading}) => {
+const Single = ({data, setScroll, scroll, isLast, listHeight, loading}) => {
   const expandContent = useRef(null)
   const [expanded, setExpanded] = useState(false)
   const [animating, setAnimating] = useState(false)
@@ -59,7 +59,7 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, offset, loading}) 
   return(
     <li
       className={`${style.wrap} ${expanded ? style.expanded : ''}`}
-      style={{transform: `translateY(${data.offset + offset}px)`, transition: allowTransition ? null : 'none'}}
+      style={{transform: `translateY(${data.offset}px)`, transition: allowTransition ? null : 'none'}}
     >
       <div className={style.collapseContent}>
         <UserPic url={data.photoUrl} letter={data.name.substring(0, 1)}/>

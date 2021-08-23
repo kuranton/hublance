@@ -1,7 +1,7 @@
-import {useState, useLayoutEffect, useRef} from 'react'
+import {useState, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, hide, update} from '@store/profileSlice'
+import {setName, setRate, setEmail, setAbout, setCountry, setPhotoUrl, addCertification, update} from '@store/profileSlice'
 
 import style from './Profile.module.css'
 
@@ -15,12 +15,11 @@ import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
 import ChangePasswordModal from './ChangePasswordModal'
 
-const Profile = ({setOffset, scroll}) => {
+const Profile = ({scroll}) => {
   const wrap = useRef(null)
   const certificationsButton = useRef(null)
   const certificationsWrap = useRef(null)
   const changePasswordButtonWrap = useRef(null)
-  const [fading, setFading] = useState(false)
   const [certificationsModal, setCertificationsModal] = useState(false)
   const [changePasswordModal, setChangePasswordModal] = useState(false)
 
@@ -34,28 +33,13 @@ const Profile = ({setOffset, scroll}) => {
   const photoUrl = useSelector(store => store.profile.data.photoUrl)
   const certifications = useSelector(store => store.profile.data.certifications)
 
-  useLayoutEffect(() => {
-    setOffset(wrap.current.getBoundingClientRect().height)
-  }, [setOffset])
-
-  const close = () => {
-    setFading(true)
-    setOffset(-1)
-  }
-
-  const handleAnimationEnd = () => {
-    if (fading) {
-      dispatch(hide())
-    }
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(update())
   }
 
   return(
-    <div ref={wrap} className={style.wrap} style={{animationName: fading ? style.disappear : style.appear}} onAnimationEnd={handleAnimationEnd}>
+    <div ref={wrap} className={style.wrap}>
       <Progress/>
 
       <form className={style.form} onSubmit={handleSubmit}>
@@ -117,7 +101,6 @@ const Profile = ({setOffset, scroll}) => {
         <label className={style.label} htmlFor='email' style={{marginTop: '5px'}}>Contact:</label>
         <Input className={style.contact} type='email' name='email' placeholder='Email' defaultValue={email} onSubmit={(value) => dispatch(setEmail(value))}/>
 
-        <Button className={style.btnClose} onClick={close}>Close</Button>
         <Button type='submit' className={style.btnSave} primary>Save profile</Button>
         <div ref={changePasswordButtonWrap} className={style.changePasswordButtonWrap}>
           <Button className={style.btnChangePass} onClick={() => setChangePasswordModal(true)}>Change Password</Button>

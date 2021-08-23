@@ -8,7 +8,7 @@ const fetchFreelancers = async (count, filters, startIndex = 0, id) => {
   let data = await res.json()
 
   if (id) {
-    data = data.filter(entry => entry.id !== id)
+    data = data.filter(entry => entry._id !== id)
   }
 
   data = data.map((entry, index) => ({
@@ -96,10 +96,20 @@ export const freelancersSlice = createSlice({
         state.list[i].offset -= amount
       }
     },
-    setNoMoreResults: (state, action) => {state.noMoreResults = action.payload}
+    setNoMoreResults: (state, action) => {state.noMoreResults = action.payload},
+    removeSameAsProfle: (state, action) => {
+      let list = state.list.filter(item => item._id !== action.payload)
+      state.list = list.map((entry, index) => ({
+        ...entry,
+        index: index,
+        offset: index * 120,
+        additionalOffset: 0,
+        visible: true
+      }))
+    }
   }
 })
 
-export const {setFreelancers, addFreelancers, setTotalHeight, setLoading, setLoadingAdditional, addOffset, removeOffset, setNoMoreResults} = freelancersSlice.actions
+export const {setFreelancers, addFreelancers, setTotalHeight, setLoading, setLoadingAdditional, addOffset, removeOffset, setNoMoreResults, removeSameAsProfle} = freelancersSlice.actions
 
 export default freelancersSlice.reducer

@@ -1,6 +1,7 @@
 import jwtDecode from 'jwt-decode'
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {setData, setId, clear as clearProfile} from '@store/profileSlice'
+import {removeSameAsProfle} from '@store/freelancersSlice'
 
 const initialState = {
   credentials: {
@@ -143,7 +144,7 @@ export const signUp = createAsyncThunk(
 
 export const refreshToken = createAsyncThunk(
   'profile/updateStatus',
-  async (options, {dispatch}) => {
+  async (options, {getState, dispatch}) => {
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/refresh`, {
         method: 'POST',
@@ -154,11 +155,16 @@ export const refreshToken = createAsyncThunk(
         dispatch(setAuthenticated(false))
         return
       }
+      const authenticated = getState().auth.authenticated
       const {accessToken, accessExpiry} = await res.json()
       const {_id} = jwtDecode(accessToken)
-      dispatch(setId(_id))
+
       dispatch(setAccessToken({token: accessToken, expiry: accessExpiry}))
-      dispatch(setAuthenticated(true))
+      if (!authenticated) {
+        dispatch(setId(_id))
+        dispatch(removeSameAsProfle(_id))
+        dispatch(setAuthenticated(true))
+      }
     } catch (e) {
       dispatch(clearProfile())
       dispatch(clear())
