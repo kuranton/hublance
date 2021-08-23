@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {refreshToken} from '@store/authSlice'
+import {addNotification} from '@store/notificationsSlice'
 
 export const update = createAsyncThunk(
   'profile/updateStatus',
@@ -22,6 +23,7 @@ export const update = createAsyncThunk(
         },
         body: JSON.stringify(data)
       })
+      dispatch(addNotification({text: 'Profile saved'}))
     } catch (e) {
       console.log(e)
     }

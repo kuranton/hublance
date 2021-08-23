@@ -2,6 +2,7 @@ import jwtDecode from 'jwt-decode'
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {setData, setId, clear as clearProfile} from '@store/profileSlice'
 import {removeSameAsProfle} from '@store/freelancersSlice'
+import {addNotification} from '@store/notificationsSlice'
 
 const initialState = {
   credentials: {
@@ -220,6 +221,7 @@ export const resetPassword = createAsyncThunk(
       }
       dispatch(setPassword(''))
       dispatch(setSuccess({reset: true}))
+      dispatch(addNotification({text: 'Password reset'}))
     } catch(e) {
       console.log(e)
     }
@@ -257,6 +259,7 @@ export const changePassword = createAsyncThunk(
         return
       }
       dispatch(setSuccess({change: true}))
+      dispatch(addNotification({text: 'Password changed'}))
     } catch(e) {
       console.log(e)
     }

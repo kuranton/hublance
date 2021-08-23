@@ -16,6 +16,7 @@ import PasswordRecovery from '@features/Auth/PasswordRecovery'
 import ResetPassword from '@features/Auth/ResetPassword'
 import Logout from '@features/Auth/Logout'
 import List from '@features/Freelancers/List'
+import Notifications from '@components/Notifications'
 
 function App() {
   const dispatch = useDispatch()
@@ -30,6 +31,7 @@ function App() {
     <Router>
       <div className={style.app}>
         <Header/>
+        <Notifications/>
         <Switch>
           <Route path='/about'>
             <About/>

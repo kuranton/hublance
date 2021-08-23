@@ -7,6 +7,7 @@ import profileSlice from './profileSlice'
 import imageEditorSlice from './imageEditorSlice'
 import certificationsSlice from './certificationsSlice'
 import countriesSlice from './countriesSlice'
+import notificationsSlice from './notificationsSlice'
 
 export default configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export default configureStore({
     profile: profileSlice,
     imageEditor: imageEditorSlice,
     certifications: certificationsSlice,
-    countries: countriesSlice
+    countries: countriesSlice,
+    notifications: notificationsSlice
   },
 })
