@@ -48,11 +48,4 @@
 <path opacity="0.1" d="M0 350.6H26.6V325.481C26.6 324.662 25.938 324 25.1193 324H5.91111C2.64522 324 0 326.648 0 329.911V350.6Z" fill="white"/>
 <path opacity="0.1" d="M74 395.6H100.6V370.481C100.6 369.662 99.938 369 99.1193 369H79.9111C76.6452 369 74 371.648 74 374.911V395.6Z" fill="white"/>
 <path opacity="0.1" d="M74 422.6H100.6V397.481C100.6 396.662 99.938 396 99.1193 396H79.9111C76.6452 396 74 398.648 74 401.911V422.6Z" fill="white"/>
-<path opacity="0.7" d="M998 437.657L1003.66 443.314L1009.31 437.657" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<defs>
-<linearGradient id="paint0_linear" x1="1003.63" y1="442.426" x2="1003.68" y2="432.656" gradientUnits="userSpaceOnUse">
-<stop stop-color="#EF2126"/>
-<stop offset="0.6875" stop-color="#EE7C00"/>
-</linearGradient>
-</defs>
 </svg>
