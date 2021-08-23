@@ -33,7 +33,7 @@ export const loadFreelancers = createAsyncThunk(
       dispatch(setLoading(true))
     }
     const startIndex = add ? freelancers.list.length : 0
-    const data = await fetchFreelancers(count, filters, startIndex, profile.data.id)
+    const data = await fetchFreelancers(count, filters, startIndex, profile.data._id)
     if (add) {
       dispatch(addFreelancers(data))
     } else {
@@ -106,6 +106,7 @@ export const freelancersSlice = createSlice({
         additionalOffset: 0,
         visible: true
       }))
+      state.totalHeight = list.length * 120
     }
   }
 })

@@ -27,8 +27,8 @@ const List = () => {
   const noMoreResults = useSelector(store => store.freelancers.noMoreResults)
   const loading = useSelector(store => store.freelancers.loading)
   const loadingAdditional = useSelector(store => store.freelancers.loadingAdditional)
-  const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight), 120)
   const authenticated = useSelector(store => store.auth.authenticated)
+  const contentHeight = Math.max(useSelector(store => store.freelancers.totalHeight) + (authenticated ? 668 : 0), 668)
 
   const handleWheel = (e) => {
     const lowerBoundary = contentHeight - 800
@@ -37,6 +37,8 @@ const List = () => {
     }
     requestAnimationFrame(() => setScroll(scroll => Math.max(Math.min(lowerBoundary, scroll + e.deltaY), 0)))
   }
+
+  const noResults = !freelancers.find(freelancer => freelancer.visible)
 
   useEventListener('wheel', handleWheel, body.current)
 
@@ -96,14 +98,14 @@ const List = () => {
             <ul className={style.list} style={{zIndex: 1}}>
               <div className={style.background}/>
               {authenticated ?
-                <Profile scroll={scroll}/>
+                <Profile scroll={scroll} noResults={noResults}/>
               : null}
             </ul>
             <ul
               className={style.list}
               style={loading ? {filter: 'blur(2px)', opacity: 1} : {opacity: 0}}
             >
-              {!oldFreelancers.find(freelancer => freelancer.visible) && !authenticated ?
+              {noResults && !authenticated ?
                 <li className={style.noMatches}>No matches, please try using less filters.</li>
               : null}
               {oldFreelancers.map((freelancer, index) =>
@@ -121,7 +123,7 @@ const List = () => {
               className={style.list}
               style={loading ? {opacity: 0} : {opacity: 1, animationName: style.load}}
             >
-              {!freelancers.find(freelancer => freelancer.visible) ?
+              {noResults && !authenticated ?
                 <li className={style.noMatches}>No matches, please try using less filters.</li>
               : null}
               {freelancers.map((freelancer, index) =>

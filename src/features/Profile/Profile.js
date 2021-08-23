@@ -15,7 +15,7 @@ import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
 import ChangePasswordModal from './ChangePasswordModal'
 
-const Profile = ({scroll}) => {
+const Profile = ({scroll, noResults}) => {
   const wrap = useRef(null)
   const certificationsButton = useRef(null)
   const certificationsWrap = useRef(null)
@@ -39,7 +39,7 @@ const Profile = ({scroll}) => {
   }
 
   return(
-    <div ref={wrap} className={style.wrap}>
+    <div ref={wrap} className={style.wrap} style={noResults ? {borderBottom: 0} : {}}>
       <Progress/>
 
       <form className={style.form} onSubmit={handleSubmit}>
