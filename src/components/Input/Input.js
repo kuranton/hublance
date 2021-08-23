@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
 import style from './Input.module.css'
 
-const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix = '', type = 'text', ...props}) => {
+const Input = ({className, textarea = false, defaultValue = '', onSubmit, onChange, prefix = '', type = 'text', ...props}) => {
   const input = useRef(null)
   const [value, setValue] = useState(defaultValue)
   const Tag = textarea ? 'textarea' : 'input'
@@ -22,6 +22,10 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix
   }
 
   const updateValue = (val) => {
+    if (typeof onChange === 'function') {
+      onChange(val)
+      return
+    }
     if (type === 'number') {
       setValue(val.replace(/[^\d.]/g,''))
     } else {
@@ -33,20 +37,22 @@ const Input = ({className, textarea = false, defaultValue = '', onSubmit, prefix
     setValue(defaultValue)
   }, [defaultValue])
 
+  const inputType = type === 'email' || type === 'password' ? type : 'text'
+
   return(
     <div className={`${textarea ? style.textarea : style.input} ${className ? className : ''}`} onClick={() => input.current.focus()}>
       {prefix ?
         <span className={style.prefix}>{prefix}</span>
       : null}
       <Tag
-        type={type === 'email' ? type : 'text'}
+        type={inputType}
         ref={input}
         {...props}
         className={style.field}
         onChange={(e) => updateValue(e.target.value)}
         onBlur={submit}
         onKeyPress={handleKeyPress}
-        value={value}
+        value={typeof onChange === 'function' ? defaultValue : value}
       />
     </div>
   )

@@ -3,7 +3,7 @@ import {Portal} from 'react-portal'
 
 import style from './Modal.module.css'
 
-const Modal = forwardRef(({title, children, close, positionRef}, ref) => {
+const Modal = forwardRef(({title, children, close, positionRef, className = ''}, ref) => {
   const [visible, setVisible] = useState(false)
   const [closing, setClosing] = useState(false)
 
@@ -66,7 +66,7 @@ const Modal = forwardRef(({title, children, close, positionRef}, ref) => {
   return(
     <Portal>
       <div className={style.background} onClick={onClose} style={{opacity: visible ? 1 : 0}}/>
-      <div className={style.modal} style={styles}>
+      <div className={`${style.modal} ${className}`} style={styles}>
         {title ?
           <header className={style.header}>
             <h2 className={style.title}>{title}</h2>

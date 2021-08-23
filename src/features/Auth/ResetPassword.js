@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setPassword, resetPassword, setPasswordReset} from '@store/authSlice'
+import {setPassword, resetPassword, setSuccess} from '@store/authSlice'
 import {useHistory, useLocation} from 'react-router-dom'
 import {validatePassword} from '@util/validatePassword'
 
@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const [suggestions, setSuggestions] = useState([])
   const dispatch = useDispatch()
   const password = useSelector(store => store.auth.credentials.password)
-  const passwordReset = useSelector(store => store.auth.passwordReset)
+  const success = useSelector(store => store.auth.success.reset)
   const error = useSelector(store => store.auth.errors.reset)
   const location = useLocation()
   const history = useHistory()
@@ -47,11 +47,11 @@ const ResetPassword = () => {
   }
 
   useEffect(() => {
-    if (passwordReset) {
-      dispatch(setPasswordReset(false))
+    if (success) {
+      dispatch(setSuccess({reset: false}))
       history.push('/login')
     }
-  }, [passwordReset, dispatch, history])
+  }, [success, dispatch, history])
 
   return(
     <div className={style.wrap}>

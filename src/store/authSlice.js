@@ -16,10 +16,14 @@ const initialState = {
     login: '',
     signup: '',
     recovery: '',
-    reset: ''
+    reset: '',
+    change: ''
   },
-  recoveryRequested: false,
-  passwordReset: false
+  success: {
+    recovery: false,
+    reset: false,
+    change: false
+  }
 }
 
 export const authSlice = createSlice({
@@ -34,8 +38,9 @@ export const authSlice = createSlice({
     setError: (state, action) => {
       state.errors = {...state.errors, ...action.payload}
     },
-    setRecoveryRequested: (state, action) => {state.recoveryRequested = action.payload},
-    setPasswordReset: (state, action) => {state.passwordReset = action.payload}
+    setSuccess: (state, action) => {
+      state.success = {...state.success, ...action.payload}
+    }
   },
 })
 
@@ -181,7 +186,7 @@ export const requestPasswordRecovery = createAsyncThunk(
         dispatch(setError({recovery: message}))
         return
       }
-      dispatch(setRecoveryRequested(true))
+      dispatch(setSuccess({recovery: true}))
     } catch(e) {
       console.log(e)
     }
@@ -208,7 +213,44 @@ export const resetPassword = createAsyncThunk(
         return
       }
       dispatch(setPassword(''))
-      dispatch(setPasswordReset(true))
+      dispatch(setSuccess({reset: true}))
+    } catch(e) {
+      console.log(e)
+    }
+  }
+)
+
+export const changePassword = createAsyncThunk(
+  'profile/changePasswordStatus',
+  async({oldPassword, newPassword}, {dispatch, getState}) => {
+    dispatch(setError({change: ''}))
+    let {token, expiry} = getState().auth.accessToken
+    if (!token || new Date(expiry) < Date.now()) {
+      await dispatch(refreshToken())
+      const {accessToken} = getState().auth
+      token = accessToken.token
+    }
+    if (!token) {
+      return
+    }
+    try {
+      const state = getState()
+      const {_id} = state.profile.data
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/users/${_id}/password`, {
+        method: 'PATCH',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({oldPassword, newPassword})
+      })
+      if (!res.ok) {
+        const {message} = await res.json()
+        dispatch(setError({change: message}))
+        return
+      }
+      dispatch(setSuccess({change: true}))
     } catch(e) {
       console.log(e)
     }
@@ -216,7 +258,7 @@ export const resetPassword = createAsyncThunk(
 )
 
 export const {
-  clear, setEmail, setPassword, setAccessToken, setAuthenticated, setError, setRecoveryRequested, setPasswordReset
+  clear, setEmail, setPassword, setAccessToken, setAuthenticated, setError, setSuccess
 } = authSlice.actions
 
 export default authSlice.reducer

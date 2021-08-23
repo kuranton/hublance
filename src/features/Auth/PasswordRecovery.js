@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setEmail, requestPasswordRecovery, setRecoveryRequested} from '@store/authSlice'
+import {setEmail, requestPasswordRecovery, setSuccess} from '@store/authSlice'
 
 import style from './Auth.module.css'
 
@@ -8,10 +8,10 @@ import {Link} from 'react-router-dom'
 import Button from '@components/Button'
 
 const PasswordRecovery = () => {
-  const [success, setSuccess] = useState(false)
+  const [requested, setRequested] = useState(false)
   const dispatch = useDispatch()
   const email = useSelector(store => store.auth.credentials.email)
-  const recoveryRequested = useSelector(store => store.auth.recoveryRequested)
+  const success = useSelector(store => store.auth.success.recovery)
   const error = useSelector(store => store.auth.errors.recovery)
 
   const handleSubmit = async (e) => {
@@ -20,16 +20,16 @@ const PasswordRecovery = () => {
   }
 
   useEffect(() => {
-    if (recoveryRequested) {
-      dispatch(setRecoveryRequested(false))
-      setSuccess(true)
+    if (success) {
+      dispatch(setSuccess({recovery: false}))
+      setRequested(true)
     }
-  }, [dispatch, recoveryRequested])
+  }, [dispatch, success])
 
   return(
     <div className={style.wrap}>
       <h2 className={style.title}>Password Recovery</h2>
-      {success ?
+      {requested ?
         <p className={style.message}>Check your email for recovery link.</p>
       :
       <form className={style.form} onSubmit={handleSubmit}>

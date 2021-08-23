@@ -13,13 +13,16 @@ import ImageEditor from './ImageEditor'
 import Progress from './Progress'
 import Title from './Title'
 import AddCertificationModal from './AddCertificationModal'
+import ChangePasswordModal from './ChangePasswordModal'
 
 const Profile = ({setOffset, scroll}) => {
   const wrap = useRef(null)
   const certificationsButton = useRef(null)
   const certificationsWrap = useRef(null)
+  const changePasswordButtonWrap = useRef(null)
   const [fading, setFading] = useState(false)
   const [certificationsModal, setCertificationsModal] = useState(false)
+  const [changePasswordModal, setChangePasswordModal] = useState(false)
 
   const dispatch = useDispatch()
   const countries = useSelector(store => store.countries)
@@ -116,6 +119,12 @@ const Profile = ({setOffset, scroll}) => {
 
         <Button className={style.btnClose} onClick={close}>Close</Button>
         <Button type='submit' className={style.btnSave} primary>Save profile</Button>
+        <div ref={changePasswordButtonWrap} className={style.changePasswordButtonWrap}>
+          <Button className={style.btnChangePass} onClick={() => setChangePasswordModal(true)}>Change Password</Button>
+        </div>
+        {changePasswordModal &&
+          <ChangePasswordModal close={() => setChangePasswordModal(false)} positionRef={changePasswordButtonWrap}/>
+        }
       </form>
     </div>
   )

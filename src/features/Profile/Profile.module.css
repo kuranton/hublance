@@ -120,3 +120,13 @@
   width: 132px;
   margin-top: 13px;
 }
+
+.changePasswordButtonWrap {
+  grid-column: 5;
+}
+
+.btnChangePass {
+  width: 100%;
+  margin-top: 13px;
+  padding: 0;
+}
