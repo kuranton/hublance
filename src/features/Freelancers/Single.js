@@ -24,9 +24,10 @@ const Single = ({data, setScroll, scroll, isLast, listHeight, loading}) => {
   }, [expandContent])
 
   useLayoutEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setAllowTransition(!loading)
     }, 0)
+    return () => clearTimeout(timeout)
   }, [loading])
 
   useEffect(() => {
