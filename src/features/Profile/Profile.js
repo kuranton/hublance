@@ -78,7 +78,7 @@ const Profile = ({scroll, noResults}) => {
           textarea={true}
           placeholder='Please share more details about your expertise...'
           className={style.about}
-          style={{minHeight: 187, resize: 'vertical'}}
+          style={{minHeight: 187, resize: 'none'}}
           defaultValue={about}
           onSubmit={(value) => dispatch(setAbout(value))}
         />
